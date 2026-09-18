@@ -26,11 +26,16 @@
   --blue-dark: #0b67a9;
 
   --line: rgba(255,255,255,.08);
+
   --border: rgba(146,170,198,.16);
+
   --border-blue: rgba(22,156,255,.28);
 
   --shadow:
     0 24px 70px rgba(0,0,0,.34);
+
+  --shadow-soft:
+    0 14px 36px rgba(0,0,0,.22);
 
   --container: 1180px;
 
@@ -52,6 +57,8 @@
 
 html {
   scroll-behavior: smooth;
+
+  background: var(--bg);
 }
 
 
@@ -64,13 +71,13 @@ body {
 
   background:
     radial-gradient(
-      circle at 15% 10%,
-      rgba(22,156,255,.08),
+      circle at 12% 8%,
+      rgba(22,156,255,.07),
       transparent 30%
     ),
     radial-gradient(
-      circle at 85% 30%,
-      rgba(22,156,255,.045),
+      circle at 88% 28%,
+      rgba(22,156,255,.038),
       transparent 28%
     ),
     var(--bg);
@@ -82,6 +89,10 @@ body {
   min-height: 100vh;
 
   overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: optimizeLegibility;
 }
 
 
@@ -106,8 +117,20 @@ button {
 
 
 img {
+  display: block;
+
   max-width: 100%;
+
   height: auto;
+}
+
+
+::selection {
+  background:
+    rgba(22,156,255,.24);
+
+  color:
+    var(--text);
 }
 
 
@@ -119,7 +142,8 @@ img {
       calc(100% - 40px)
     );
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 }
 
 
@@ -133,7 +157,7 @@ header {
 
   top: 0;
 
-  z-index: 100;
+  z-index: 1000;
 
   background:
     rgba(3,10,22,.94);
@@ -182,9 +206,10 @@ header {
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
-  z-index: 2;
+  z-index: 5;
 
   flex-shrink: 0;
 }
@@ -199,6 +224,19 @@ header {
   display: block;
 
   object-fit: contain;
+
+  transition:
+    opacity .22s ease,
+    transform .22s ease;
+}
+
+
+.brand:hover .brand-logo {
+
+  opacity: .96;
+
+  transform:
+    scale(1.015);
 }
 
 
@@ -214,11 +252,12 @@ header {
 
   align-items: center;
 
-  gap: 8px;
+  gap: 6px;
 
   direction: rtl;
 
-  color: var(--text-soft);
+  color:
+    var(--text-soft);
 
   font-size: 15px;
 
@@ -240,18 +279,30 @@ header {
 
   gap: 6px;
 
-  padding: 0 10px;
+  padding:
+    0 11px;
 
-  color: var(--text-soft);
+  border:
+    1px solid transparent;
 
   border-radius: 9px;
+
+  color:
+    var(--text-soft);
+
+  background:
+    transparent;
 
   transition:
     color .22s ease,
     background .22s ease,
-    transform .22s ease;
+    border-color .22s ease,
+    transform .22s ease,
+    box-shadow .22s ease;
 }
 
+
+/* Hover underline */
 
 .nav-link::after {
 
@@ -259,9 +310,10 @@ header {
 
   position: absolute;
 
-  right: 10px;
-  left: 10px;
-  bottom: 12px;
+  right: 11px;
+  left: 11px;
+
+  bottom: 10px;
 
   height: 2px;
 
@@ -276,14 +328,16 @@ header {
   border-radius: 999px;
 
   transform:
-    scaleX(.25);
+    scaleX(.15);
 
-  transform-origin: center;
+  transform-origin:
+    center;
 
   opacity: 0;
 
   box-shadow:
-    0 0 10px rgba(57,180,255,.42);
+    0 0 11px
+    rgba(57,180,255,.45);
 
   transition:
     transform .22s ease,
@@ -297,10 +351,21 @@ header {
     var(--blue-bright);
 
   background:
-    rgba(22,156,255,.065);
+    linear-gradient(
+      180deg,
+      rgba(22,156,255,.075),
+      rgba(22,156,255,.025)
+    );
+
+  border-color:
+    rgba(57,180,255,.12);
 
   transform:
     translateY(-1px);
+
+  box-shadow:
+    0 5px 18px
+    rgba(0,0,0,.10);
 }
 
 
@@ -319,7 +384,14 @@ header {
     var(--text);
 
   background:
-    rgba(22,156,255,.05);
+    linear-gradient(
+      180deg,
+      rgba(22,156,255,.065),
+      rgba(22,156,255,.018)
+    );
+
+  border-color:
+    rgba(57,180,255,.10);
 }
 
 
@@ -332,17 +404,31 @@ header {
 }
 
 
+/* =========================================================
+   06. NAV ITEM / ARROW
+   ========================================================= */
+
+.nav-item {
+
+  position: relative;
+}
+
+
 .arrow {
 
   font-size: 12px;
 
   line-height: 1;
 
-  opacity: .70;
+  opacity: .68;
+
+  color:
+    var(--text-soft);
 
   transition:
     transform .22s ease,
-    color .22s ease;
+    color .22s ease,
+    opacity .22s ease;
 }
 
 
@@ -351,18 +437,7 @@ header {
   color:
     var(--blue-bright);
 
-  transform:
-    rotate(180deg);
-}
-
-
-.nav-item {
-
-  position: relative;
-}
-
-
-.nav-item:hover .arrow {
+  opacity: 1;
 
   transform:
     rotate(180deg);
@@ -370,14 +445,14 @@ header {
 
 
 /* =========================================================
-   06. DROPDOWN
+   07. DROPDOWN
    ========================================================= */
 
 .dropdown {
 
   position: absolute;
 
-  top: 72px;
+  top: 71px;
 
   right: 50%;
 
@@ -385,12 +460,12 @@ header {
     translateX(50%)
     translateY(8px);
 
-  width: 290px;
+  width: 300px;
 
   padding: 9px;
 
   background:
-    rgba(7,19,34,.98);
+    rgba(7,19,34,.985);
 
   border:
     1px solid var(--line);
@@ -407,8 +482,8 @@ header {
   pointer-events: none;
 
   transition:
-    opacity .2s ease,
-    transform .2s ease;
+    opacity .20s ease,
+    transform .20s ease;
 }
 
 
@@ -426,19 +501,52 @@ header {
 }
 
 
+.dropdown::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -5px;
+
+  left: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+
+  background:
+    rgba(7,19,34,.985);
+
+  border-left:
+    1px solid var(--line);
+
+  border-top:
+    1px solid var(--line);
+}
+
+
 .dropdown a {
+
+  position: relative;
 
   display: block;
 
-  padding: 12px 13px;
+  padding:
+    12px 13px;
 
   border-radius: 9px;
 
-  color: var(--text);
+  color:
+    var(--text);
 
   transition:
-    background .2s ease,
-    transform .2s ease;
+    background .20s ease,
+    color .20s ease,
+    transform .20s ease;
 }
 
 
@@ -447,8 +555,8 @@ header {
   background:
     linear-gradient(
       90deg,
-      rgba(22,156,255,.11),
-      rgba(22,156,255,.035)
+      rgba(22,156,255,.115),
+      rgba(22,156,255,.028)
     );
 
   color:
@@ -467,6 +575,8 @@ header {
 
   font-weight: 600;
 
+  line-height: 1.75;
+
   margin-bottom: 2px;
 }
 
@@ -479,16 +589,19 @@ header {
 
   text-align: right;
 
-  color: var(--text-muted);
+  color:
+    var(--text-muted);
 
   font-size: 10px;
 
   letter-spacing: .25px;
+
+  line-height: 1.5;
 }
 
 
 /* =========================================================
-   07. NAV ACTIONS
+   08. NAV ACTIONS
    ========================================================= */
 
 .nav-actions {
@@ -499,13 +612,17 @@ header {
 
   align-items: center;
 
-  gap: 10px;
+  gap: 9px;
 
   direction: ltr;
 
   flex-shrink: 0;
 }
 
+
+/* =========================================================
+   09. SEARCH BUTTON
+   ========================================================= */
 
 .search-btn {
 
@@ -515,16 +632,19 @@ header {
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
-  color: var(--text-soft);
+  color:
+    var(--text-soft);
 
   border:
     1px solid var(--line);
 
   border-radius: 9px;
 
-  background: transparent;
+  background:
+    rgba(255,255,255,.008);
 
   font-size: 18px;
 
@@ -533,42 +653,62 @@ header {
   text-decoration: none;
 
   transition:
-    color .2s ease,
-    border-color .2s ease,
-    background .2s ease;
+    color .20s ease,
+    border-color .20s ease,
+    background .20s ease,
+    transform .20s ease;
 }
 
 
 .search-btn:hover {
 
-  color: var(--text);
+  color:
+    var(--blue-bright);
 
   border-color:
-    rgba(57,180,255,.40);
+    rgba(57,180,255,.34);
 
   background:
     rgba(22,156,255,.07);
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 0 18px
+    rgba(22,156,255,.07);
 }
 
+
+/* =========================================================
+   10. PRIMARY BUTTON
+   ========================================================= */
 
 .primary-btn {
 
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
-  padding: 10px 17px;
+  padding:
+    10px 17px;
 
   border:
-    1px solid rgba(57,180,255,.45);
+    1px solid rgba(57,180,255,.42);
 
   border-radius: 9px;
 
-  color: var(--text);
+  color:
+    var(--text);
 
   background:
-    rgba(22,156,255,.08);
+    linear-gradient(
+      180deg,
+      rgba(22,156,255,.10),
+      rgba(22,156,255,.045)
+    );
 
   white-space: nowrap;
 
@@ -577,27 +717,59 @@ header {
   line-height: 1.5;
 
   transition:
-    background .2s ease,
-    border-color .2s ease,
-    transform .2s ease;
+    color .20s ease,
+    background .20s ease,
+    border-color .20s ease,
+    transform .20s ease,
+    box-shadow .20s ease;
 }
 
 
 .primary-btn:hover {
 
+  color:
+    #ffffff;
+
   background:
-    rgba(22,156,255,.14);
+    linear-gradient(
+      180deg,
+      rgba(22,156,255,.17),
+      rgba(22,156,255,.075)
+    );
 
   border-color:
-    rgba(57,180,255,.70);
+    rgba(57,180,255,.68);
 
   transform:
     translateY(-1px);
+
+  box-shadow:
+    0 8px 24px
+    rgba(22,156,255,.08);
 }
 
 
 /* =========================================================
-   08. MOBILE NAVIGATION
+   11. ACCESSIBILITY / FOCUS
+   ========================================================= */
+
+.nav-link:focus-visible,
+.search-btn:focus-visible,
+.primary-btn:focus-visible,
+.mobile-toggle:focus-visible,
+.dropdown a:focus-visible,
+.mobile-menu a:focus-visible {
+
+  outline:
+    2px solid var(--blue-bright);
+
+  outline-offset:
+    3px;
+}
+
+
+/* =========================================================
+   12. MOBILE TOGGLE
    ========================================================= */
 
 .mobile-toggle {
@@ -608,6 +780,7 @@ header {
   height: 40px;
 
   align-items: center;
+
   justify-content: center;
 
   border:
@@ -615,17 +788,45 @@ header {
 
   border-radius: 9px;
 
-  background: transparent;
+  background:
+    rgba(255,255,255,.008);
 
-  color: var(--text);
+  color:
+    var(--text);
 
   font-size: 20px;
 
   line-height: 1;
 
   cursor: pointer;
+
+  transition:
+    color .20s ease,
+    border-color .20s ease,
+    background .20s ease,
+    transform .20s ease;
 }
 
+
+.mobile-toggle:hover {
+
+  color:
+    var(--blue-bright);
+
+  border-color:
+    rgba(57,180,255,.35);
+
+  background:
+    rgba(22,156,255,.06);
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================================
+   13. MOBILE MENU
+   ========================================================= */
 
 .mobile-menu {
 
@@ -638,16 +839,37 @@ header {
   display: flex;
 
   align-items: center;
+
   justify-content: space-between;
 
-  padding: 14px 4px;
+  gap: 12px;
 
-  color: var(--text-soft);
+  padding:
+    14px 4px;
+
+  color:
+    var(--text-soft);
 
   border-bottom:
     1px solid var(--line);
 
   font-size: 14px;
+
+  line-height: 1.8;
+
+  transition:
+    color .20s ease,
+    background .20s ease;
+}
+
+
+.mobile-item > a:hover {
+
+  color:
+    var(--blue-bright);
+
+  background:
+    rgba(22,156,255,.025);
 }
 
 
@@ -664,19 +886,35 @@ header {
 
   display: block;
 
-  padding: 9px 8px;
+  padding:
+    9px 8px;
 
-  color: var(--text-muted);
+  color:
+    var(--text-muted);
 
   font-size: 13px;
 
   line-height: 1.8;
+
+  border-radius: 7px;
+
+  transition:
+    color .20s ease,
+    background .20s ease,
+    transform .20s ease;
 }
 
 
 .mobile-sub a:hover {
 
-  color: var(--text-soft);
+  color:
+    var(--text-soft);
+
+  background:
+    rgba(22,156,255,.045);
+
+  transform:
+    translateX(-2px);
 }
 
 
@@ -687,19 +925,24 @@ header {
 
 
 /* =========================================================
-   09. SHARED FOOTER
+   14. SHARED FOOTER
    ========================================================= */
 
 footer {
 
-  padding: 35px 0;
+  padding:
+    35px 0;
 
   border-top:
     1px solid var(--line);
 
-  color: var(--text-muted);
+  color:
+    var(--text-muted);
 
   font-size: 13px;
+
+  background:
+    rgba(3,10,22,.42);
 }
 
 
@@ -720,6 +963,21 @@ footer {
   height: auto;
 
   display: block;
+
+  opacity: .94;
+
+  transition:
+    opacity .20s ease,
+    transform .20s ease;
+}
+
+
+.footer-brand:hover img {
+
+  opacity: 1;
+
+  transform:
+    translateY(-1px);
 }
 
 
@@ -727,7 +985,8 @@ footer {
 
   margin-top: 12px;
 
-  color: var(--text-muted);
+  color:
+    var(--text-muted);
 
   font-size: 11px;
 
@@ -740,12 +999,13 @@ footer {
 
 
 /* =========================================================
-   10. SHARED TEXT HELPERS
+   15. SHARED TEXT HELPERS
    ========================================================= */
 
 .eyebrow {
 
-  color: var(--blue-bright);
+  color:
+    var(--blue-bright);
 
   font-size: 12px;
 
@@ -761,7 +1021,8 @@ footer {
 
 .section-label {
 
-  color: var(--blue-bright);
+  color:
+    var(--blue-bright);
 
   font-size: 12px;
 
@@ -784,7 +1045,37 @@ footer {
 
 
 /* =========================================================
-   11. SHARED RESPONSIVE
+   16. SHARED TABLE / FORM SAFETY
+   ========================================================= */
+
+input,
+textarea,
+select {
+
+  color:
+    var(--text);
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    9px;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+
+  color:
+    var(--text-muted);
+}
+
+
+/* =========================================================
+   17. RESPONSIVE — TABLET / SMALL DESKTOP
    ========================================================= */
 
 @media (max-width: 1050px) {
@@ -835,7 +1126,7 @@ footer {
 
     position: relative;
 
-    z-index: 3;
+    z-index: 6;
   }
 
 
@@ -855,7 +1146,7 @@ footer {
     transform:
       translate(-50%,-50%);
 
-    z-index: 2;
+    z-index: 5;
   }
 
 
@@ -867,7 +1158,8 @@ footer {
 
   .mobile-menu {
 
-    padding: 8px 0 18px;
+    padding:
+      8px 0 18px;
 
     border-top:
       1px solid var(--line);
@@ -883,7 +1175,7 @@ footer {
 
 
 /* =========================================================
-   12. SMALL MOBILE
+   18. RESPONSIVE — MOBILE
    ========================================================= */
 
 @media (max-width: 760px) {
@@ -898,27 +1190,15 @@ footer {
   }
 
 
-  .footer-meta {
-
-    font-size: 10px;
-
-    letter-spacing: 1.4px;
-  }
-
-}
-
-
-@media (max-width: 650px) {
-
   .nav {
 
-    height: 68px;
+    height: 70px;
   }
 
 
   .brand-logo {
 
-    width: 128px;
+    width: 132px;
   }
 
 
@@ -926,6 +1206,8 @@ footer {
 
     width: 37px;
     height: 37px;
+
+    font-size: 17px;
   }
 
 
@@ -933,6 +1215,72 @@ footer {
 
     width: 39px;
     height: 39px;
+
+    font-size: 19px;
+  }
+
+
+  .mobile-item > a {
+
+    padding:
+      13px 3px;
+  }
+
+
+  .mobile-sub {
+
+    padding:
+      4px 10px 10px;
+  }
+
+
+  .footer-meta {
+
+    font-size: 10px;
+
+    letter-spacing:
+      1.4px;
+  }
+
+}
+
+
+/* =========================================================
+   19. RESPONSIVE — VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .container {
+
+    width:
+      calc(100% - 24px);
+  }
+
+
+  .nav {
+
+    height: 66px;
+  }
+
+
+  .brand-logo {
+
+    width: 123px;
+  }
+
+
+  .search-btn {
+
+    width: 36px;
+    height: 36px;
+  }
+
+
+  .mobile-toggle {
+
+    width: 38px;
+    height: 38px;
   }
 
 }
