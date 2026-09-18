@@ -1,602 +1,1432 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/x-icon" href="../assets/favicon_io/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png" />
+  <meta charset="UTF-8">
 
-  <title>راهکارها | XSYN</title>
-  <link rel="stylesheet" href="../css/style.css" />
-<style>
-  /* =========================================================
-     XSYN — SOLUTIONS PAGE
-     ========================================================= */
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  .hero {
-    padding: 82px 0 68px;
-    border-bottom: 1px solid var(--line);
-  }
+  <meta
+    name="description"
+    content="راهکارهای XSYN برای تحول دیجیتال، داده، هوش مصنوعی، ERP، شبیه‌سازی و فناوری صنعتی"
+  >
 
-  .hero h1 {
-    max-width: 780px;
-  
-    font-size: clamp(40px, 4.8vw, 62px);
-    line-height: 1.42;
-  
-    letter-spacing: -1px;
-  
-    margin-bottom: 22px;
-  }
+  <!-- =======================================================
+       FAVICON
+       ======================================================= -->
 
-  .hero p {
-    max-width: 720px;
-  
-    color: var(--text-soft);
-  
-    font-size: 17px;
-    line-height: 2;
-  }
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="../assets/favicon_io/favicon.ico"
+  >
 
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="../assets/favicon_io/favicon-32x32.png"
+  >
 
-  /* =========================================================
-     SOLUTIONS GRID
-     ========================================================= */
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="../assets/favicon_io/favicon-16x16.png"
+  >
 
-  .solutions {
-    padding: 68px 0 90px;
-  }
+  <link
+    rel="apple-touch-icon"
+    href="../assets/favicon_io/apple-touch-icon.png"
+  >
 
-  .section-intro {
-    max-width: 720px;
-    margin-bottom: 50px;
-  }
+  <link
+    rel="manifest"
+    href="../assets/favicon_io/site.webmanifest"
+  >
 
-  .section-intro h2 {
-    font-size: 32px;
-    line-height: 1.5;
-    margin-bottom: 15px;
-  }
+  <!-- =======================================================
+       SHARED CSS
+       ======================================================= -->
 
-  .section-intro p {
-    color: var(--text-muted);
+  <link
+    rel="stylesheet"
+    href="../css/style.css"
+  >
 
-    font-size: 16px;
-    line-height: 2;
-  }
-
-  .grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 18px;
-  }
-
-  .card {
-    position: relative;
-    min-height: 225px;
-    padding: 30px;
-
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-
-    background:
-      linear-gradient(
-        145deg,
-        rgba(255,255,255,.035),
-        rgba(255,255,255,.012)
-      ),
-      var(--surface);
-
-    overflow: hidden;
-
-    transition:
-      transform .25s ease,
-      border-color .25s ease;
-  }
-
-  .card::after {
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    left: -80px;
-    bottom: -100px;
-
-    border-radius: 50%;
-
-    background: rgba(22,156,255,.12);
-
-    filter: blur(20px);
-
-    pointer-events: none;
-  }
-
-  .card:hover {
-    transform: translateY(-4px);
-
-    border-color: rgba(57,180,255,.35);
-  }
-
-  .number {
-    direction: ltr;
-
-    color: var(--blue-bright);
-
-    font-size: 13px;
-    letter-spacing: 2px;
-
-    margin-bottom: 30px;
-  }
-
-  .card h3 {
-    font-size: 22px;
-    line-height: 1.5;
-
-    margin-bottom: 12px;
-  }
-
-  .card p {
-    color: var(--text-muted);
-
-    max-width: 500px;
-
-    font-size: 15px;
-    line-height: 2;
-  }
+  <title>
+    راهکارها | XSYN
+  </title>
 
 
-  /* =========================================================
-     MOBILE
-     ========================================================= */
+  <style>
 
-  @media (max-width: 760px) {
+    /* =========================================================
+       XSYN — SOLUTIONS PAGE
+       Page-specific styles only
+       ========================================================= */
+
+
+    /* =========================================================
+       01. HERO
+       ========================================================= */
 
     .hero {
-      padding: 72px 0 58px;
+
+      position: relative;
+
+      padding:
+        82px 0 68px;
+
+      border-bottom:
+        1px solid var(--line);
+
+      background:
+        radial-gradient(
+          circle at 78% 22%,
+          rgba(22,156,255,.065),
+          transparent 34%
+        );
+
+      overflow: hidden;
     }
+
+
+    .hero::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      left: -180px;
+      bottom: -250px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(22,156,255,.035),
+          transparent 68%
+        );
+
+      pointer-events: none;
+    }
+
+
+    .hero-content {
+
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 860px;
+    }
+
+
+    .hero .eyebrow {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-bottom: 18px;
+
+      color:
+        #9eb2c9;
+
+      font-size: 11px;
+
+      letter-spacing: .13em;
+
+      direction: ltr;
+    }
+
+
+    .hero .eyebrow::before {
+
+      content: "";
+
+      width: 25px;
+      height: 1px;
+
+      background:
+        var(--blue);
+
+      box-shadow:
+        0 0 10px
+        rgba(22,156,255,.65);
+    }
+
 
     .hero h1 {
-      max-width: 100%;
 
-      font-size: clamp(36px, 10vw, 48px);
+      max-width: 780px;
 
-      line-height: 1.45;
+      margin: 0;
 
-      letter-spacing: -1px;
+      font-size:
+        clamp(
+          40px,
+          4.8vw,
+          62px
+        );
 
-      margin-bottom: 24px;
+      line-height: 1.42;
+
+      font-weight: 800;
+
+      letter-spacing: -.02em;
     }
 
+
     .hero p {
-      max-width: 100%;
+
+      max-width: 720px;
+
+      margin-top: 21px;
+
+      color:
+        var(--text-soft);
+
+      font-size: 17px;
+
+      line-height: 2.05;
+    }
+
+
+    /* =========================================================
+       02. SOLUTIONS SECTION
+       ========================================================= */
+
+    .solutions {
+
+      padding:
+        68px 0 90px;
+    }
+
+
+    .section-intro {
+
+      max-width: 720px;
+
+      margin-bottom: 45px;
+    }
+
+
+    .section-intro h2 {
+
+      font-size: 32px;
+
+      line-height: 1.5;
+
+      margin-bottom: 14px;
+    }
+
+
+    .section-intro p {
+
+      color:
+        var(--text-muted);
 
       font-size: 16px;
 
-      line-height: 2.1;
-    }
-
-    .solutions {
-      padding: 65px 0 80px;
-    }
-
-    .section-intro {
-      margin-bottom: 35px;
-    }
-
-    .section-intro h2 {
-      font-size: 30px;
-      line-height: 1.5;
-    }
-
-    .section-intro p {
-      font-size: 15px;
       line-height: 2;
     }
+
+
+    /* =========================================================
+       03. SOLUTIONS GRID
+       ========================================================= */
 
     .grid {
-      grid-template-columns: 1fr;
-      gap: 14px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 17px;
     }
+
 
     .card {
-      min-height: auto;
-      padding: 26px;
+
+      position: relative;
+
+      min-height: 225px;
+
+      padding: 30px;
+
+      overflow: hidden;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.012)
+        ),
+        var(--surface);
+
+      transition:
+        transform .24s ease,
+        border-color .24s ease,
+        background .24s ease;
     }
+
+
+    .card::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      left: -80px;
+      bottom: -100px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(22,156,255,.10);
+
+      filter:
+        blur(20px);
+
+      pointer-events: none;
+    }
+
+
+    .card:hover {
+
+      transform:
+        translateY(-4px);
+
+      border-color:
+        var(--border-blue);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(22,156,255,.035),
+          rgba(255,255,255,.012)
+        ),
+        var(--surface);
+    }
+
+
+    .number {
+
+      direction: ltr;
+
+      color:
+        var(--blue-bright);
+
+      font-size: 12px;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 25px;
+    }
+
 
     .card h3 {
-      font-size: 21px;
+
+      position: relative;
+
+      z-index: 2;
+
+      font-size: 22px;
+
+      line-height: 1.5;
+
+      margin-bottom: 11px;
     }
+
 
     .card p {
+
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 500px;
+
+      color:
+        var(--text-muted);
+
       font-size: 15px;
+
       line-height: 2;
     }
-  }
 
-</style>
+
+    /* =========================================================
+       04. RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .grid {
+
+        grid-template-columns:
+          1fr;
+      }
+
+    }
+
+
+    @media (max-width: 760px) {
+
+      .hero {
+
+        padding:
+          58px 0 54px;
+      }
+
+
+      .hero .eyebrow {
+
+        font-size: 9px;
+
+        letter-spacing: .09em;
+      }
+
+
+      .hero h1 {
+
+        max-width: 100%;
+
+        font-size:
+          clamp(
+            34px,
+            9.4vw,
+            46px
+          );
+
+        line-height: 1.5;
+
+        letter-spacing:
+          -.008em;
+      }
+
+
+      .hero p {
+
+        max-width: 100%;
+
+        margin-top: 19px;
+
+        font-size: 15px;
+
+        line-height: 2.1;
+      }
+
+
+      .solutions {
+
+        padding:
+          60px 0 80px;
+      }
+
+
+      .section-intro {
+
+        margin-bottom: 34px;
+      }
+
+
+      .section-intro h2 {
+
+        font-size: 29px;
+      }
+
+
+      .section-intro p {
+
+        font-size: 14px;
+      }
+
+
+      .card {
+
+        min-height: auto;
+
+        padding: 25px;
+      }
+
+
+      .number {
+
+        margin-bottom: 22px;
+
+        font-size: 11px;
+      }
+
+
+      .card h3 {
+
+        font-size: 21px;
+      }
+
+
+      .card p {
+
+        font-size: 14px;
+
+        line-height: 2;
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
-<header>
-  <div class="container">
 
-    <nav class="nav">
+  <!-- =======================================================
+       SHARED HEADER
+       ======================================================= -->
 
-      <a class="brand" href="../index.html" aria-label="XSYN">
-        <img class="brand-logo" src="../assets/xsyn-logo.png" alt="XSYN" />
+  <header>
+
+    <div class="container">
+
+      <nav class="nav">
+
+
+        <!-- Center Brand -->
+
+        <a
+          class="brand"
+          href="../index.html"
+          aria-label="XSYN"
+        >
+
+          <img
+            class="brand-logo"
+            src="../assets/xsyn-logo.png"
+            alt="XSYN"
+          >
+
+        </a>
+
+
+        <!-- =================================================
+             DESKTOP NAVIGATION
+             ================================================= -->
+
+        <div class="nav-links">
+
+
+          <!-- HOME -->
+
+          <a
+            class="nav-link"
+            href="../index.html"
+          >
+            خانه
+          </a>
+
+
+          <!-- SOLUTIONS -->
+
+          <div class="nav-item">
+
+
+            <a
+              class="nav-link active"
+              href="../solutions/index.html"
+              aria-current="page"
+            >
+
+              راهکارها
+
+              <span class="arrow">
+                ⌄
+              </span>
+
+            </a>
+
+
+            <div class="dropdown">
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  تحول دیجیتال صنعتی
+                </strong>
+
+                <span>
+                  DIGITAL TRANSFORMATION
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  هوش مصنوعی و داده
+                </strong>
+
+                <span>
+                  AI &amp; DATA INTELLIGENCE
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  داشبورد و مدیریت عملکرد
+                </strong>
+
+                <span>
+                  DASHBOARDS &amp; PERFORMANCE
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  ERP و سیستم‌های کسب‌وکار
+                </strong>
+
+                <span>
+                  ERP &amp; BUSINESS SYSTEMS
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  شبیه‌سازی و دوقلوی دیجیتال
+                </strong>
+
+                <span>
+                  SIMULATION &amp; DIGITAL TWIN
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  اتصال صنعتی و IIoT
+                </strong>
+
+                <span>
+                  INDUSTRIAL CONNECTIVITY
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  سازمان و منابع انسانی
+                </strong>
+
+                <span>
+                  ORGANIZATION &amp; PEOPLE
+                </span>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
+
+          <!-- EXPERTS -->
+
+          <div class="nav-item">
+
+
+            <a
+              class="nav-link"
+              href="../experts/index.html"
+            >
+
+              متخصصین
+
+              <span class="arrow">
+                ⌄
+              </span>
+
+            </a>
+
+
+            <div class="dropdown">
+
+
+              <a href="../experts/index.html">
+
+                <strong>
+                  شبکه متخصصین
+                </strong>
+
+                <span>
+                  VERIFIED EXPERT NETWORK
+                </span>
+
+              </a>
+
+
+              <a href="../experts/index.html">
+
+                <strong>
+                  حوزه‌های تخصص
+                </strong>
+
+                <span>
+                  EXPERTISE AREAS
+                </span>
+
+              </a>
+
+
+              <a href="../experts/index.html">
+
+                <strong>
+                  عضویت در شبکه
+                </strong>
+
+                <span>
+                  JOIN THE NETWORK
+                </span>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
+
+          <!-- KNOWLEDGE -->
+
+          <div class="nav-item">
+
+
+            <a
+              class="nav-link"
+              href="../knowledge/index.html"
+            >
+
+              دانش
+
+              <span class="arrow">
+                ⌄
+              </span>
+
+            </a>
+
+
+            <div class="dropdown">
+
+
+              <a href="../knowledge/index.html">
+
+                <strong>
+                  مقالات و Insights
+                </strong>
+
+                <span>
+                  ARTICLES &amp; INSIGHTS
+                </span>
+
+              </a>
+
+
+              <a href="../knowledge/index.html">
+
+                <strong>
+                  مطالعات موردی
+                </strong>
+
+                <span>
+                  CASE STUDIES
+                </span>
+
+              </a>
+
+
+              <a href="../knowledge/index.html">
+
+                <strong>
+                  مسائل صنعتی
+                </strong>
+
+                <span>
+                  PROBLEM LIBRARY
+                </span>
+
+              </a>
+
+
+              <a href="../knowledge/index.html">
+
+                <strong>
+                  فناوری‌ها
+                </strong>
+
+                <span>
+                  TECHNOLOGY DISCOVERY
+                </span>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
+
+          <!-- INDUSTRIES -->
+
+          <div class="nav-item">
+
+
+            <a
+              class="nav-link"
+              href="../industries/index.html"
+            >
+
+              صنایع
+
+              <span class="arrow">
+                ⌄
+              </span>
+
+            </a>
+
+
+            <div class="dropdown">
+
+
+              <a href="../industries/index.html">
+
+                <strong>
+                  کاشی و سرامیک
+                </strong>
+
+                <span>
+                  CURRENT PILOT INDUSTRY
+                </span>
+
+              </a>
+
+
+              <a href="../industries/index.html">
+
+                <strong>
+                  صنایع دیگر
+                </strong>
+
+                <span>
+                  SCALABLE INDUSTRY FRAMEWORK
+                </span>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
+
+          <!-- ABOUT -->
+
+          <a
+            class="nav-link"
+            href="../about/index.html"
+          >
+            درباره XSYN
+          </a>
+
+
+        </div>
+
+
+        <!-- =================================================
+             ACTIONS
+             ================================================= -->
+
+        <div class="nav-actions">
+
+
+          <a
+            href="../search/index.html"
+            class="search-btn"
+            aria-label="جستجو"
+          >
+            ⌕
+          </a>
+
+
+          <a
+            href="../index.html#contact"
+            class="primary-btn nav-cta"
+          >
+            مسئله خود را مطرح کنید
+          </a>
+
+
+          <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            type="button"
+            aria-label="باز کردن منو"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+
+        </div>
+
+      </nav>
+
+
+      <!-- =====================================================
+           MOBILE MENU
+           ===================================================== -->
+
+      <div
+        class="mobile-menu"
+        id="mobileMenu"
+      >
+
+
+        <!-- HOME -->
+
+        <div class="mobile-item">
+
+          <a href="../index.html">
+
+            <span>
+              خانه
+            </span>
+
+          </a>
+
+        </div>
+
+
+        <!-- SOLUTIONS -->
+
+        <div class="mobile-item">
+
+
+          <a href="../solutions/index.html">
+
+            <span>
+              راهکارها
+            </span>
+
+            <span>
+              ⌄
+            </span>
+
+          </a>
+
+
+          <div class="mobile-sub">
+
+            <a href="../solutions/index.html">
+              تحول دیجیتال صنعتی
+            </a>
+
+            <a href="../solutions/index.html">
+              هوش مصنوعی و داده
+            </a>
+
+            <a href="../solutions/index.html">
+              داشبورد و مدیریت عملکرد
+            </a>
+
+            <a href="../solutions/index.html">
+              ERP و سیستم‌های کسب‌وکار
+            </a>
+
+            <a href="../solutions/index.html">
+              شبیه‌سازی و دوقلوی دیجیتال
+            </a>
+
+            <a href="../solutions/index.html">
+              اتصال صنعتی و IIoT
+            </a>
+
+            <a href="../solutions/index.html">
+              سازمان و منابع انسانی
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- EXPERTS -->
+
+        <div class="mobile-item">
+
+
+          <a href="../experts/index.html">
+
+            <span>
+              متخصصین
+            </span>
+
+            <span>
+              ⌄
+            </span>
+
+          </a>
+
+
+          <div class="mobile-sub">
+
+            <a href="../experts/index.html">
+              شبکه متخصصین
+            </a>
+
+            <a href="../experts/index.html">
+              حوزه‌های تخصص
+            </a>
+
+            <a href="../experts/index.html">
+              عضویت در شبکه
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- KNOWLEDGE -->
+
+        <div class="mobile-item">
+
+
+          <a href="../knowledge/index.html">
+
+            <span>
+              دانش
+            </span>
+
+            <span>
+              ⌄
+            </span>
+
+          </a>
+
+
+          <div class="mobile-sub">
+
+            <a href="../knowledge/index.html">
+              مقالات و Insights
+            </a>
+
+            <a href="../knowledge/index.html">
+              مطالعات موردی
+            </a>
+
+            <a href="../knowledge/index.html">
+              مسائل صنعتی
+            </a>
+
+            <a href="../knowledge/index.html">
+              فناوری‌ها
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- INDUSTRIES -->
+
+        <div class="mobile-item">
+
+
+          <a href="../industries/index.html">
+
+            <span>
+              صنایع
+            </span>
+
+            <span>
+              ⌄
+            </span>
+
+          </a>
+
+
+          <div class="mobile-sub">
+
+            <a href="../industries/index.html">
+              کاشی و سرامیک
+            </a>
+
+            <a href="../industries/index.html">
+              صنایع دیگر
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- ABOUT -->
+
+        <div class="mobile-item">
+
+          <a href="../about/index.html">
+
+            <span>
+              درباره XSYN
+            </span>
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       MAIN
+       ======================================================= -->
+
+  <main>
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+
+          <div class="eyebrow">
+            XSYN · SOLUTION ENGINEERING
+          </div>
+
+
+          <h1>
+            فناوری را به راهکاری برای مسئله واقعی تبدیل می‌کنیم.
+          </h1>
+
+
+          <p>
+            XSYN راهکارهای مهندسی‌شده‌ای طراحی می‌کند که از
+            شناخت واقعیت کسب‌وکار و صنعت شروع می‌شوند و تا
+            اجرا، سنجش و یادگیری ادامه پیدا می‌کنند.
+          </p>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SOLUTIONS
+         ===================================================== -->
+
+    <section class="solutions">
+
+      <div class="container">
+
+
+        <div class="section-intro">
+
+
+          <h2>
+            حوزه‌های راهکار
+          </h2>
+
+
+          <p>
+            مجموعه‌ای از توانمندی‌های XSYN برای تحول،
+            هوشمندسازی، یکپارچه‌سازی و بهبود عملکرد
+            سازمان و کارخانه.
+          </p>
+
+
+        </div>
+
+
+        <div class="grid">
+
+
+          <!-- 01 -->
+
+          <article class="card">
+
+            <div class="number">
+              01 · DIGITAL
+            </div>
+
+
+            <h3>
+              تحول دیجیتال صنعتی
+            </h3>
+
+
+            <p>
+              طراحی مسیر تحول دیجیتال متناسب با ساختار،
+              فرایندها، بلوغ و اهداف واقعی سازمان.
+            </p>
+
+          </article>
+
+
+          <!-- 02 -->
+
+          <article class="card">
+
+            <div class="number">
+              02 · AI &amp; DATA
+            </div>
+
+
+            <h3>
+              هوش مصنوعی و داده
+            </h3>
+
+
+            <p>
+              تبدیل داده‌های سازمانی و صنعتی به بینش،
+              پیش‌بینی، اتوماسیون و تصمیم‌گیری هوشمند.
+            </p>
+
+          </article>
+
+
+          <!-- 03 -->
+
+          <article class="card">
+
+            <div class="number">
+              03 · PERFORMANCE
+            </div>
+
+
+            <h3>
+              داشبورد و مدیریت عملکرد
+            </h3>
+
+
+            <p>
+              ایجاد دید یکپارچه نسبت به شاخص‌ها، عملکرد و
+              وضعیت عملیاتی برای تصمیم‌گیری مدیریتی.
+            </p>
+
+          </article>
+
+
+          <!-- 04 -->
+
+          <article class="card">
+
+            <div class="number">
+              04 · ERP
+            </div>
+
+
+            <h3>
+              ERP و یکپارچه‌سازی
+            </h3>
+
+
+            <p>
+              معماری و بهبود سیستم‌های سازمانی و اتصال داده
+              و فرایند میان واحدهای مختلف.
+            </p>
+
+          </article>
+
+
+          <!-- 05 -->
+
+          <article class="card">
+
+            <div class="number">
+              05 · SIMULATION
+            </div>
+
+
+            <h3>
+              شبیه‌سازی و Digital Twin
+            </h3>
+
+
+            <p>
+              مدل‌سازی رفتار سیستم‌ها و استفاده از شبیه‌سازی
+              برای تحلیل سناریوها و تصمیم‌های پیچیده.
+            </p>
+
+          </article>
+
+
+          <!-- 06 -->
+
+          <article class="card">
+
+            <div class="number">
+              06 · CONNECTIVITY
+            </div>
+
+
+            <h3>
+              اتصال‌پذیری صنعتی
+            </h3>
+
+
+            <p>
+              ایجاد ارتباط میان تجهیزات، سیستم‌ها، داده‌ها
+              و لایه‌های مختلف کارخانه.
+            </p>
+
+          </article>
+
+
+          <!-- 07 -->
+
+          <article class="card">
+
+            <div class="number">
+              07 · PEOPLE
+            </div>
+
+
+            <h3>
+              سازمان و منابع انسانی
+            </h3>
+
+
+            <p>
+              طراحی ابزارها و مدل‌های نوین برای مدیریت،
+              منابع انسانی، همکاری و توسعه سازمان.
+            </p>
+
+          </article>
+
+
+          <!-- 08 -->
+
+          <article class="card">
+
+            <div class="number">
+              08 · ENGINEERING
+            </div>
+
+
+            <h3>
+              راهکارهای مهندسی‌شده
+            </h3>
+
+
+            <p>
+              حل مسئله‌های خاص صنعت با ترکیب فناوری،
+              دانش تخصصی، داده و شبکه متخصصین XSYN.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =======================================================
+       SHARED FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+
+      <a
+        class="footer-brand"
+        href="../index.html"
+        aria-label="XSYN"
+      >
+
+        <img
+          src="../assets/xsyn-logo.png"
+          alt="XSYN"
+        >
+
       </a>
 
-      <div class="nav-links">
 
-        <a href="../index.html" class="nav-link">
-          خانه
-        </a>
-
-        <div class="nav-item">
-
-          <a href="../solutions/index.html" class="nav-link">
-            راهکارها
-            <span class="arrow">⌄</span>
-          </a>
-
-          <div class="dropdown">
-
-            <a href="../solutions/index.html">
-              <strong>تحول دیجیتال صنعتی</strong>
-              <span>Digital Transformation</span>
-            </a>
-
-            <a href="../solutions/index.html">
-              <strong>هوش مصنوعی و داده</strong>
-              <span>AI & Data Intelligence</span>
-            </a>
-
-            <a href="../solutions/index.html">
-              <strong>داشبورد و مدیریت عملکرد</strong>
-              <span>Dashboards & Performance</span>
-            </a>
-
-            <a href="../solutions/index.html">
-              <strong>ERP و سیستم‌های کسب‌وکار</strong>
-              <span>ERP & Business Systems</span>
-            </a>
-
-            <a href="../solutions/index.html">
-              <strong>شبیه‌سازی و دوقلوی دیجیتال</strong>
-              <span>Simulation & Digital Twin</span>
-            </a>
-
-            <a href="../solutions/index.html">
-              <strong>اتصال صنعتی و IIoT</strong>
-              <span>Industrial Connectivity</span>
-            </a>
-
-            <a href="../solutions/index.html">
-              <strong>سازمان و منابع انسانی</strong>
-              <span>Organization & People</span>
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="nav-item">
-
-          <a href="../experts/index.html" class="nav-link">
-            متخصصین
-            <span class="arrow">⌄</span>
-          </a>
-
-          <div class="dropdown">
-
-            <a href="../experts/index.html">
-              <strong>شبکه متخصصین</strong>
-              <span>Verified Expert Network</span>
-            </a>
-
-            <a href="../experts/index.html">
-              <strong>حوزه‌های تخصص</strong>
-              <span>Expertise Areas</span>
-            </a>
-
-            <a href="../experts/index.html">
-              <strong>عضویت در شبکه</strong>
-              <span>Join the Network</span>
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="nav-item">
-
-          <a href="../knowledge/index.html" class="nav-link">
-            دانش
-            <span class="arrow">⌄</span>
-          </a>
-
-          <div class="dropdown">
-
-            <a href="../knowledge/index.html">
-              <strong>مقالات و Insights</strong>
-              <span>Articles & Insights</span>
-            </a>
-
-            <a href="../knowledge/index.html">
-              <strong>مطالعات موردی</strong>
-              <span>Case Studies</span>
-            </a>
-
-            <a href="../knowledge/index.html">
-              <strong>مسائل صنعتی</strong>
-              <span>Problem Library</span>
-            </a>
-
-            <a href="../knowledge/index.html">
-              <strong>فناوری‌ها</strong>
-              <span>Technology Discovery</span>
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="nav-item">
-
-          <a href="../industries/index.html" class="nav-link">
-            صنایع
-            <span class="arrow">⌄</span>
-          </a>
-
-          <div class="dropdown">
-
-            <a href="../industries/index.html">
-              <strong>کاشی و سرامیک</strong>
-              <span>Current Pilot Industry</span>
-            </a>
-
-            <a href="../industries/index.html">
-              <strong>صنایع دیگر</strong>
-              <span>Scalable Industry Framework</span>
-            </a>
-
-          </div>
-
-        </div>
-
-        <a href="../about/index.html" class="nav-link">
-          درباره XSYN
-        </a>
-
+      <div class="footer-meta">
+        TECHNOLOGY · SYNERGY · TRANSFORMATION
       </div>
 
-      <div class="nav-actions">
-
-        <a href="../search/index.html" class="search-btn" aria-label="جستجو">
-          ⌕
-        </a>
-
-        <a href="../index.html#contact" class="primary-btn nav-cta">
-          مسئله خود را مطرح کنید
-        </a>
-
-        <button class="mobile-toggle" id="mobileToggle" aria-label="منو">
-          ☰
-        </button>
-
-      </div>
-
-    </nav>
-
-    <div class="mobile-menu" id="mobileMenu">
-
-      <div class="mobile-item">
-
-        <a href="../solutions/index.html">
-          راهکارها
-          <span>⌄</span>
-        </a>
-
-        <div class="mobile-sub">
-          <a href="../solutions/index.html">تحول دیجیتال صنعتی</a>
-          <a href="../solutions/index.html">هوش مصنوعی و داده</a>
-          <a href="../solutions/index.html">داشبورد و مدیریت عملکرد</a>
-          <a href="../solutions/index.html">ERP و سیستم‌های کسب‌وکار</a>
-          <a href="../solutions/index.html">شبیه‌سازی و Digital Twin</a>
-          <a href="../solutions/index.html">اتصال صنعتی و IIoT</a>
-          <a href="../solutions/index.html">سازمان و منابع انسانی</a>
-        </div>
-
-      </div>
-
-      <div class="mobile-item">
-
-        <a href="../experts/index.html">
-          متخصصین
-          <span>⌄</span>
-        </a>
-
-        <div class="mobile-sub">
-          <a href="../experts/index.html">شبکه متخصصین</a>
-          <a href="../experts/index.html">حوزه‌های تخصص</a>
-          <a href="../experts/index.html">عضویت در شبکه</a>
-        </div>
-
-      </div>
-
-      <div class="mobile-item">
-
-        <a href="../knowledge/index.html">
-          دانش
-          <span>⌄</span>
-        </a>
-
-        <div class="mobile-sub">
-          <a href="../knowledge/index.html">مقالات و Insights</a>
-          <a href="../knowledge/index.html">مطالعات موردی</a>
-          <a href="../knowledge/index.html">مسائل صنعتی</a>
-          <a href="../knowledge/index.html">فناوری‌ها</a>
-        </div>
-
-      </div>
-
-      <div class="mobile-item">
-
-        <a href="../industries/index.html">
-          صنایع
-          <span>⌄</span>
-        </a>
-
-        <div class="mobile-sub">
-          <a href="../industries/index.html">کاشی و سرامیک</a>
-          <a href="../industries/index.html">صنایع دیگر</a>
-        </div>
-
-      </div>
-
-      <div class="mobile-item">
-        <a href="../about/index.html">
-          درباره XSYN
-        </a>
-      </div>
 
     </div>
 
-  </div>
-</header>
+  </footer>
 
-<main>
 
-  <section class="hero">
-    <div class="container">
+  <!-- =======================================================
+       SHARED JAVASCRIPT
+       ======================================================= -->
 
-      <div class="eyebrow">XSYN · SOLUTION ENGINEERING</div>
+  <script src="../js/main.js"></script>
 
-      <h1>
-        فناوری را به راهکاری برای مسئله واقعی تبدیل می‌کنیم.
-      </h1>
-
-      <p>
-        XSYN راهکارهای مهندسی‌شده‌ای طراحی می‌کند که از شناخت واقعیت کسب‌وکار
-        و صنعت شروع می‌شوند و تا اجرا، سنجش و یادگیری ادامه پیدا می‌کنند.
-      </p>
-
-    </div>
-  </section>
-
-  <section class="solutions">
-    <div class="container">
-
-      <div class="section-intro">
-        <h2>حوزه‌های راهکار</h2>
-        <p>
-          مجموعه‌ای از توانمندی‌های XSYN برای تحول، هوشمندسازی،
-          یکپارچه‌سازی و بهبود عملکرد سازمان و کارخانه.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <article class="card">
-          <div class="number">01 · DIGITAL</div>
-          <h3>تحول دیجیتال صنعتی</h3>
-          <p>
-            طراحی مسیر تحول دیجیتال متناسب با ساختار، فرایندها،
-            بلوغ و اهداف واقعی سازمان.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="number">02 · AI & DATA</div>
-          <h3>هوش مصنوعی و داده</h3>
-          <p>
-            تبدیل داده‌های سازمانی و صنعتی به بینش، پیش‌بینی،
-            اتوماسیون و تصمیم‌گیری هوشمند.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="number">03 · PERFORMANCE</div>
-          <h3>داشبورد و مدیریت عملکرد</h3>
-          <p>
-            ایجاد دید یکپارچه نسبت به شاخص‌ها، عملکرد و وضعیت
-            عملیاتی برای تصمیم‌گیری مدیریتی.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="number">04 · ERP</div>
-          <h3>ERP و یکپارچه‌سازی</h3>
-          <p>
-            معماری و بهبود سیستم‌های سازمانی و اتصال داده و فرایند
-            میان واحدهای مختلف.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="number">05 · SIMULATION</div>
-          <h3>شبیه‌سازی و Digital Twin</h3>
-          <p>
-            مدل‌سازی رفتار سیستم‌ها و استفاده از شبیه‌سازی برای
-            تحلیل سناریوها و تصمیم‌های پیچیده.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="number">06 · CONNECTIVITY</div>
-          <h3>اتصال‌پذیری صنعتی</h3>
-          <p>
-            ایجاد ارتباط میان تجهیزات، سیستم‌ها، داده‌ها و لایه‌های
-            مختلف کارخانه.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="number">07 · PEOPLE</div>
-          <h3>سازمان و منابع انسانی</h3>
-          <p>
-            طراحی ابزارها و مدل‌های نوین برای مدیریت، منابع انسانی،
-            همکاری و توسعه سازمان.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="number">08 · ENGINEERING</div>
-          <h3>راهکارهای مهندسی‌شده</h3>
-          <p>
-            حل مسئله‌های خاص صنعت با ترکیب فناوری، دانش تخصصی،
-            داده و شبکه متخصصین XSYN.
-          </p>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="container">
-
-    <a class="footer-brand" href="../index.html" aria-label="XSYN">
-      <img src="../assets/xsyn-logo.png" alt="XSYN" />
-    </a>
-
-    <div class="footer-meta">
-      TECHNOLOGY · SYNERGY · TRANSFORMATION
-    </div>
-
-  </div>
-</footer>
-<script src="../js/main.js"></script>
 </body>
+
 </html>
