@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/favicon_io/favicon.ico">
+  <title>شبکه متخصصین | XSYN</title>
+
+  <style>
+    :root {
+      --bg:#030a16;
+      --surface:#0a1728;
+      --text:#f4f7fb;
+      --soft:#b7c2d0;
+      --muted:#76869a;
+      --blue:#169cff;
+      --bright:#39b4ff;
+      --line:rgba(255,255,255,.08);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:Arial,Tahoma,sans-serif;
+      background:
+        radial-gradient(circle at 80% 10%,rgba(22,156,255,.10),transparent 30%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.9;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .container{
+      width:min(1180px,calc(100% - 40px));
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(3,10,22,.88);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+
+    .logo{width:170px}
+
+    .links{
+      display:flex;
+      gap:26px;
+      color:var(--soft);
+      font-size:14px;
+    }
+
+    .links .active{color:white}
+
+    .cta{
+      padding:10px 17px;
+      border:1px solid rgba(57,180,255,.45);
+      border-radius:10px;
+      background:rgba(22,156,255,.08);
+    }
+
+    .hero{
+      padding:105px 0 80px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      color:var(--bright);
+      font-size:12px;
+      letter-spacing:2px;
+      margin-bottom:18px;
+    }
+
+    h1{
+      max-width:850px;
+      font-size:clamp(42px,6vw,76px);
+      line-height:1.15;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      max-width:750px;
+      color:var(--soft);
+      font-size:18px;
+    }
+
+    section.content{
+      padding:80px 0 110px;
+    }
+
+    .intro{
+      max-width:720px;
+      margin-bottom:45px;
+    }
+
+    h2{
+      font-size:34px;
+      margin-bottom:12px;
+    }
+
+    .intro p{color:var(--muted)}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      padding:28px;
+      min-height:230px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:var(--surface);
+      transition:.25s;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(57,180,255,.35);
+    }
+
+    .tag{
+      color:var(--bright);
+      font-size:12px;
+      letter-spacing:1px;
+      margin-bottom:25px;
+      direction:ltr;
+    }
+
+    .card h3{
+      font-size:23px;
+      margin-bottom:10px;
+    }
+
+    .card p{color:var(--muted)}
+
+    .network{
+      margin-top:70px;
+      padding:35px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(22,156,255,.13),transparent 50%),
+        var(--surface);
+    }
+
+    .network p{
+      max-width:750px;
+      color:var(--soft);
+    }
+
+    footer{
+      padding:35px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:800px){
+      .links{display:none}
+      .logo{width:140px}
+      .grid{grid-template-columns:1fr}
+      .hero{padding:75px 0 60px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="../index.html">
+      <img class="logo" src="../assets/xsyn-logo.png" alt="XSYN">
+    </a>
+
+    <nav class="links">
+      <a href="../index.html">خانه</a>
+      <a href="../solutions/index.html">راهکارها</a>
+      <a href="index.html" class="active">متخصصین</a>
+      <a href="../knowledge/index.html">دانش</a>
+      <a href="../industries/index.html">صنایع</a>
+      <a href="../about/index.html">درباره XSYN</a>
+    </nav>
+
+    <a class="cta" href="../index.html#contact">عضویت در شبکه</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">XSYN · EXPERT NETWORK</div>
+
+      <h1>
+        دانش تخصصی، وقتی ارزشمند است که به مسئله واقعی متصل شود.
+      </h1>
+
+      <p>
+        شبکه متخصصین XSYN بستری برای اتصال تجربه، تخصص و دانش فنی
+        به مسائل واقعی صنعت و کسب‌وکار است.
+      </p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+
+      <div class="intro">
+        <h2>شبکه متخصصین</h2>
+        <p>
+          در این مرحله، شبکه به‌صورت اولیه نمایش داده می‌شود.
+          هدف نهایی، شکل‌گیری یک شبکه دانشی پویا میان متخصصین،
+          سازمان‌ها، کارخانه‌ها و مسائل صنعتی است.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="tag">AI · DATA</div>
+          <h3>هوش مصنوعی و داده</h3>
+          <p>
+            متخصصین تحلیل داده، یادگیری ماشین، هوش مصنوعی صنعتی
+            و معماری داده.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="tag">ERP · SYSTEMS</div>
+          <h3>سیستم‌های سازمانی</h3>
+          <p>
+            متخصصین ERP، فرایندهای کسب‌وکار، یکپارچه‌سازی
+            و معماری سیستم‌ها.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="tag">DIGITAL TWIN</div>
+          <h3>شبیه‌سازی و Digital Twin</h3>
+          <p>
+            متخصصین مدل‌سازی، شبیه‌سازی، Digital Twin
+            و تحلیل سیستم‌های صنعتی.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="network">
+        <h2>از Expert Network تا Knowledge Graph</h2>
+        <p>
+          مسیر توسعه XSYN، ایجاد ارتباط میان متخصصین، دانش،
+          صنایع، کارخانه‌ها و مسائل واقعی است؛ به‌گونه‌ای که
+          این شبکه با شکل‌گیری تجربه و داده، به یک ساختار دانشی
+          قابل توسعه تبدیل شود.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    XSYN · TECHNOLOGY · SYNERGY · TRANSFORMATION
+  </div>
+</footer>
+
+</body>
+</html>
