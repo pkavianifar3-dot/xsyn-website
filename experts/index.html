@@ -5,17 +5,50 @@
 
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="icon" type="image/x-icon" href="../assets/favicon_io/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="../assets/favicon_io/apple-touch-icon.png">
-  <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="../assets/favicon_io/favicon.ico"
+  >
 
-  <link rel="stylesheet" href="../css/style.css">
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="../assets/favicon_io/favicon-32x32.png"
+  >
 
-  <title>شبکه متخصصین | XSYN</title>
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="../assets/favicon_io/favicon-16x16.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="../assets/favicon_io/apple-touch-icon.png"
+  >
+
+  <link
+    rel="manifest"
+    href="../assets/favicon_io/site.webmanifest"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/style.css"
+  >
+
+  <title>
+    شبکه متخصصین | XSYN
+  </title>
+
 
   <style>
 
@@ -23,62 +56,127 @@
        EXPERTS PAGE
        ========================================================= */
 
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
     .hero {
-      padding: 82px 0 68px;
-      border-bottom: 1px solid var(--line);
+
+      padding:
+        82px 0 68px;
+
+      border-bottom:
+        1px solid var(--line);
     }
+
 
     .hero h1 {
-      max-width: 780px;
-    
-      font-size: clamp(40px, 4.8vw, 62px);
-      line-height: 1.42;
-    
-      letter-spacing: -1px;
-    
-      margin-bottom: 22px;
+
+      max-width:
+        780px;
+
+      font-size:
+        clamp(40px, 4.8vw, 62px);
+
+      line-height:
+        1.42;
+
+      letter-spacing:
+        normal;
+
+      margin-bottom:
+        22px;
     }
+
 
     .hero p {
-      max-width: 720px;
-    
-      color: var(--text-soft);
-    
-      font-size: 17px;
-      line-height: 2;
+
+      max-width:
+        720px;
+
+      color:
+        var(--text-soft);
+
+      font-size:
+        17px;
+
+      line-height:
+        2;
     }
+
+
+    /* =========================================================
+       EXPERT AREAS
+       ========================================================= */
 
     .experts-section {
-      padding: 68px 0 60px;
+
+      padding:
+        68px 0 55px;
     }
+
 
     .section-heading {
-      max-width: 720px;
-      margin-bottom: 45px;
+
+      max-width:
+        720px;
+
+      margin-bottom:
+        45px;
     }
+
 
     .section-heading h2 {
-      font-size: 32px;
-      line-height: 1.5;
-      margin-bottom: 14px;
+
+      font-size:
+        32px;
+
+      line-height:
+        1.5;
+
+      margin-bottom:
+        14px;
     }
+
 
     .section-heading p {
-      color: var(--text-muted);
-      font-size: 16px;
-      line-height: 2;
+
+      color:
+        var(--text-muted);
+
+      font-size:
+        16px;
+
+      line-height:
+        2;
     }
+
 
     .expert-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        18px;
     }
 
+
     .expert-card {
-      position: relative;
-      min-height: 250px;
-      padding: 30px;
+
+      position:
+        relative;
+
+      min-height:
+        250px;
+
+      padding:
+        30px;
+
       background:
         linear-gradient(
           145deg,
@@ -86,99 +184,442 @@
           rgba(255,255,255,.012)
         ),
         var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        var(--radius);
+
+      overflow:
+        hidden;
+
       transition:
         transform .25s ease,
-        border-color .25s ease;
+        border-color .25s ease,
+        background .25s ease;
     }
+
 
     .expert-card::after {
-      content: "";
-      position: absolute;
 
-      width: 170px;
-      height: 170px;
+      content:
+        "";
 
-      left: -75px;
-      bottom: -90px;
+      position:
+        absolute;
 
-      border-radius: 50%;
+      width:
+        170px;
 
-      background: rgba(22,156,255,.11);
+      height:
+        170px;
 
-      filter: blur(22px);
+      left:
+        -75px;
+
+      bottom:
+        -90px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(22,156,255,.11);
+
+      filter:
+        blur(22px);
+
+      pointer-events:
+        none;
     }
+
 
     .expert-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-blue);
+
+      transform:
+        translateY(-4px);
+
+      border-color:
+        var(--border-blue);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(22,156,255,.045),
+          rgba(255,255,255,.012)
+        ),
+        var(--surface);
     }
+
 
     .expert-number {
-      direction: ltr;
 
-      color: var(--blue-bright);
+      direction:
+        ltr;
 
-      font-size: 12px;
-      letter-spacing: 2px;
+      color:
+        var(--blue-bright);
 
-      margin-bottom: 28px;
+      font-size:
+        12px;
+
+      letter-spacing:
+        2px;
+
+      margin-bottom:
+        28px;
     }
+
 
     .expert-card h3 {
-      font-size: 23px;
-      margin-bottom: 12px;
+
+      font-size:
+        23px;
+
+      line-height:
+        1.6;
+
+      margin-bottom:
+        12px;
     }
+
 
     .expert-card p {
-      color: var(--text-muted);
-      line-height: 2;
-      font-size: 15px;
+
+      color:
+        var(--text-muted);
+
+      line-height:
+        2;
+
+      font-size:
+        15px;
     }
+
 
     .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
 
-      margin-top: 24px;
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        8px;
+
+      margin-top:
+        24px;
     }
+
 
     .tag {
-      display: inline-flex;
-      align-items: center;
 
-      padding: 5px 9px;
+      display:
+        inline-flex;
 
-      border: 1px solid var(--line);
-      border-radius: 7px;
+      align-items:
+        center;
 
-      color: var(--text-soft);
+      padding:
+        5px 9px;
 
-      font-size: 11px;
+      border:
+        1px solid var(--line);
 
-      direction: ltr;
+      border-radius:
+        7px;
+
+      color:
+        var(--text-soft);
+
+      font-size:
+        11px;
+
+      direction:
+        ltr;
     }
+
+
+    /* =========================================================
+       SAMPLE EXPERT PROFILE
+       ========================================================= */
+
+    .profile-showcase {
+
+      padding:
+        12px 0 68px;
+    }
+
+
+    .profile-card-link {
+
+      display:
+        block;
+    }
+
+
+    .profile-card {
+
+      position:
+        relative;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        auto
+        minmax(0, 1fr)
+        auto;
+
+      align-items:
+        center;
+
+      gap:
+        22px;
+
+      padding:
+        25px 27px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.012)
+        ),
+        var(--surface);
+
+      overflow:
+        hidden;
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+    }
+
+
+    .profile-card::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        220px;
+
+      height:
+        220px;
+
+      left:
+        -110px;
+
+      bottom:
+        -120px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(22,156,255,.08);
+
+      filter:
+        blur(28px);
+
+      pointer-events:
+        none;
+    }
+
+
+    .profile-card:hover {
+
+      transform:
+        translateY(-4px);
+
+      border-color:
+        var(--border-blue);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(22,156,255,.055),
+          rgba(255,255,255,.012)
+        ),
+        var(--surface);
+    }
+
+
+    .profile-card-mark {
+
+      position:
+        relative;
+
+      width:
+        68px;
+
+      height:
+        68px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border:
+        1px solid
+        rgba(57,180,255,.24);
+
+      border-radius:
+        17px;
+
+      background:
+        rgba(22,156,255,.045);
+
+      color:
+        var(--silver);
+
+      font-size:
+        20px;
+
+      font-weight:
+        700;
+    }
+
+
+    .profile-card-content {
+
+      position:
+        relative;
+
+      min-width:
+        0;
+    }
+
+
+    .profile-card-label {
+
+      margin-bottom:
+        5px;
+
+      color:
+        var(--blue-bright);
+
+      font-size:
+        10px;
+
+      letter-spacing:
+        1.5px;
+
+      direction:
+        ltr;
+
+      text-align:
+        left;
+    }
+
+
+    .profile-card h3 {
+
+      font-size:
+        22px;
+
+      line-height:
+        1.6;
+
+      margin-bottom:
+        7px;
+    }
+
+
+    .profile-card p {
+
+      max-width:
+        720px;
+
+      color:
+        var(--text-muted);
+
+      font-size:
+        14px;
+
+      line-height:
+        2;
+    }
+
+
+    .profile-card .tag-row {
+
+      margin-top:
+        14px;
+    }
+
+
+    .profile-card-arrow {
+
+      position:
+        relative;
+
+      color:
+        var(--blue-bright);
+
+      font-size:
+        24px;
+
+      direction:
+        ltr;
+
+      transition:
+        transform .25s ease;
+    }
+
+
+    .profile-card:hover .profile-card-arrow {
+
+      transform:
+        translateX(-5px);
+    }
+
 
     /* =========================================================
        KNOWLEDGE GRAPH
        ========================================================= */
 
     .network-section {
-      padding: 45px 0 110px;
+
+      padding:
+        45px 0 110px;
     }
 
+
     .network {
-      position: relative;
 
-      padding: 55px;
+      position:
+        relative;
 
-      min-height: 310px;
+      padding:
+        55px;
 
-      border: 1px solid var(--border-blue);
-      border-radius: 22px;
+      min-height:
+        310px;
+
+      border:
+        1px solid var(--border-blue);
+
+      border-radius:
+        22px;
 
       background:
         radial-gradient(
@@ -187,95 +628,174 @@
           transparent 42%
         ),
         var(--surface);
-      overflow: hidden;
+
+      overflow:
+        hidden;
     }
+
 
     .network-content {
-      position: relative;
-      z-index: 2;
 
-      max-width: 650px;
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      max-width:
+        650px;
     }
+
 
     .network h2 {
-      font-size: 34px;
-      line-height: 1.5;
 
-      margin-bottom: 15px;
+      font-size:
+        34px;
+
+      line-height:
+        1.5;
+
+      margin-bottom:
+        15px;
     }
+
 
     .network p {
-      color: var(--text-soft);
 
-      max-width: 620px;
+      color:
+        var(--text-soft);
 
-      line-height: 2;
-      font-size: 16px;
+      max-width:
+        620px;
+
+      line-height:
+        2;
+
+      font-size:
+        16px;
     }
+
 
     .network-ring {
-      position: absolute;
 
-      width: 280px;
-      height: 280px;
+      position:
+        absolute;
 
-      left: -40px;
-      top: 15px;
+      width:
+        280px;
 
-      border: 1px solid rgba(57,180,255,.16);
-      border-radius: 50%;
+      height:
+        280px;
+
+      left:
+        -40px;
+
+      top:
+        15px;
+
+      border:
+        1px solid
+        rgba(57,180,255,.16);
+
+      border-radius:
+        50%;
     }
+
 
     .network-ring::before,
     .network-ring::after {
-      content: "";
 
-      position: absolute;
+      content:
+        "";
 
-      border: 1px solid rgba(57,180,255,.10);
-      border-radius: 50%;
+      position:
+        absolute;
+
+      border:
+        1px solid
+        rgba(57,180,255,.10);
+
+      border-radius:
+        50%;
     }
+
 
     .network-ring::before {
-      inset: 28px;
+
+      inset:
+        28px;
     }
+
 
     .network-ring::after {
-      inset: 65px;
+
+      inset:
+        65px;
     }
+
 
     .network-node {
-      position: absolute;
 
-      width: 9px;
-      height: 9px;
+      position:
+        absolute;
 
-      border-radius: 50%;
+      width:
+        9px;
 
-      background: var(--blue-bright);
+      height:
+        9px;
 
-      box-shadow: 0 0 18px rgba(57,180,255,.65);
+      border-radius:
+        50%;
+
+      background:
+        var(--blue-bright);
+
+      box-shadow:
+        0 0 18px
+        rgba(57,180,255,.65);
     }
+
 
     .node-1 {
-      top: 48px;
-      left: 115px;
+
+      top:
+        48px;
+
+      left:
+        115px;
     }
+
 
     .node-2 {
-      top: 130px;
-      left: 38px;
+
+      top:
+        130px;
+
+      left:
+        38px;
     }
+
 
     .node-3 {
-      bottom: 48px;
-      left: 140px;
+
+      bottom:
+        48px;
+
+      left:
+        140px;
     }
 
+
     .node-4 {
-      top: 105px;
-      right: 48px;
+
+      top:
+        105px;
+
+      right:
+        48px;
     }
+
 
     /* =========================================================
        RESPONSIVE
@@ -284,80 +804,208 @@
     @media (max-width: 900px) {
 
       .expert-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
       }
+
+
+      .profile-card {
+
+        grid-template-columns:
+          auto
+          minmax(0, 1fr);
+      }
+
+
+      .profile-card-arrow {
+
+        display:
+          none;
+      }
+
 
       .network {
-        padding: 42px 30px;
+
+        padding:
+          42px 30px;
       }
 
+
       .network-ring {
-        opacity: .45;
+
+        opacity:
+          .45;
       }
 
     }
 
+
     @media (max-width: 760px) {
 
       .hero {
-        padding: 72px 0 60px;
+
+        padding:
+          72px 0 60px;
       }
+
 
       .hero h1 {
-        font-size: clamp(36px, 10vw, 48px);
-        line-height: 1.45;
-        letter-spacing: -1px;
+
+        font-size:
+          clamp(36px, 10vw, 48px);
+
+        line-height:
+          1.45;
+
+        letter-spacing:
+          normal;
       }
+
 
       .hero p {
-        font-size: 16px;
-        line-height: 2.1;
+
+        font-size:
+          16px;
+
+        line-height:
+          2.1;
       }
+
 
       .experts-section {
-        padding: 65px 0 50px;
+
+        padding:
+          65px 0 50px;
       }
+
 
       .section-heading {
-        margin-bottom: 35px;
+
+        margin-bottom:
+          35px;
       }
+
 
       .section-heading h2 {
-        font-size: 30px;
+
+        font-size:
+          30px;
       }
+
 
       .section-heading p {
-        font-size: 15px;
+
+        font-size:
+          15px;
       }
+
 
       .expert-card {
-        min-height: auto;
-        padding: 26px;
+
+        min-height:
+          auto;
+
+        padding:
+          26px;
       }
+
+
+      .profile-showcase {
+
+        padding:
+          5px 0 55px;
+      }
+
+
+      .profile-card {
+
+        gap:
+          16px;
+
+        padding:
+          20px;
+      }
+
+
+      .profile-card-mark {
+
+        width:
+          58px;
+
+        height:
+          58px;
+
+        font-size:
+          18px;
+      }
+
+
+      .profile-card h3 {
+
+        font-size:
+          19px;
+      }
+
+
+      .profile-card p {
+
+        font-size:
+          13px;
+      }
+
+
+      .profile-card .tag-row {
+
+        margin-top:
+          12px;
+      }
+
 
       .network-section {
-        padding: 35px 0 80px;
+
+        padding:
+          35px 0 80px;
       }
+
 
       .network {
-        padding: 35px 25px;
-        min-height: 280px;
+
+        padding:
+          35px 25px;
+
+        min-height:
+          280px;
       }
+
 
       .network h2 {
-        font-size: 28px;
+
+        font-size:
+          28px;
       }
+
 
       .network p {
-        font-size: 15px;
+
+        font-size:
+          15px;
       }
 
-      .network-ring {
-        width: 220px;
-        height: 220px;
 
-        left: -85px;
-        top: 35px;
+      .network-ring {
+
+        width:
+          220px;
+
+        height:
+          220px;
+
+        left:
+          -85px;
+
+        top:
+          35px;
       }
 
     }
@@ -369,97 +1017,217 @@
 
 <body>
 
+
 <header>
 
   <div class="container">
 
     <nav class="nav">
 
-      <a class="brand" href="../index.html" aria-label="XSYN">
+
+      <!-- BRAND -->
+
+      <a
+        class="brand"
+        href="../index.html"
+        aria-label="XSYN"
+      >
+
         <img
           class="brand-logo"
           src="../assets/xsyn-logo.png"
           alt="XSYN"
         />
+
       </a>
 
 
+      <!-- DESKTOP NAVIGATION -->
+
       <div class="nav-links">
+
+
+        <!-- HOME -->
+
         <a
           class="nav-link"
           href="../index.html"
         >
           خانه
         </a>
+
+
+        <!-- SOLUTIONS -->
+
         <div class="nav-item">
-          <a class="nav-link" href="../solutions/index.html">
+
+          <a
+            class="nav-link"
+            href="../solutions/index.html"
+          >
+
             راهکارها
-            <span class="arrow">⌄</span>
+
+            <span class="arrow">
+              ⌄
+            </span>
+
           </a>
+
 
           <div class="dropdown">
 
             <a href="../solutions/index.html">
-              <strong>تحول دیجیتال</strong>
-              <span>DIGITAL TRANSFORMATION</span>
+
+              <strong>
+                تحول دیجیتال
+              </strong>
+
+              <span>
+                DIGITAL TRANSFORMATION
+              </span>
+
             </a>
 
-            <a href="../solutions/index.html">
-              <strong>هوش مصنوعی و داده</strong>
-              <span>AI & DATA INTELLIGENCE</span>
-            </a>
 
             <a href="../solutions/index.html">
-              <strong>داشبورد و عملکرد</strong>
-              <span>PERFORMANCE & DASHBOARDS</span>
+
+              <strong>
+                هوش مصنوعی و داده
+              </strong>
+
+              <span>
+                AI & DATA INTELLIGENCE
+              </span>
+
             </a>
 
-            <a href="../solutions/index.html">
-              <strong>ERP و سیستم‌های سازمانی</strong>
-              <span>ERP & BUSINESS SYSTEMS</span>
-            </a>
 
             <a href="../solutions/index.html">
-              <strong>شبیه‌سازی و Digital Twin</strong>
-              <span>SIMULATION & DIGITAL TWIN</span>
+
+              <strong>
+                داشبورد و عملکرد
+              </strong>
+
+              <span>
+                PERFORMANCE & DASHBOARDS
+              </span>
+
             </a>
 
-            <a href="../solutions/index.html">
-              <strong>اتصال‌پذیری صنعتی</strong>
-              <span>INDUSTRIAL CONNECTIVITY</span>
-            </a>
 
             <a href="../solutions/index.html">
-              <strong>سازمان و منابع انسانی</strong>
-              <span>ORGANIZATION & PEOPLE</span>
+
+              <strong>
+                ERP و سیستم‌های سازمانی
+              </strong>
+
+              <span>
+                ERP & BUSINESS SYSTEMS
+              </span>
+
+            </a>
+
+
+            <a href="../solutions/index.html">
+
+              <strong>
+                شبیه‌سازی و Digital Twin
+              </strong>
+
+              <span>
+                SIMULATION & DIGITAL TWIN
+              </span>
+
+            </a>
+
+
+            <a href="../solutions/index.html">
+
+              <strong>
+                اتصال‌پذیری صنعتی
+              </strong>
+
+              <span>
+                INDUSTRIAL CONNECTIVITY
+              </span>
+
+            </a>
+
+
+            <a href="../solutions/index.html">
+
+              <strong>
+                سازمان و منابع انسانی
+              </strong>
+
+              <span>
+                ORGANIZATION & PEOPLE
+              </span>
+
             </a>
 
           </div>
+
         </div>
 
 
+        <!-- EXPERTS -->
+
         <div class="nav-item">
 
-          <a class="nav-link active" href="../experts/index.html">
+          <a
+            class="nav-link active"
+            href="../experts/index.html"
+          >
+
             متخصصین
-            <span class="arrow">⌄</span>
+
+            <span class="arrow">
+              ⌄
+            </span>
+
           </a>
+
 
           <div class="dropdown">
 
             <a href="../experts/index.html">
-              <strong>شبکه متخصصین</strong>
-              <span>EXPERT NETWORK</span>
+
+              <strong>
+                شبکه متخصصین
+              </strong>
+
+              <span>
+                EXPERT NETWORK
+              </span>
+
             </a>
 
-            <a href="../experts/index.html">
-              <strong>حوزه‌های تخصص</strong>
-              <span>EXPERTISE AREAS</span>
-            </a>
 
             <a href="../experts/index.html">
-              <strong>عضویت در شبکه</strong>
-              <span>JOIN THE NETWORK</span>
+
+              <strong>
+                حوزه‌های تخصص
+              </strong>
+
+              <span>
+                EXPERTISE AREAS
+              </span>
+
+            </a>
+
+
+            <a href="../experts/index.html">
+
+              <strong>
+                عضویت در شبکه
+              </strong>
+
+              <span>
+                JOIN THE NETWORK
+              </span>
+
             </a>
 
           </div>
@@ -467,62 +1235,138 @@
         </div>
 
 
+        <!-- KNOWLEDGE -->
+
         <div class="nav-item">
 
-          <a class="nav-link" href="../knowledge/index.html">
+          <a
+            class="nav-link"
+            href="../knowledge/index.html"
+          >
+
             دانش
-            <span class="arrow">⌄</span>
+
+            <span class="arrow">
+              ⌄
+            </span>
+
           </a>
+
 
           <div class="dropdown">
 
             <a href="../knowledge/index.html">
-              <strong>مقالات و بینش</strong>
-              <span>ARTICLES & INSIGHTS</span>
+
+              <strong>
+                مقالات و بینش
+              </strong>
+
+              <span>
+                ARTICLES & INSIGHTS
+              </span>
+
             </a>
 
-            <a href="../knowledge/index.html">
-              <strong>مطالعات موردی</strong>
-              <span>CASE STUDIES</span>
-            </a>
 
             <a href="../knowledge/index.html">
-              <strong>کتابخانه مسئله</strong>
-              <span>PROBLEM LIBRARY</span>
+
+              <strong>
+                مطالعات موردی
+              </strong>
+
+              <span>
+                CASE STUDIES
+              </span>
+
             </a>
 
+
             <a href="../knowledge/index.html">
-              <strong>فناوری و کشف</strong>
-              <span>TECHNOLOGY DISCOVERY</span>
+
+              <strong>
+                کتابخانه مسئله
+              </strong>
+
+              <span>
+                PROBLEM LIBRARY
+              </span>
+
+            </a>
+
+
+            <a href="../knowledge/index.html">
+
+              <strong>
+                فناوری و کشف
+              </strong>
+
+              <span>
+                TECHNOLOGY DISCOVERY
+              </span>
+
             </a>
 
           </div>
 
         </div>
 
+
+        <!-- INDUSTRIES -->
 
         <div class="nav-item">
 
-          <a class="nav-link" href="../industries/index.html">
+          <a
+            class="nav-link"
+            href="../industries/index.html"
+          >
+
             صنایع
-            <span class="arrow">⌄</span>
+
+            <span class="arrow">
+              ⌄
+            </span>
+
           </a>
+
 
           <div class="dropdown">
 
             <a href="../industries/index.html">
-              <strong>کاشی و سرامیک</strong>
-              <span>CERAMIC & TILE</span>
+
+              <strong>
+                کاشی و سرامیک
+              </strong>
+
+              <span>
+                CERAMIC & TILE
+              </span>
+
             </a>
 
-            <a href="../industries/index.html">
-              <strong>تولید و کارخانه</strong>
-              <span>MANUFACTURING</span>
-            </a>
 
             <a href="../industries/index.html">
-              <strong>صنایع فرایندی</strong>
-              <span>PROCESS INDUSTRIES</span>
+
+              <strong>
+                تولید و کارخانه
+              </strong>
+
+              <span>
+                MANUFACTURING
+              </span>
+
+            </a>
+
+
+            <a href="../industries/index.html">
+
+              <strong>
+                صنایع فرایندی
+              </strong>
+
+              <span>
+                PROCESS INDUSTRIES
+              </span>
+
             </a>
 
           </div>
@@ -530,14 +1374,23 @@
         </div>
 
 
-        <a class="nav-link" href="../about/index.html">
+        <!-- ABOUT -->
+
+        <a
+          class="nav-link"
+          href="../about/index.html"
+        >
           درباره XSYN
         </a>
+
 
       </div>
 
 
+      <!-- ACTIONS -->
+
       <div class="nav-actions">
+
 
         <a
           href="../search/index.html"
@@ -547,6 +1400,7 @@
           ⌕
         </a>
 
+
         <a
           href="../index.html#contact"
           class="primary-btn nav-cta"
@@ -554,113 +1408,224 @@
           مسئله خود را مطرح کنید
         </a>
 
+
         <button
           class="mobile-toggle"
           id="mobileToggle"
           aria-label="منو"
+          aria-expanded="false"
         >
           ☰
         </button>
 
+
       </div>
+
 
     </nav>
 
 
-    <div class="mobile-menu" id="mobileMenu">
+    <!-- MOBILE MENU -->
+
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+    >
+
+
+      <!-- HOME -->
+
       <div class="mobile-item">
-      
+
         <a href="../index.html">
+
           <span>
             خانه
           </span>
+
         </a>
-      
+
       </div>
+
+
+      <!-- SOLUTIONS -->
+
       <div class="mobile-item">
 
         <a href="../solutions/index.html">
-          <span>راهکارها</span>
-          <span>⌄</span>
+
+          <span>
+            راهکارها
+          </span>
+
+          <span>
+            ⌄
+          </span>
+
         </a>
+
 
         <div class="mobile-sub">
 
-          <a href="../solutions/index.html">تحول دیجیتال</a>
-          <a href="../solutions/index.html">هوش مصنوعی و داده</a>
-          <a href="../solutions/index.html">داشبورد و عملکرد</a>
-          <a href="../solutions/index.html">ERP و سیستم‌های سازمانی</a>
-          <a href="../solutions/index.html">شبیه‌سازی و Digital Twin</a>
-          <a href="../solutions/index.html">اتصال‌پذیری صنعتی</a>
-          <a href="../solutions/index.html">سازمان و منابع انسانی</a>
+          <a href="../solutions/index.html">
+            تحول دیجیتال
+          </a>
+
+          <a href="../solutions/index.html">
+            هوش مصنوعی و داده
+          </a>
+
+          <a href="../solutions/index.html">
+            داشبورد و عملکرد
+          </a>
+
+          <a href="../solutions/index.html">
+            ERP و سیستم‌های سازمانی
+          </a>
+
+          <a href="../solutions/index.html">
+            شبیه‌سازی و Digital Twin
+          </a>
+
+          <a href="../solutions/index.html">
+            اتصال‌پذیری صنعتی
+          </a>
+
+          <a href="../solutions/index.html">
+            سازمان و منابع انسانی
+          </a>
 
         </div>
 
       </div>
 
+
+      <!-- EXPERTS -->
 
       <div class="mobile-item">
 
         <a href="../experts/index.html">
-          <span>متخصصین</span>
-          <span>⌄</span>
+
+          <span>
+            متخصصین
+          </span>
+
+          <span>
+            ⌄
+          </span>
+
         </a>
+
 
         <div class="mobile-sub">
 
-          <a href="../experts/index.html">شبکه متخصصین</a>
-          <a href="../experts/index.html">حوزه‌های تخصص</a>
-          <a href="../experts/index.html">عضویت در شبکه</a>
+          <a href="../experts/index.html">
+            شبکه متخصصین
+          </a>
+
+          <a href="../experts/index.html">
+            حوزه‌های تخصص
+          </a>
+
+          <a href="../experts/index.html">
+            عضویت در شبکه
+          </a>
 
         </div>
 
       </div>
 
+
+      <!-- KNOWLEDGE -->
 
       <div class="mobile-item">
 
         <a href="../knowledge/index.html">
-          <span>دانش</span>
-          <span>⌄</span>
+
+          <span>
+            دانش
+          </span>
+
+          <span>
+            ⌄
+          </span>
+
         </a>
+
 
         <div class="mobile-sub">
 
-          <a href="../knowledge/index.html">مقالات و بینش</a>
-          <a href="../knowledge/index.html">مطالعات موردی</a>
-          <a href="../knowledge/index.html">کتابخانه مسئله</a>
-          <a href="../knowledge/index.html">فناوری و کشف</a>
+          <a href="../knowledge/index.html">
+            مقالات و بینش
+          </a>
+
+          <a href="../knowledge/index.html">
+            مطالعات موردی
+          </a>
+
+          <a href="../knowledge/index.html">
+            کتابخانه مسئله
+          </a>
+
+          <a href="../knowledge/index.html">
+            فناوری و کشف
+          </a>
 
         </div>
 
       </div>
 
+
+      <!-- INDUSTRIES -->
 
       <div class="mobile-item">
 
         <a href="../industries/index.html">
-          <span>صنایع</span>
-          <span>⌄</span>
+
+          <span>
+            صنایع
+          </span>
+
+          <span>
+            ⌄
+          </span>
+
         </a>
+
 
         <div class="mobile-sub">
 
-          <a href="../industries/index.html">کاشی و سرامیک</a>
-          <a href="../industries/index.html">تولید و کارخانه</a>
-          <a href="../industries/index.html">صنایع فرایندی</a>
+          <a href="../industries/index.html">
+            کاشی و سرامیک
+          </a>
+
+          <a href="../industries/index.html">
+            تولید و کارخانه
+          </a>
+
+          <a href="../industries/index.html">
+            صنایع فرایندی
+          </a>
 
         </div>
 
       </div>
 
 
+      <!-- ABOUT -->
+
       <div class="mobile-item">
 
         <a href="../about/index.html">
-          <span>درباره XSYN</span>
+
+          <span>
+            درباره XSYN
+          </span>
+
         </a>
 
       </div>
+
 
     </div>
 
@@ -671,18 +1636,26 @@
 
 <main>
 
+
+  <!-- =======================================================
+       HERO
+       ======================================================= -->
+
   <section class="hero">
 
     <div class="container">
+
 
       <div class="eyebrow">
         XSYN · EXPERT NETWORK
       </div>
 
+
       <h1>
         دانش تخصصی، وقتی ارزشمند است
         که به مسئله واقعی متصل شود.
       </h1>
+
 
       <p>
         XSYN در حال ساخت شبکه‌ای از متخصصین، مدیران و افراد
@@ -690,20 +1663,28 @@
         واقعی صنعت متصل شود.
       </p>
 
+
     </div>
 
   </section>
 
 
+  <!-- =======================================================
+       EXPERT AREAS
+       ======================================================= -->
+
   <section class="experts-section">
 
     <div class="container">
 
+
       <div class="section-heading">
+
 
         <h2>
           شبکه‌ای از تخصص‌های مکمل
         </h2>
+
 
         <p>
           هدف شبکه متخصصین XSYN صرفاً ایجاد یک فهرست از افراد نیست؛
@@ -711,85 +1692,128 @@
           پروژه و نیاز واقعی سازمان‌هاست.
         </p>
 
+
       </div>
 
 
       <div class="expert-grid">
 
 
+        <!-- AI & DATA -->
+
         <article class="expert-card">
+
 
           <div class="expert-number">
             01 · AI & DATA
           </div>
 
+
           <h3>
             هوش مصنوعی و داده
           </h3>
+
 
           <p>
             متخصصین داده، هوش مصنوعی، تحلیل پیش‌بینانه،
             یادگیری ماشین و سیستم‌های تصمیم‌یار.
           </p>
 
+
           <div class="tag-row">
 
-            <span class="tag">AI</span>
-            <span class="tag">DATA</span>
-            <span class="tag">ML</span>
+            <span class="tag">
+              AI
+            </span>
+
+            <span class="tag">
+              DATA
+            </span>
+
+            <span class="tag">
+              ML
+            </span>
 
           </div>
+
 
         </article>
 
 
+        <!-- ERP & SYSTEMS -->
+
         <article class="expert-card">
+
 
           <div class="expert-number">
             02 · ERP & SYSTEMS
           </div>
 
+
           <h3>
             ERP و سیستم‌های سازمانی
           </h3>
+
 
           <p>
             متخصصین ERP، معماری سیستم، یکپارچه‌سازی،
             فرایندهای سازمانی و مدیریت اطلاعات.
           </p>
 
+
           <div class="tag-row">
 
-            <span class="tag">ERP</span>
-            <span class="tag">SYSTEMS</span>
-            <span class="tag">INTEGRATION</span>
+            <span class="tag">
+              ERP
+            </span>
+
+            <span class="tag">
+              SYSTEMS
+            </span>
+
+            <span class="tag">
+              INTEGRATION
+            </span>
 
           </div>
+
 
         </article>
 
 
+        <!-- DIGITAL TWIN -->
+
         <article class="expert-card">
+
 
           <div class="expert-number">
             03 · DIGITAL TWIN
           </div>
 
+
           <h3>
             شبیه‌سازی و Digital Twin
           </h3>
+
 
           <p>
             متخصصین مدل‌سازی، شبیه‌سازی، Digital Twin
             و تحلیل سیستم‌های پیچیده صنعتی.
           </p>
 
+
           <div class="tag-row">
 
-            <span class="tag">SIMULATION</span>
-            <span class="tag">DIGITAL TWIN</span>
+            <span class="tag">
+              SIMULATION
+            </span>
+
+            <span class="tag">
+              DIGITAL TWIN
+            </span>
 
           </div>
+
 
         </article>
 
@@ -801,22 +1825,133 @@
   </section>
 
 
+  <!-- =======================================================
+       SAMPLE EXPERT PROFILE
+       ======================================================= -->
+
+  <section class="profile-showcase">
+
+    <div class="container">
+
+
+      <div class="section-heading">
+
+
+        <div class="section-label">
+          SAMPLE EXPERT PROFILE
+        </div>
+
+
+        <h2>
+          هر متخصص؛ یک پروفایل در شبکه XSYN
+        </h2>
+
+
+        <p>
+          ساختار پروفایل‌ها طوری طراحی می‌شود که تخصص، تجربه،
+          صنعت و فناوری‌های مرتبط هر فرد در آینده بتواند به
+          مسئله‌ها، پروژه‌ها و دانش مرتبط متصل شود.
+        </p>
+
+
+      </div>
+
+
+      <a
+        class="profile-card-link"
+        href="./masih-dowlatshahi-rad/index.html"
+      >
+
+
+        <article class="profile-card">
+
+
+          <div class="profile-card-mark">
+            م&nbsp;د
+          </div>
+
+
+          <div class="profile-card-content">
+
+
+            <div class="profile-card-label">
+              SAMPLE · SOLUTION ARCHITECT
+            </div>
+
+
+            <h3>
+              مسیح دولتشاهی راد
+            </h3>
+
+
+            <p>
+              مشاور تحول دیجیتال و مهندسی سیستم‌های صنعتی،
+              با تمرکز بر داده، ERP / MES، بهبود فرایند و
+              معماری راهکار.
+            </p>
+
+
+            <div class="tag-row">
+
+              <span class="tag">
+                DIGITAL TRANSFORMATION
+              </span>
+
+              <span class="tag">
+                INDUSTRIAL DATA
+              </span>
+
+              <span class="tag">
+                ERP / MES
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="profile-card-arrow">
+            ←
+          </div>
+
+
+        </article>
+
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       KNOWLEDGE GRAPH
+       ======================================================= -->
+
   <section class="network-section">
 
     <div class="container">
 
+
       <div class="network">
 
+
         <div class="network-content">
+
 
           <div class="section-label">
             FROM EXPERT NETWORK TO KNOWLEDGE GRAPH
           </div>
 
+
           <h2>
             شبکه امروز؛
             موتور دانش فردا
           </h2>
+
 
           <p>
             در مراحل بعدی، ارتباط میان متخصصین، پروژه‌ها،
@@ -826,17 +1961,35 @@
             استفاده می‌کند.
           </p>
 
+
         </div>
 
 
         <div class="network-ring">
 
-          <span class="network-node node-1"></span>
-          <span class="network-node node-2"></span>
-          <span class="network-node node-3"></span>
-          <span class="network-node node-4"></span>
+
+          <span
+            class="network-node node-1"
+          ></span>
+
+
+          <span
+            class="network-node node-2"
+          ></span>
+
+
+          <span
+            class="network-node node-3"
+          ></span>
+
+
+          <span
+            class="network-node node-4"
+          ></span>
+
 
         </div>
+
 
       </div>
 
@@ -844,27 +1997,37 @@
 
   </section>
 
+
 </main>
 
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
 
 <footer>
 
   <div class="container">
+
 
     <a
       class="footer-brand"
       href="../index.html"
       aria-label="XSYN"
     >
+
       <img
         src="../assets/xsyn-logo.png"
         alt="XSYN"
       />
+
     </a>
+
 
     <div class="footer-meta">
       TECHNOLOGY · SYNERGY · TRANSFORMATION
     </div>
+
 
   </div>
 
@@ -873,5 +2036,7 @@
 
 <script src="../js/main.js"></script>
 
+
 </body>
+
 </html>
