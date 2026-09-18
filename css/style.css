@@ -4,6 +4,40 @@
 
 
 /* =========================================================
+   00. XSYN FONT
+   ========================================================= */
+
+@font-face {
+  font-family: "Vazirmatn";
+
+  src:
+    url("../assets/fonts/Vazirmatn-Regular.woff2")
+    format("woff2");
+
+  font-style: normal;
+
+  font-weight: 400;
+
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "Vazirmatn";
+
+  src:
+    url("../assets/fonts/Vazirmatn-Bold.woff2")
+    format("woff2");
+
+  font-style: normal;
+
+  font-weight: 700;
+
+  font-display: swap;
+}
+
+
+/* =========================================================
    01. DESIGN TOKENS
    ========================================================= */
 
@@ -56,18 +90,23 @@
 
 
 html {
+
   scroll-behavior: smooth;
 
-  background: var(--bg);
+  background:
+    var(--bg);
 }
 
 
 body {
 
   font-family:
+    "Vazirmatn",
     Arial,
     Tahoma,
     sans-serif;
+
+  font-weight: 400;
 
   background:
     radial-gradient(
@@ -82,24 +121,39 @@ body {
     ),
     var(--bg);
 
-  color: var(--text);
+  color:
+    var(--text);
 
-  line-height: 1.9;
+  line-height:
+    1.9;
 
-  min-height: 100vh;
+  min-height:
+    100vh;
 
-  overflow-x: hidden;
+  overflow-x:
+    hidden;
 
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing:
+    antialiased;
 
-  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing:
+    grayscale;
+
+  text-rendering:
+    optimizeLegibility;
+
+  -webkit-text-size-adjust:
+    100%;
 }
 
 
 a {
-  color: inherit;
 
-  text-decoration: none;
+  color:
+    inherit;
+
+  text-decoration:
+    none;
 }
 
 
@@ -107,25 +161,37 @@ button,
 input,
 textarea,
 select {
-  font: inherit;
+
+  font-family:
+    inherit;
+
+  font-size:
+    inherit;
 }
 
 
 button {
-  border: 0;
+
+  border:
+    0;
 }
 
 
 img {
-  display: block;
 
-  max-width: 100%;
+  display:
+    block;
 
-  height: auto;
+  max-width:
+    100%;
+
+  height:
+    auto;
 }
 
 
 ::selection {
+
   background:
     rgba(22,156,255,.24);
 
@@ -148,16 +214,70 @@ img {
 
 
 /* =========================================================
-   03. SHARED HEADER
+   03. SHARED TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  font-family:
+    "Vazirmatn",
+    Arial,
+    Tahoma,
+    sans-serif;
+
+  font-weight:
+    700;
+
+  text-wrap:
+    balance;
+
+  overflow-wrap:
+    break-word;
+}
+
+
+p,
+li,
+a,
+button,
+input,
+textarea,
+select {
+
+  font-family:
+    "Vazirmatn",
+    Arial,
+    Tahoma,
+    sans-serif;
+}
+
+
+p {
+
+  overflow-wrap:
+    break-word;
+}
+
+
+/* =========================================================
+   04. SHARED HEADER
    ========================================================= */
 
 header {
 
-  position: sticky;
+  position:
+    sticky;
 
-  top: 0;
+  top:
+    0;
 
-  z-index: 1000;
+  z-index:
+    1000;
 
   background:
     rgba(3,10,22,.94);
@@ -175,55 +295,74 @@ header {
 
 .nav {
 
-  height: 76px;
+  height:
+    76px;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
-  position: relative;
+  position:
+    relative;
 
-  direction: ltr;
+  direction:
+    ltr;
 }
 
 
 /* =========================================================
-   04. BRAND
+   05. BRAND
    ========================================================= */
 
 .brand {
 
-  position: absolute;
+  position:
+    absolute;
 
-  left: 50%;
-  top: 50%;
+  left:
+    50%;
+
+  top:
+    50%;
 
   transform:
     translate(-50%,-50%);
 
-  display: inline-flex;
+  display:
+    inline-flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
-  z-index: 5;
+  z-index:
+    5;
 
-  flex-shrink: 0;
+  flex-shrink:
+    0;
 }
 
 
 .brand-logo {
 
-  width: 165px;
+  width:
+    165px;
 
-  height: auto;
+  height:
+    auto;
 
-  display: block;
+  display:
+    block;
 
-  object-fit: contain;
+  object-fit:
+    contain;
 
   transition:
     opacity .22s ease,
@@ -233,7 +372,8 @@ header {
 
 .brand:hover .brand-logo {
 
-  opacity: .96;
+  opacity:
+    .96;
 
   transform:
     scale(1.015);
@@ -241,43 +381,56 @@ header {
 
 
 /* =========================================================
-   05. DESKTOP NAVIGATION
+   06. DESKTOP NAVIGATION
    ========================================================= */
 
 .nav-links {
 
-  order: 3;
+  order:
+    3;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 6px;
+  gap:
+    6px;
 
-  direction: rtl;
+  direction:
+    rtl;
 
   color:
     var(--text-soft);
 
-  font-size: 15px;
+  font-size:
+    15px;
 
-  font-weight: 600;
+  font-weight:
+    400;
 
-  white-space: nowrap;
+  white-space:
+    nowrap;
 }
 
 
 .nav-link {
 
-  position: relative;
+  position:
+    relative;
 
-  height: 76px;
+  height:
+    76px;
 
-  display: inline-flex;
+  display:
+    inline-flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 6px;
+  gap:
+    6px;
 
   padding:
     0 11px;
@@ -285,7 +438,8 @@ header {
   border:
     1px solid transparent;
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
   color:
     var(--text-soft);
@@ -302,20 +456,25 @@ header {
 }
 
 
-/* Hover underline */
-
 .nav-link::after {
 
-  content: "";
+  content:
+    "";
 
-  position: absolute;
+  position:
+    absolute;
 
-  right: 11px;
-  left: 11px;
+  right:
+    11px;
 
-  bottom: 10px;
+  left:
+    11px;
 
-  height: 2px;
+  bottom:
+    10px;
+
+  height:
+    2px;
 
   background:
     linear-gradient(
@@ -325,7 +484,8 @@ header {
       transparent
     );
 
-  border-radius: 999px;
+  border-radius:
+    999px;
 
   transform:
     scaleX(.15);
@@ -333,7 +493,8 @@ header {
   transform-origin:
     center;
 
-  opacity: 0;
+  opacity:
+    0;
 
   box-shadow:
     0 0 11px
@@ -371,7 +532,8 @@ header {
 
 .nav-link:hover::after {
 
-  opacity: 1;
+  opacity:
+    1;
 
   transform:
     scaleX(1);
@@ -382,6 +544,9 @@ header {
 
   color:
     var(--text);
+
+  font-weight:
+    700;
 
   background:
     linear-gradient(
@@ -397,7 +562,8 @@ header {
 
 .nav-link.active::after {
 
-  opacity: 1;
+  opacity:
+    1;
 
   transform:
     scaleX(1);
@@ -405,22 +571,26 @@ header {
 
 
 /* =========================================================
-   06. NAV ITEM / ARROW
+   07. NAV ITEM / ARROW
    ========================================================= */
 
 .nav-item {
 
-  position: relative;
+  position:
+    relative;
 }
 
 
 .arrow {
 
-  font-size: 12px;
+  font-size:
+    12px;
 
-  line-height: 1;
+  line-height:
+    1;
 
-  opacity: .68;
+  opacity:
+    .68;
 
   color:
     var(--text-soft);
@@ -437,7 +607,8 @@ header {
   color:
     var(--blue-bright);
 
-  opacity: 1;
+  opacity:
+    1;
 
   transform:
     rotate(180deg);
@@ -445,24 +616,29 @@ header {
 
 
 /* =========================================================
-   07. DROPDOWN
+   08. DROPDOWN
    ========================================================= */
 
 .dropdown {
 
-  position: absolute;
+  position:
+    absolute;
 
-  top: 71px;
+  top:
+    71px;
 
-  right: 50%;
+  right:
+    50%;
 
   transform:
     translateX(50%)
     translateY(8px);
 
-  width: 300px;
+  width:
+    300px;
 
-  padding: 9px;
+  padding:
+    9px;
 
   background:
     rgba(7,19,34,.985);
@@ -470,16 +646,20 @@ header {
   border:
     1px solid var(--line);
 
-  border-radius: 14px;
+  border-radius:
+    14px;
 
   box-shadow:
     var(--shadow);
 
-  opacity: 0;
+  opacity:
+    0;
 
-  visibility: hidden;
+  visibility:
+    hidden;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 
   transition:
     opacity .20s ease,
@@ -489,11 +669,14 @@ header {
 
 .nav-item:hover .dropdown {
 
-  opacity: 1;
+  opacity:
+    1;
 
-  visibility: visible;
+  visibility:
+    visible;
 
-  pointer-events: auto;
+  pointer-events:
+    auto;
 
   transform:
     translateX(50%)
@@ -503,16 +686,23 @@ header {
 
 .dropdown::before {
 
-  content: "";
+  content:
+    "";
 
-  position: absolute;
+  position:
+    absolute;
 
-  top: -5px;
+  top:
+    -5px;
 
-  left: 50%;
+  left:
+    50%;
 
-  width: 9px;
-  height: 9px;
+  width:
+    9px;
+
+  height:
+    9px;
 
   transform:
     translateX(-50%)
@@ -531,14 +721,17 @@ header {
 
 .dropdown a {
 
-  position: relative;
+  position:
+    relative;
 
-  display: block;
+  display:
+    block;
 
   padding:
     12px 13px;
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
   color:
     var(--text);
@@ -569,71 +762,94 @@ header {
 
 .dropdown strong {
 
-  display: block;
+  display:
+    block;
 
-  font-size: 13px;
+  font-size:
+    13px;
 
-  font-weight: 600;
+  font-weight:
+    700;
 
-  line-height: 1.75;
+  line-height:
+    1.75;
 
-  margin-bottom: 2px;
+  margin-bottom:
+    2px;
 }
 
 
 .dropdown span {
 
-  display: block;
+  display:
+    block;
 
-  direction: ltr;
+  direction:
+    ltr;
 
-  text-align: right;
+  text-align:
+    right;
 
   color:
     var(--text-muted);
 
-  font-size: 10px;
+  font-size:
+    10px;
 
-  letter-spacing: .25px;
+  letter-spacing:
+    .25px;
 
-  line-height: 1.5;
+  line-height:
+    1.5;
 }
 
 
 /* =========================================================
-   08. NAV ACTIONS
+   09. NAV ACTIONS
    ========================================================= */
 
 .nav-actions {
 
-  order: 1;
+  order:
+    1;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 9px;
+  gap:
+    9px;
 
-  direction: ltr;
+  direction:
+    ltr;
 
-  flex-shrink: 0;
+  flex-shrink:
+    0;
 }
 
 
 /* =========================================================
-   09. SEARCH BUTTON
+   10. SEARCH BUTTON
    ========================================================= */
 
 .search-btn {
 
-  width: 38px;
-  height: 38px;
+  width:
+    38px;
 
-  display: inline-flex;
+  height:
+    38px;
 
-  align-items: center;
+  display:
+    inline-flex;
 
-  justify-content: center;
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   color:
     var(--text-soft);
@@ -641,22 +857,27 @@ header {
   border:
     1px solid var(--line);
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
   background:
     rgba(255,255,255,.008);
 
-  font-size: 18px;
+  font-size:
+    18px;
 
-  line-height: 1;
+  line-height:
+    1;
 
-  text-decoration: none;
+  text-decoration:
+    none;
 
   transition:
     color .20s ease,
     border-color .20s ease,
     background .20s ease,
-    transform .20s ease;
+    transform .20s ease,
+    box-shadow .20s ease;
 }
 
 
@@ -681,16 +902,19 @@ header {
 
 
 /* =========================================================
-   10. PRIMARY BUTTON
+   11. PRIMARY BUTTON
    ========================================================= */
 
 .primary-btn {
 
-  display: inline-flex;
+  display:
+    inline-flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
   padding:
     10px 17px;
@@ -698,7 +922,8 @@ header {
   border:
     1px solid rgba(57,180,255,.42);
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
   color:
     var(--text);
@@ -710,11 +935,17 @@ header {
       rgba(22,156,255,.045)
     );
 
-  white-space: nowrap;
+  white-space:
+    nowrap;
 
-  font-size: 13px;
+  font-size:
+    13px;
 
-  line-height: 1.5;
+  font-weight:
+    700;
+
+  line-height:
+    1.5;
 
   transition:
     color .20s ease,
@@ -750,7 +981,7 @@ header {
 
 
 /* =========================================================
-   11. ACCESSIBILITY / FOCUS
+   12. ACCESSIBILITY / FOCUS
    ========================================================= */
 
 .nav-link:focus-visible,
@@ -769,24 +1000,31 @@ header {
 
 
 /* =========================================================
-   12. MOBILE TOGGLE
+   13. MOBILE TOGGLE
    ========================================================= */
 
 .mobile-toggle {
 
-  display: none;
+  display:
+    none;
 
-  width: 40px;
-  height: 40px;
+  width:
+    40px;
 
-  align-items: center;
+  height:
+    40px;
 
-  justify-content: center;
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   border:
     1px solid var(--line);
 
-  border-radius: 9px;
+  border-radius:
+    9px;
 
   background:
     rgba(255,255,255,.008);
@@ -794,11 +1032,14 @@ header {
   color:
     var(--text);
 
-  font-size: 20px;
+  font-size:
+    20px;
 
-  line-height: 1;
+  line-height:
+    1;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
     color .20s ease,
@@ -825,24 +1066,29 @@ header {
 
 
 /* =========================================================
-   13. MOBILE MENU
+   14. MOBILE MENU
    ========================================================= */
 
 .mobile-menu {
 
-  display: none;
+  display:
+    none;
 }
 
 
 .mobile-item > a {
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
-  gap: 12px;
+  gap:
+    12px;
 
   padding:
     14px 4px;
@@ -853,9 +1099,14 @@ header {
   border-bottom:
     1px solid var(--line);
 
-  font-size: 14px;
+  font-size:
+    14px;
 
-  line-height: 1.8;
+  font-weight:
+    400;
+
+  line-height:
+    1.8;
 
   transition:
     color .20s ease,
@@ -875,7 +1126,8 @@ header {
 
 .mobile-sub {
 
-  display: none;
+  display:
+    none;
 
   padding:
     5px 12px 10px;
@@ -884,7 +1136,8 @@ header {
 
 .mobile-sub a {
 
-  display: block;
+  display:
+    block;
 
   padding:
     9px 8px;
@@ -892,11 +1145,17 @@ header {
   color:
     var(--text-muted);
 
-  font-size: 13px;
+  font-size:
+    13px;
 
-  line-height: 1.8;
+  font-weight:
+    400;
 
-  border-radius: 7px;
+  line-height:
+    1.8;
+
+  border-radius:
+    7px;
 
   transition:
     color .20s ease,
@@ -920,12 +1179,13 @@ header {
 
 .mobile-item.open .mobile-sub {
 
-  display: block;
+  display:
+    block;
 }
 
 
 /* =========================================================
-   14. SHARED FOOTER
+   15. SHARED FOOTER
    ========================================================= */
 
 footer {
@@ -939,7 +1199,8 @@ footer {
   color:
     var(--text-muted);
 
-  font-size: 13px;
+  font-size:
+    13px;
 
   background:
     rgba(3,10,22,.42);
@@ -948,23 +1209,30 @@ footer {
 
 .footer-brand {
 
-  display: inline-flex;
+  display:
+    inline-flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  direction: ltr;
+  direction:
+    ltr;
 }
 
 
 .footer-brand img {
 
-  width: 125px;
+  width:
+    125px;
 
-  height: auto;
+  height:
+    auto;
 
-  display: block;
+  display:
+    block;
 
-  opacity: .94;
+  opacity:
+    .94;
 
   transition:
     opacity .20s ease,
@@ -974,7 +1242,8 @@ footer {
 
 .footer-brand:hover img {
 
-  opacity: 1;
+  opacity:
+    1;
 
   transform:
     translateY(-1px);
@@ -983,23 +1252,28 @@ footer {
 
 .footer-meta {
 
-  margin-top: 12px;
+  margin-top:
+    12px;
 
   color:
     var(--text-muted);
 
-  font-size: 11px;
+  font-size:
+    11px;
 
-  letter-spacing: 1.8px;
+  letter-spacing:
+    1.8px;
 
-  direction: ltr;
+  direction:
+    ltr;
 
-  text-align: left;
+  text-align:
+    left;
 }
 
 
 /* =========================================================
-   15. SHARED TEXT HELPERS
+   16. SHARED TEXT HELPERS
    ========================================================= */
 
 .eyebrow {
@@ -1007,15 +1281,23 @@ footer {
   color:
     var(--blue-bright);
 
-  font-size: 12px;
+  font-size:
+    12px;
 
-  letter-spacing: 2px;
+  font-weight:
+    400;
 
-  margin-bottom: 18px;
+  letter-spacing:
+    2px;
 
-  direction: ltr;
+  margin-bottom:
+    18px;
 
-  text-align: left;
+  direction:
+    ltr;
+
+  text-align:
+    left;
 }
 
 
@@ -1024,28 +1306,39 @@ footer {
   color:
     var(--blue-bright);
 
-  font-size: 12px;
+  font-size:
+    12px;
 
-  letter-spacing: 1.8px;
+  font-weight:
+    400;
 
-  direction: ltr;
+  letter-spacing:
+    1.8px;
 
-  text-align: left;
+  direction:
+    ltr;
+
+  text-align:
+    left;
 }
 
 
 .muted {
-  color: var(--text-muted);
+
+  color:
+    var(--text-muted);
 }
 
 
 .soft {
-  color: var(--text-soft);
+
+  color:
+    var(--text-soft);
 }
 
 
 /* =========================================================
-   16. SHARED TABLE / FORM SAFETY
+   17. FORM DEFAULTS
    ========================================================= */
 
 input,
@@ -1075,84 +1368,107 @@ textarea::placeholder {
 
 
 /* =========================================================
-   17. RESPONSIVE — TABLET / SMALL DESKTOP
+   18. RESPONSIVE — TABLET / SMALL DESKTOP
    ========================================================= */
 
 @media (max-width: 1050px) {
 
   .nav {
 
-    height: 72px;
+    height:
+      72px;
   }
 
 
   .nav-links {
 
-    display: none;
+    display:
+      none;
   }
 
 
   .primary-btn.nav-cta {
 
-    display: none;
+    display:
+      none;
   }
 
 
   .nav-actions {
 
-    position: absolute;
+    position:
+      absolute;
 
-    inset: 0;
+    inset:
+      0;
 
-    width: 100%;
-    height: 100%;
+    width:
+      100%;
 
-    display: flex;
+    height:
+      100%;
 
-    align-items: center;
+    display:
+      flex;
 
-    justify-content: space-between;
+    align-items:
+      center;
 
-    direction: ltr;
+    justify-content:
+      space-between;
 
-    pointer-events: none;
+    direction:
+      ltr;
+
+    pointer-events:
+      none;
   }
 
 
   .nav-actions .search-btn,
   .nav-actions .mobile-toggle {
 
-    pointer-events: auto;
+    pointer-events:
+      auto;
 
-    position: relative;
+    position:
+      relative;
 
-    z-index: 6;
+    z-index:
+      6;
   }
 
 
   .mobile-toggle {
 
-    display: inline-flex;
+    display:
+      inline-flex;
   }
 
 
   .brand {
 
-    position: absolute;
+    position:
+      absolute;
 
-    left: 50%;
-    top: 50%;
+    left:
+      50%;
+
+    top:
+      50%;
 
     transform:
       translate(-50%,-50%);
 
-    z-index: 5;
+    z-index:
+      5;
   }
 
 
   .brand-logo {
 
-    width: 145px;
+    width:
+      145px;
   }
 
 
@@ -1168,14 +1484,15 @@ textarea::placeholder {
 
   .mobile-menu.open {
 
-    display: block;
+    display:
+      block;
   }
 
 }
 
 
 /* =========================================================
-   18. RESPONSIVE — MOBILE
+   19. RESPONSIVE — MOBILE
    ========================================================= */
 
 @media (max-width: 760px) {
@@ -1192,31 +1509,41 @@ textarea::placeholder {
 
   .nav {
 
-    height: 70px;
+    height:
+      70px;
   }
 
 
   .brand-logo {
 
-    width: 132px;
+    width:
+      132px;
   }
 
 
   .search-btn {
 
-    width: 37px;
-    height: 37px;
+    width:
+      37px;
 
-    font-size: 17px;
+    height:
+      37px;
+
+    font-size:
+      17px;
   }
 
 
   .mobile-toggle {
 
-    width: 39px;
-    height: 39px;
+    width:
+      39px;
 
-    font-size: 19px;
+    height:
+      39px;
+
+    font-size:
+      19px;
   }
 
 
@@ -1236,7 +1563,8 @@ textarea::placeholder {
 
   .footer-meta {
 
-    font-size: 10px;
+    font-size:
+      10px;
 
     letter-spacing:
       1.4px;
@@ -1246,7 +1574,7 @@ textarea::placeholder {
 
 
 /* =========================================================
-   19. RESPONSIVE — VERY SMALL MOBILE
+   20. RESPONSIVE — VERY SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 420px) {
@@ -1260,27 +1588,35 @@ textarea::placeholder {
 
   .nav {
 
-    height: 66px;
+    height:
+      66px;
   }
 
 
   .brand-logo {
 
-    width: 123px;
+    width:
+      123px;
   }
 
 
   .search-btn {
 
-    width: 36px;
-    height: 36px;
+    width:
+      36px;
+
+    height:
+      36px;
   }
 
 
   .mobile-toggle {
 
-    width: 38px;
-    height: 38px;
+    width:
+      38px;
+
+    height:
+      38px;
   }
 
 }
