@@ -1,316 +1,970 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="../assets/favicon_io/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="../assets/favicon_io/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../assets/favicon_io/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
+
+  <link rel="stylesheet" href="../css/style.css">
 
   <title>صنایع | XSYN</title>
 
   <style>
-    :root{
-      --bg:#030a16;
-      --surface:#0a1728;
-      --surface2:#0d1c30;
-      --text:#f4f7fb;
-      --soft:#b7c2d0;
-      --muted:#76869a;
-      --blue:#169cff;
-      --bright:#39b4ff;
-      --line:rgba(255,255,255,.08);
+
+    /* =========================================================
+       INDUSTRIES PAGE
+       ========================================================= */
+
+    .hero {
+      padding: 110px 0 85px;
+      border-bottom: 1px solid var(--line);
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.35;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
 
-    body{
-      font-family:Arial,Tahoma,sans-serif;
+    .hero p {
+      max-width: 760px;
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 2;
+    }
+
+
+    /* =========================================================
+       INDUSTRIES
+       ========================================================= */
+
+    .industries-section {
+      padding: 85px 0 70px;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading h2 {
+      font-size: 36px;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 2;
+    }
+
+
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+
+    .industry-card {
+      position: relative;
+
+      min-height: 245px;
+
+      padding: 32px;
+
       background:
-        radial-gradient(circle at 85% 10%,rgba(22,156,255,.11),transparent 30%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.9;
-    }
-
-    a{color:inherit;text-decoration:none}
-
-    .container{
-      width:min(1180px,calc(100% - 40px));
-      margin:auto;
-    }
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:10;
-      background:rgba(3,10,22,.88);
-      backdrop-filter:blur(18px);
-      border-bottom:1px solid var(--line);
-    }
-
-    .nav{
-      min-height:82px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:25px;
-    }
-
-    .logo{width:170px}
-
-    .links{
-      display:flex;
-      gap:26px;
-      color:var(--soft);
-      font-size:14px;
-    }
-
-    .links .active{color:white}
-
-    .cta{
-      padding:10px 17px;
-      border:1px solid rgba(57,180,255,.45);
-      border-radius:10px;
-      background:rgba(22,156,255,.08);
-    }
-
-    .hero{
-      padding:105px 0 80px;
-      border-bottom:1px solid var(--line);
-    }
-
-    .eyebrow{
-      color:var(--bright);
-      font-size:12px;
-      letter-spacing:2px;
-      margin-bottom:18px;
-    }
-
-    h1{
-      max-width:850px;
-      font-size:clamp(42px,6vw,76px);
-      line-height:1.15;
-      margin-bottom:25px;
-    }
-
-    .hero p{
-      max-width:760px;
-      color:var(--soft);
-      font-size:18px;
-    }
-
-    .content{
-      padding:80px 0 110px;
-    }
-
-    .intro{
-      max-width:720px;
-      margin-bottom:45px;
-    }
-
-    h2{
-      font-size:34px;
-      margin-bottom:12px;
-    }
-
-    .intro p{color:var(--muted)}
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-    }
-
-    .card{
-      min-height:250px;
-      padding:32px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:
-        linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.01)),
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.012)
+        ),
         var(--surface);
-      transition:.25s;
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease;
     }
 
-    .card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(57,180,255,.35);
+
+    .industry-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 190px;
+      height: 190px;
+
+      left: -85px;
+      bottom: -105px;
+
+      border-radius: 50%;
+
+      background: rgba(22,156,255,.10);
+
+      filter: blur(22px);
     }
 
-    .tag{
-      color:var(--bright);
-      font-size:12px;
-      letter-spacing:1px;
-      margin-bottom:28px;
-      direction:ltr;
+
+    .industry-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-blue);
     }
 
-    .card h3{
-      font-size:25px;
-      margin-bottom:12px;
+
+    .industry-number {
+      direction: ltr;
+
+      color: var(--blue-bright);
+
+      font-size: 12px;
+      letter-spacing: 2px;
+
+      margin-bottom: 28px;
     }
 
-    .card p{color:var(--muted)}
 
-    .pilot{
-      margin-top:45px;
-      padding:38px;
-      border:1px solid rgba(57,180,255,.22);
-      border-radius:20px;
+    .industry-card h3 {
+      font-size: 24px;
+      line-height: 1.5;
+
+      margin-bottom: 12px;
+    }
+
+
+    .industry-card p {
+      max-width: 520px;
+
+      color: var(--text-muted);
+
+      font-size: 15px;
+      line-height: 2;
+    }
+
+
+    /* =========================================================
+       PILOT INDUSTRY
+       ========================================================= */
+
+    .pilot-section {
+      padding: 45px 0 110px;
+    }
+
+
+    .pilot-box {
+      position: relative;
+
+      padding: 50px;
+
+      border: 1px solid var(--border-blue);
+      border-radius: 22px;
+
       background:
-        radial-gradient(circle at 80% 20%,rgba(22,156,255,.12),transparent 40%),
-        var(--surface2);
+        radial-gradient(
+          circle at 15% 25%,
+          rgba(22,156,255,.10),
+          transparent 38%
+        ),
+        var(--surface);
+
+      overflow: hidden;
     }
 
-    .pilot-label{
-      color:var(--bright);
-      font-size:12px;
-      letter-spacing:2px;
-      margin-bottom:15px;
-      direction:ltr;
+
+    .pilot-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 760px;
     }
 
-    .pilot h3{
-      font-size:30px;
-      margin-bottom:12px;
+
+    .pilot-content h2 {
+      font-size: 34px;
+      line-height: 1.5;
+
+      margin: 14px 0 16px;
     }
 
-    .pilot p{
-      color:var(--soft);
-      max-width:760px;
+
+    .pilot-content p {
+      color: var(--text-soft);
+
+      max-width: 700px;
+
+      font-size: 16px;
+      line-height: 2;
     }
 
-    footer{
-      padding:35px 0;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:13px;
+
+    .pilot-badge {
+      display: inline-flex;
+      align-items: center;
+
+      margin-top: 25px;
+      padding: 7px 12px;
+
+      border: 1px solid rgba(57,180,255,.25);
+      border-radius: 8px;
+
+      color: var(--blue-bright);
+
+      font-size: 11px;
+      letter-spacing: 1.2px;
+
+      direction: ltr;
     }
 
-    @media(max-width:800px){
-      .links{display:none}
-      .logo{width:140px}
-      .grid{grid-template-columns:1fr}
-      .hero{padding:75px 0 60px}
+
+    .pilot-orbit {
+      position: absolute;
+
+      width: 330px;
+      height: 330px;
+
+      right: -145px;
+      top: -120px;
+
+      border: 1px solid rgba(57,180,255,.13);
+
+      border-radius: 50%;
     }
+
+
+    .pilot-orbit::before,
+    .pilot-orbit::after {
+      content: "";
+
+      position: absolute;
+
+      border: 1px solid rgba(57,180,255,.08);
+
+      border-radius: 50%;
+    }
+
+
+    .pilot-orbit::before {
+      inset: 40px;
+    }
+
+
+    .pilot-orbit::after {
+      inset: 82px;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 760px) {
+
+      .hero {
+        padding: 72px 0 60px;
+      }
+
+
+      .hero h1 {
+        font-size: clamp(36px, 10vw, 48px);
+        line-height: 1.45;
+        letter-spacing: -1px;
+      }
+
+
+      .hero p {
+        font-size: 16px;
+        line-height: 2.1;
+      }
+
+
+      .industries-section {
+        padding: 65px 0 50px;
+      }
+
+
+      .section-heading {
+        margin-bottom: 35px;
+      }
+
+
+      .section-heading h2 {
+        font-size: 30px;
+      }
+
+
+      .section-heading p {
+        font-size: 15px;
+      }
+
+
+      .industry-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+
+      .industry-card {
+        min-height: auto;
+        padding: 26px;
+      }
+
+
+      .industry-card h3 {
+        font-size: 21px;
+      }
+
+
+      .industry-card p {
+        font-size: 15px;
+      }
+
+
+      .pilot-section {
+        padding: 35px 0 80px;
+      }
+
+
+      .pilot-box {
+        padding: 35px 25px;
+      }
+
+
+      .pilot-content h2 {
+        font-size: 28px;
+      }
+
+
+      .pilot-content p {
+        font-size: 15px;
+      }
+
+
+      .pilot-orbit {
+        width: 250px;
+        height: 250px;
+
+        right: -155px;
+        top: -80px;
+      }
+
+    }
+
   </style>
+
 </head>
+
 
 <body>
 
 <header>
-  <div class="container nav">
 
-    <a href="../index.html">
-      <img class="logo" src="../assets/xsyn-logo.png" alt="XSYN">
-    </a>
+  <div class="container">
 
-    <nav class="links">
-      <a href="../index.html">خانه</a>
-      <a href="../solutions/index.html">راهکارها</a>
-      <a href="../experts/index.html">متخصصین</a>
-      <a href="../knowledge/index.html">دانش</a>
-      <a href="index.html" class="active">صنایع</a>
-      <a href="../about/index.html">درباره XSYN</a>
+    <nav class="nav">
+
+      <a
+        class="brand"
+        href="../index.html"
+        aria-label="XSYN"
+      >
+
+        <img
+          class="brand-logo"
+          src="../assets/xsyn-logo.png"
+          alt="XSYN"
+        />
+
+      </a>
+
+
+      <div class="nav-links">
+
+
+        <div class="nav-item">
+
+          <a
+            class="nav-link"
+            href="../solutions/index.html"
+          >
+            راهکارها
+            <span class="arrow">⌄</span>
+          </a>
+
+
+          <div class="dropdown">
+
+            <a href="../solutions/index.html">
+              <strong>تحول دیجیتال</strong>
+              <span>DIGITAL TRANSFORMATION</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>هوش مصنوعی و داده</strong>
+              <span>AI & DATA INTELLIGENCE</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>داشبورد و عملکرد</strong>
+              <span>PERFORMANCE & DASHBOARDS</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>ERP و سیستم‌های سازمانی</strong>
+              <span>ERP & BUSINESS SYSTEMS</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>شبیه‌سازی و Digital Twin</strong>
+              <span>SIMULATION & DIGITAL TWIN</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>اتصال‌پذیری صنعتی</strong>
+              <span>INDUSTRIAL CONNECTIVITY</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>سازمان و منابع انسانی</strong>
+              <span>ORGANIZATION & PEOPLE</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="nav-item">
+
+          <a
+            class="nav-link"
+            href="../experts/index.html"
+          >
+            متخصصین
+            <span class="arrow">⌄</span>
+          </a>
+
+
+          <div class="dropdown">
+
+            <a href="../experts/index.html">
+              <strong>شبکه متخصصین</strong>
+              <span>EXPERT NETWORK</span>
+            </a>
+
+            <a href="../experts/index.html">
+              <strong>حوزه‌های تخصص</strong>
+              <span>EXPERTISE AREAS</span>
+            </a>
+
+            <a href="../experts/index.html">
+              <strong>عضویت در شبکه</strong>
+              <span>JOIN THE NETWORK</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="nav-item">
+
+          <a
+            class="nav-link"
+            href="../knowledge/index.html"
+          >
+            دانش
+            <span class="arrow">⌄</span>
+          </a>
+
+
+          <div class="dropdown">
+
+            <a href="../knowledge/index.html">
+              <strong>مقالات و بینش</strong>
+              <span>ARTICLES & INSIGHTS</span>
+            </a>
+
+            <a href="../knowledge/index.html">
+              <strong>مطالعات موردی</strong>
+              <span>CASE STUDIES</span>
+            </a>
+
+            <a href="../knowledge/index.html">
+              <strong>کتابخانه مسئله</strong>
+              <span>PROBLEM LIBRARY</span>
+            </a>
+
+            <a href="../knowledge/index.html">
+              <strong>فناوری و کشف</strong>
+              <span>TECHNOLOGY DISCOVERY</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="nav-item">
+
+          <a
+            class="nav-link active"
+            href="../industries/index.html"
+          >
+            صنایع
+            <span class="arrow">⌄</span>
+          </a>
+
+
+          <div class="dropdown">
+
+            <a href="../industries/index.html">
+              <strong>کاشی و سرامیک</strong>
+              <span>CERAMIC & TILE</span>
+            </a>
+
+            <a href="../industries/index.html">
+              <strong>تولید و کارخانه</strong>
+              <span>MANUFACTURING</span>
+            </a>
+
+            <a href="../industries/index.html">
+              <strong>صنایع فرایندی</strong>
+              <span>PROCESS INDUSTRIES</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <a
+          class="nav-link"
+          href="../about/index.html"
+        >
+          درباره XSYN
+        </a>
+
+
+      </div>
+
+
+      <div class="nav-actions">
+
+        <a
+          href="../search/index.html"
+          class="search-btn"
+          aria-label="جستجو"
+        >
+          ⌕
+        </a>
+
+
+        <a
+          href="../index.html#contact"
+          class="primary-btn nav-cta"
+        >
+          مسئله خود را مطرح کنید
+        </a>
+
+
+        <button
+          class="mobile-toggle"
+          id="mobileToggle"
+          aria-label="منو"
+        >
+          ☰
+        </button>
+
+      </div>
+
     </nav>
 
-    <a class="cta" href="../index.html#contact">مسئله خود را مطرح کنید</a>
+
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+    >
+
+
+      <div class="mobile-item">
+
+        <a href="../solutions/index.html">
+          <span>راهکارها</span>
+          <span>⌄</span>
+        </a>
+
+
+        <div class="mobile-sub">
+
+          <a href="../solutions/index.html">
+            تحول دیجیتال
+          </a>
+
+          <a href="../solutions/index.html">
+            هوش مصنوعی و داده
+          </a>
+
+          <a href="../solutions/index.html">
+            داشبورد و عملکرد
+          </a>
+
+          <a href="../solutions/index.html">
+            ERP و سیستم‌های سازمانی
+          </a>
+
+          <a href="../solutions/index.html">
+            شبیه‌سازی و Digital Twin
+          </a>
+
+          <a href="../solutions/index.html">
+            اتصال‌پذیری صنعتی
+          </a>
+
+          <a href="../solutions/index.html">
+            سازمان و منابع انسانی
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="mobile-item">
+
+        <a href="../experts/index.html">
+          <span>متخصصین</span>
+          <span>⌄</span>
+        </a>
+
+
+        <div class="mobile-sub">
+
+          <a href="../experts/index.html">
+            شبکه متخصصین
+          </a>
+
+          <a href="../experts/index.html">
+            حوزه‌های تخصص
+          </a>
+
+          <a href="../experts/index.html">
+            عضویت در شبکه
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="mobile-item">
+
+        <a href="../knowledge/index.html">
+          <span>دانش</span>
+          <span>⌄</span>
+        </a>
+
+
+        <div class="mobile-sub">
+
+          <a href="../knowledge/index.html">
+            مقالات و بینش
+          </a>
+
+          <a href="../knowledge/index.html">
+            مطالعات موردی
+          </a>
+
+          <a href="../knowledge/index.html">
+            کتابخانه مسئله
+          </a>
+
+          <a href="../knowledge/index.html">
+            فناوری و کشف
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="mobile-item">
+
+        <a href="../industries/index.html">
+          <span>صنایع</span>
+          <span>⌄</span>
+        </a>
+
+
+        <div class="mobile-sub">
+
+          <a href="../industries/index.html">
+            کاشی و سرامیک
+          </a>
+
+          <a href="../industries/index.html">
+            تولید و کارخانه
+          </a>
+
+          <a href="../industries/index.html">
+            صنایع فرایندی
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="mobile-item">
+
+        <a href="../about/index.html">
+          <span>درباره XSYN</span>
+        </a>
+
+      </div>
+
+
+    </div>
 
   </div>
+
 </header>
+
 
 <main>
 
+
   <section class="hero">
+
     <div class="container">
 
-      <div class="eyebrow">XSYN · INDUSTRIES</div>
+      <div class="eyebrow">
+        XSYN · INDUSTRIES
+      </div>
+
 
       <h1>
-        فناوری باید با منطق هر صنعت سازگار شود.
+        فناوری باید با منطق
+        هر صنعت سازگار شود.
       </h1>
 
+
       <p>
-        XSYN راهکارهای خود را با شناخت فرایند، ساختار، داده و
-        چالش‌های واقعی هر صنعت طراحی می‌کند؛ نه با یک نسخه ثابت
-        برای همه سازمان‌ها.
+        XSYN راهکارهای خود را بر اساس مسئله، فرایند و
+        منطق عملیاتی هر صنعت طراحی می‌کند؛ نه بر اساس
+        یک نسخه ثابت از فناوری.
       </p>
 
     </div>
+
   </section>
 
-  <section class="content">
+
+  <section class="industries-section">
+
     <div class="container">
 
-      <div class="intro">
-        <h2>حوزه‌های صنعتی</h2>
+
+      <div class="section-heading">
+
+        <h2>
+          صنایع و زمینه‌های کاربرد
+        </h2>
+
+
         <p>
-          معماری XSYN از یک صنعت شروع می‌شود، اما برای توسعه
-          به صنایع مختلف طراحی شده است.
+          نقطه شروع XSYN صنعت کاشی و سرامیک است؛
+          اما معماری راهکارها از ابتدا برای توسعه به
+          صنایع مختلف طراحی شده است.
         </p>
-      </div>
-
-      <div class="grid">
-
-        <article class="card">
-          <div class="tag">CERAMIC · TILE</div>
-          <h3>کاشی و سرامیک</h3>
-          <p>
-            نقطه شروع و پایلوت صنعتی XSYN برای شناخت مسائل،
-            فرایندها، داده‌ها و فرصت‌های تحول دیجیتال.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="tag">MANUFACTURING</div>
-          <h3>صنایع تولیدی</h3>
-          <p>
-            طراحی راهکارهای داده‌محور برای کارخانه‌ها،
-            خطوط تولید و سیستم‌های عملیاتی.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="tag">PROCESS INDUSTRIES</div>
-          <h3>صنایع فرایندی</h3>
-          <p>
-            استفاده از داده، شبیه‌سازی و مدل‌سازی برای تحلیل
-            و بهبود سیستم‌های پیچیده صنعتی.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="tag">INDUSTRY · FUTURE</div>
-          <h3>صنایع در حال توسعه</h3>
-          <p>
-            معماری XSYN به‌گونه‌ای طراحی شده که بتواند با
-            نیازهای صنایع جدید نیز گسترش پیدا کند.
-          </p>
-        </article>
 
       </div>
 
-      <div class="pilot">
-        <div class="pilot-label">INDUSTRY PILOT</div>
-        <h3>کاشی و سرامیک؛ نقطه شروع، نه نقطه پایان</h3>
-        <p>
-          تجربه اولیه XSYN در این صنعت می‌تواند به شناخت عمیق‌تر
-          مسائل، شکل‌گیری شبکه متخصصین و توسعه دانش قابل استفاده
-          در صنایع دیگر منجر شود.
-        </p>
+
+      <div class="industry-grid">
+
+
+        <article class="industry-card">
+
+          <div class="industry-number">
+            01 · CERAMIC & TILE
+          </div>
+
+
+          <h3>
+            کاشی و سرامیک
+          </h3>
+
+
+          <p>
+            تمرکز اولیه XSYN بر نیازهای واقعی کارخانه‌های
+            کاشی و سرامیک؛ از تولید و عملیات تا داده،
+            مدیریت و تصمیم‌گیری.
+          </p>
+
+        </article>
+
+
+        <article class="industry-card">
+
+          <div class="industry-number">
+            02 · MANUFACTURING
+          </div>
+
+
+          <h3>
+            تولید و کارخانه
+          </h3>
+
+
+          <p>
+            راهکارهای قابل توسعه برای محیط‌های تولیدی،
+            خطوط تولید، عملیات کارخانه و مدیریت عملکرد.
+          </p>
+
+        </article>
+
+
+        <article class="industry-card">
+
+          <div class="industry-number">
+            03 · PROCESS INDUSTRIES
+          </div>
+
+
+          <h3>
+            صنایع فرایندی
+          </h3>
+
+
+          <p>
+            استفاده از داده، شبیه‌سازی، اتصال صنعتی و
+            سیستم‌های تصمیم‌یار در محیط‌های فرایندی.
+          </p>
+
+        </article>
+
+
+        <article class="industry-card">
+
+          <div class="industry-number">
+            04 · EXPANDING
+          </div>
+
+
+          <h3>
+            صنایع در حال توسعه
+          </h3>
+
+
+          <p>
+            چارچوب XSYN می‌تواند بر اساس ساختار مسئله،
+            فرایند و نیازهای هر صنعت توسعه پیدا کند.
+          </p>
+
+        </article>
+
+
       </div>
 
     </div>
+
   </section>
+
+
+  <section class="pilot-section">
+
+    <div class="container">
+
+
+      <div class="pilot-box">
+
+
+        <div class="pilot-content">
+
+          <div class="section-label">
+            INITIAL INDUSTRY FOCUS
+          </div>
+
+
+          <h2>
+            کاشی و سرامیک؛
+            نقطه شروع، نه نقطه پایان
+          </h2>
+
+
+          <p>
+            تجربه و یادگیری اولیه XSYN از صنعت کاشی و سرامیک
+            شکل می‌گیرد. این تمرکز به ما اجازه می‌دهد مسئله‌های
+            واقعی صنعتی را عمیق‌تر بفهمیم و در عین حال،
+            معماری راهکارها را برای توسعه به صنایع دیگر باز نگه داریم.
+          </p>
+
+
+          <div class="pilot-badge">
+            CERAMIC & TILE · PILOT DOMAIN
+          </div>
+
+        </div>
+
+
+        <div class="pilot-orbit"></div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
 
 </main>
 
+
 <footer>
+
   <div class="container">
-    XSYN · TECHNOLOGY · SYNERGY · TRANSFORMATION
+
+    <a
+      class="footer-brand"
+      href="../index.html"
+      aria-label="XSYN"
+    >
+
+      <img
+        src="../assets/xsyn-logo.png"
+        alt="XSYN"
+      />
+
+    </a>
+
+
+    <div class="footer-meta">
+      TECHNOLOGY · SYNERGY · TRANSFORMATION
+    </div>
+
   </div>
+
 </footer>
 
+
+<script src="../js/main.js"></script>
+
 </body>
+
 </html>
