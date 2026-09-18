@@ -1,291 +1,958 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="../assets/favicon_io/favicon.ico">
+
+  <link rel="icon" type="image/x-icon" href="../assets/favicon_io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../assets/favicon_io/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
+
+  <link rel="stylesheet" href="../css/style.css">
+
   <title>دانش | XSYN</title>
 
   <style>
-    :root{
-      --bg:#030a16;
-      --surface:#0a1728;
-      --text:#f4f7fb;
-      --soft:#b7c2d0;
-      --muted:#76869a;
-      --blue:#169cff;
-      --bright:#39b4ff;
-      --line:rgba(255,255,255,.08);
+
+    /* =========================================================
+       KNOWLEDGE PAGE
+       ========================================================= */
+
+    .hero {
+      padding: 110px 0 85px;
+      border-bottom: 1px solid var(--line);
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.35;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
 
-    body{
-      font-family:Arial,Tahoma,sans-serif;
+    .hero p {
+      max-width: 760px;
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 2;
+    }
+
+
+    /* =========================================================
+       KNOWLEDGE TOPICS
+       ========================================================= */
+
+    .knowledge-section {
+      padding: 85px 0 110px;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading h2 {
+      font-size: 36px;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 2;
+    }
+
+
+    .knowledge-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+
+    .knowledge-card {
+      position: relative;
+
+      min-height: 240px;
+
+      padding: 32px;
+
       background:
-        radial-gradient(circle at 15% 10%,rgba(22,156,255,.10),transparent 30%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.9;
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.012)
+        ),
+        var(--surface);
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease;
     }
 
-    a{color:inherit;text-decoration:none}
 
-    .container{
-      width:min(1180px,calc(100% - 40px));
-      margin:auto;
+    .knowledge-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      left: -80px;
+      bottom: -100px;
+
+      border-radius: 50%;
+
+      background: rgba(22,156,255,.10);
+
+      filter: blur(22px);
     }
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:10;
-      background:rgba(3,10,22,.88);
-      backdrop-filter:blur(18px);
-      border-bottom:1px solid var(--line);
+
+    .knowledge-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-blue);
     }
 
-    .nav{
-      min-height:82px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:25px;
+
+    .knowledge-number {
+      direction: ltr;
+
+      color: var(--blue-bright);
+
+      font-size: 12px;
+      letter-spacing: 2px;
+
+      margin-bottom: 28px;
     }
 
-    .logo{width:170px}
 
-    .links{
-      display:flex;
-      gap:26px;
-      color:var(--soft);
-      font-size:14px;
+    .knowledge-card h3 {
+      font-size: 23px;
+      line-height: 1.5;
+
+      margin-bottom: 12px;
     }
 
-    .links .active{color:white}
 
-    .cta{
-      padding:10px 17px;
-      border:1px solid rgba(57,180,255,.45);
-      border-radius:10px;
-      background:rgba(22,156,255,.08);
+    .knowledge-card p {
+      max-width: 520px;
+
+      color: var(--text-muted);
+
+      font-size: 15px;
+      line-height: 2;
     }
 
-    .hero{
-      padding:105px 0 80px;
-      border-bottom:1px solid var(--line);
+
+    /* =========================================================
+       KNOWLEDGE PRINCIPLE
+       ========================================================= */
+
+    .knowledge-principle {
+      padding: 0 0 110px;
     }
 
-    .eyebrow{
-      color:var(--bright);
-      font-size:12px;
-      letter-spacing:2px;
-      margin-bottom:18px;
+
+    .principle-box {
+      position: relative;
+
+      padding: 50px;
+
+      border: 1px solid var(--border-blue);
+      border-radius: 22px;
+
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(22,156,255,.09),
+          transparent 35%
+        ),
+        var(--surface);
+
+      overflow: hidden;
     }
 
-    h1{
-      max-width:850px;
-      font-size:clamp(42px,6vw,76px);
-      line-height:1.15;
-      margin-bottom:25px;
+
+    .principle-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 720px;
     }
 
-    .hero p{
-      max-width:760px;
-      color:var(--soft);
-      font-size:18px;
+
+    .principle-content h2 {
+      font-size: 34px;
+      line-height: 1.5;
+
+      margin: 14px 0;
     }
 
-    .content{
-      padding:80px 0 110px;
+
+    .principle-content p {
+      color: var(--text-soft);
+
+      font-size: 16px;
+      line-height: 2;
+
+      max-width: 680px;
     }
 
-    .intro{
-      max-width:720px;
-      margin-bottom:45px;
+
+    .principle-line {
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      right: -190px;
+      top: -180px;
+
+      border: 1px solid rgba(57,180,255,.13);
+
+      border-radius: 50%;
     }
 
-    h2{
-      font-size:34px;
-      margin-bottom:12px;
+
+    .principle-line::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 45px;
+
+      border: 1px solid rgba(57,180,255,.09);
+
+      border-radius: 50%;
     }
 
-    .intro p{color:var(--muted)}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
+    .principle-line::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 95px;
+
+      border: 1px solid rgba(57,180,255,.07);
+
+      border-radius: 50%;
     }
 
-    .card{
-      min-height:260px;
-      padding:30px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:var(--surface);
-      transition:.25s;
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 760px) {
+
+      .hero {
+        padding: 72px 0 60px;
+      }
+
+
+      .hero h1 {
+        font-size: clamp(36px, 10vw, 48px);
+        line-height: 1.45;
+        letter-spacing: -1px;
+      }
+
+
+      .hero p {
+        font-size: 16px;
+        line-height: 2.1;
+      }
+
+
+      .knowledge-section {
+        padding: 65px 0 80px;
+      }
+
+
+      .section-heading {
+        margin-bottom: 35px;
+      }
+
+
+      .section-heading h2 {
+        font-size: 30px;
+      }
+
+
+      .section-heading p {
+        font-size: 15px;
+      }
+
+
+      .knowledge-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+
+      .knowledge-card {
+        min-height: auto;
+        padding: 26px;
+      }
+
+
+      .knowledge-card h3 {
+        font-size: 21px;
+      }
+
+
+      .knowledge-card p {
+        font-size: 15px;
+      }
+
+
+      .knowledge-principle {
+        padding-bottom: 80px;
+      }
+
+
+      .principle-box {
+        padding: 35px 25px;
+      }
+
+
+      .principle-content h2 {
+        font-size: 28px;
+      }
+
+
+      .principle-content p {
+        font-size: 15px;
+      }
+
+
+      .principle-line {
+        width: 260px;
+        height: 260px;
+
+        right: -150px;
+        top: -100px;
+      }
+
     }
 
-    .card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(57,180,255,.35);
-    }
-
-    .tag{
-      color:var(--bright);
-      font-size:12px;
-      letter-spacing:1px;
-      margin-bottom:28px;
-      direction:ltr;
-    }
-
-    .card h3{
-      font-size:23px;
-      margin-bottom:12px;
-    }
-
-    .card p{color:var(--muted)}
-
-    footer{
-      padding:35px 0;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    @media(max-width:800px){
-      .links{display:none}
-      .logo{width:140px}
-      .grid{grid-template-columns:1fr}
-      .hero{padding:75px 0 60px}
-    }
   </style>
+
 </head>
+
 
 <body>
 
 <header>
-  <div class="container nav">
 
-    <a href="../index.html">
-      <img class="logo" src="../assets/xsyn-logo.png" alt="XSYN">
-    </a>
+  <div class="container">
 
-    <nav class="links">
-      <a href="../index.html">خانه</a>
-      <a href="../solutions/index.html">راهکارها</a>
-      <a href="../experts/index.html">متخصصین</a>
-      <a href="index.html" class="active">دانش</a>
-      <a href="../industries/index.html">صنایع</a>
-      <a href="../about/index.html">درباره XSYN</a>
+    <nav class="nav">
+
+      <a class="brand" href="../index.html" aria-label="XSYN">
+
+        <img
+          class="brand-logo"
+          src="../assets/xsyn-logo.png"
+          alt="XSYN"
+        />
+
+      </a>
+
+
+      <div class="nav-links">
+
+        <div class="nav-item">
+
+          <a class="nav-link" href="../solutions/index.html">
+            راهکارها
+            <span class="arrow">⌄</span>
+          </a>
+
+
+          <div class="dropdown">
+
+            <a href="../solutions/index.html">
+              <strong>تحول دیجیتال</strong>
+              <span>DIGITAL TRANSFORMATION</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>هوش مصنوعی و داده</strong>
+              <span>AI & DATA INTELLIGENCE</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>داشبورد و عملکرد</strong>
+              <span>PERFORMANCE & DASHBOARDS</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>ERP و سیستم‌های سازمانی</strong>
+              <span>ERP & BUSINESS SYSTEMS</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>شبیه‌سازی و Digital Twin</strong>
+              <span>SIMULATION & DIGITAL TWIN</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>اتصال‌پذیری صنعتی</strong>
+              <span>INDUSTRIAL CONNECTIVITY</span>
+            </a>
+
+            <a href="../solutions/index.html">
+              <strong>سازمان و منابع انسانی</strong>
+              <span>ORGANIZATION & PEOPLE</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="nav-item">
+
+          <a class="nav-link" href="../experts/index.html">
+            متخصصین
+            <span class="arrow">⌄</span>
+          </a>
+
+
+          <div class="dropdown">
+
+            <a href="../experts/index.html">
+              <strong>شبکه متخصصین</strong>
+              <span>EXPERT NETWORK</span>
+            </a>
+
+            <a href="../experts/index.html">
+              <strong>حوزه‌های تخصص</strong>
+              <span>EXPERTISE AREAS</span>
+            </a>
+
+            <a href="../experts/index.html">
+              <strong>عضویت در شبکه</strong>
+              <span>JOIN THE NETWORK</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="nav-item">
+
+          <a
+            class="nav-link active"
+            href="../knowledge/index.html"
+          >
+            دانش
+            <span class="arrow">⌄</span>
+          </a>
+
+
+          <div class="dropdown">
+
+            <a href="../knowledge/index.html">
+              <strong>مقالات و بینش</strong>
+              <span>ARTICLES & INSIGHTS</span>
+            </a>
+
+            <a href="../knowledge/index.html">
+              <strong>مطالعات موردی</strong>
+              <span>CASE STUDIES</span>
+            </a>
+
+            <a href="../knowledge/index.html">
+              <strong>کتابخانه مسئله</strong>
+              <span>PROBLEM LIBRARY</span>
+            </a>
+
+            <a href="../knowledge/index.html">
+              <strong>فناوری و کشف</strong>
+              <span>TECHNOLOGY DISCOVERY</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="nav-item">
+
+          <a
+            class="nav-link"
+            href="../industries/index.html"
+          >
+            صنایع
+            <span class="arrow">⌄</span>
+          </a>
+
+
+          <div class="dropdown">
+
+            <a href="../industries/index.html">
+              <strong>کاشی و سرامیک</strong>
+              <span>CERAMIC & TILE</span>
+            </a>
+
+            <a href="../industries/index.html">
+              <strong>تولید و کارخانه</strong>
+              <span>MANUFACTURING</span>
+            </a>
+
+            <a href="../industries/index.html">
+              <strong>صنایع فرایندی</strong>
+              <span>PROCESS INDUSTRIES</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <a
+          class="nav-link"
+          href="../about/index.html"
+        >
+          درباره XSYN
+        </a>
+
+      </div>
+
+
+      <div class="nav-actions">
+
+        <a
+          href="../search/index.html"
+          class="search-btn"
+          aria-label="جستجو"
+        >
+          ⌕
+        </a>
+
+
+        <a
+          href="../index.html#contact"
+          class="primary-btn nav-cta"
+        >
+          مسئله خود را مطرح کنید
+        </a>
+
+
+        <button
+          class="mobile-toggle"
+          id="mobileToggle"
+          aria-label="منو"
+        >
+          ☰
+        </button>
+
+      </div>
+
     </nav>
 
-    <a class="cta" href="../index.html#contact">مسئله خود را مطرح کنید</a>
+
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+    >
+
+      <div class="mobile-item">
+
+        <a href="../solutions/index.html">
+          <span>راهکارها</span>
+          <span>⌄</span>
+        </a>
+
+
+        <div class="mobile-sub">
+
+          <a href="../solutions/index.html">
+            تحول دیجیتال
+          </a>
+
+          <a href="../solutions/index.html">
+            هوش مصنوعی و داده
+          </a>
+
+          <a href="../solutions/index.html">
+            داشبورد و عملکرد
+          </a>
+
+          <a href="../solutions/index.html">
+            ERP و سیستم‌های سازمانی
+          </a>
+
+          <a href="../solutions/index.html">
+            شبیه‌سازی و Digital Twin
+          </a>
+
+          <a href="../solutions/index.html">
+            اتصال‌پذیری صنعتی
+          </a>
+
+          <a href="../solutions/index.html">
+            سازمان و منابع انسانی
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="mobile-item">
+
+        <a href="../experts/index.html">
+          <span>متخصصین</span>
+          <span>⌄</span>
+        </a>
+
+
+        <div class="mobile-sub">
+
+          <a href="../experts/index.html">
+            شبکه متخصصین
+          </a>
+
+          <a href="../experts/index.html">
+            حوزه‌های تخصص
+          </a>
+
+          <a href="../experts/index.html">
+            عضویت در شبکه
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="mobile-item">
+
+        <a href="../knowledge/index.html">
+          <span>دانش</span>
+          <span>⌄</span>
+        </a>
+
+
+        <div class="mobile-sub">
+
+          <a href="../knowledge/index.html">
+            مقالات و بینش
+          </a>
+
+          <a href="../knowledge/index.html">
+            مطالعات موردی
+          </a>
+
+          <a href="../knowledge/index.html">
+            کتابخانه مسئله
+          </a>
+
+          <a href="../knowledge/index.html">
+            فناوری و کشف
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="mobile-item">
+
+        <a href="../industries/index.html">
+          <span>صنایع</span>
+          <span>⌄</span>
+        </a>
+
+
+        <div class="mobile-sub">
+
+          <a href="../industries/index.html">
+            کاشی و سرامیک
+          </a>
+
+          <a href="../industries/index.html">
+            تولید و کارخانه
+          </a>
+
+          <a href="../industries/index.html">
+            صنایع فرایندی
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="mobile-item">
+
+        <a href="../about/index.html">
+          <span>درباره XSYN</span>
+        </a>
+
+      </div>
+
+    </div>
 
   </div>
+
 </header>
+
 
 <main>
 
+
   <section class="hero">
+
     <div class="container">
 
-      <div class="eyebrow">XSYN · KNOWLEDGE</div>
+      <div class="eyebrow">
+        XSYN · KNOWLEDGE
+      </div>
+
 
       <h1>
-        جایی برای فهم فناوری، صنعت و مسئله.
+        جایی برای فهم فناوری،
+        صنعت و مسئله.
       </h1>
 
+
       <p>
-        مجموعه‌ای از بینش‌ها، تجربه‌ها و موضوعات تخصصی درباره
-        تحول دیجیتال، داده، ERP، شبیه‌سازی، Digital Twin و فناوری‌های
-        نوین صنعتی.
+        دانش XSYN صرفاً مجموعه‌ای از مطالب فناوری نیست؛
+        بلکه تلاشی برای ارتباط دادن فناوری، صنعت، مسئله
+        و تجربه‌های واقعی برای تصمیم‌گیری بهتر است.
       </p>
 
     </div>
+
   </section>
 
-  <section class="content">
+
+  <section class="knowledge-section">
+
     <div class="container">
 
-      <div class="intro">
-        <h2>موضوعات دانش</h2>
+      <div class="section-heading">
+
+        <h2>
+          حوزه‌های دانش
+        </h2>
+
+
         <p>
-          این بخش در آینده به موتور دانشی XSYN تبدیل می‌شود؛
-          محتوایی که به مسائل واقعی صنعت، متخصصین و راهکارها
-          متصل خواهد شد.
+          از تحول دیجیتال و ERP تا هوش مصنوعی،
+          شبیه‌سازی و فناوری‌های صنعتی؛
+          موضوعات در این بخش بر اساس ارتباط آن‌ها
+          با مسائل واقعی سازمان‌ها شکل می‌گیرند.
         </p>
+
       </div>
 
-      <div class="grid">
 
-        <article class="card">
-          <div class="tag">DIGITAL TRANSFORMATION</div>
-          <h3>تحول دیجیتال</h3>
+      <div class="knowledge-grid">
+
+
+        <article class="knowledge-card">
+
+          <div class="knowledge-number">
+            01 · DIGITAL TRANSFORMATION
+          </div>
+
+          <h3>
+            تحول دیجیتال
+          </h3>
+
           <p>
-            از استراتژی و بلوغ دیجیتال تا طراحی مسیر تحول
-            و پیاده‌سازی در سازمان و صنعت.
+            نگاه سیستماتیک به دیجیتالی‌شدن فرایندها،
+            سازمان و مدل‌های کسب‌وکار.
           </p>
+
         </article>
 
-        <article class="card">
-          <div class="tag">ERP · BUSINESS SYSTEMS</div>
-          <h3>ERP و سیستم‌های سازمانی</h3>
+
+        <article class="knowledge-card">
+
+          <div class="knowledge-number">
+            02 · ERP & SYSTEMS
+          </div>
+
+          <h3>
+            ERP و سیستم‌های سازمانی
+          </h3>
+
           <p>
-            معماری سیستم، یکپارچه‌سازی فرایندها و نقش ERP
-            در تحول سازمانی.
+            معماری سیستم‌ها، یکپارچه‌سازی داده،
+            فرایندهای سازمانی و ابزارهای مدیریتی.
           </p>
+
         </article>
 
-        <article class="card">
-          <div class="tag">SIMULATION · DIGITAL TWIN</div>
-          <h3>شبیه‌سازی و Digital Twin</h3>
+
+        <article class="knowledge-card">
+
+          <div class="knowledge-number">
+            03 · SIMULATION
+          </div>
+
+          <h3>
+            شبیه‌سازی و Digital Twin
+          </h3>
+
           <p>
-            مفاهیم، کاربردها و مسیر استفاده از مدل‌های دیجیتال
-            برای تحلیل و تصمیم‌گیری صنعتی.
+            مدل‌سازی، شبیه‌سازی و ساخت مدل‌های دیجیتال
+            برای فهم و بهبود سیستم‌های پیچیده.
           </p>
+
         </article>
 
-        <article class="card">
-          <div class="tag">DATA · AI</div>
-          <h3>داده و هوش مصنوعی</h3>
+
+        <article class="knowledge-card">
+
+          <div class="knowledge-number">
+            04 · DATA & AI
+          </div>
+
+          <h3>
+            داده و هوش مصنوعی
+          </h3>
+
           <p>
-            داده صنعتی، تحلیل، هوش مصنوعی و تبدیل اطلاعات
-            به قابلیت تصمیم‌گیری.
+            از داده و تحلیل تا AI و سیستم‌های تصمیم‌یار
+            برای تبدیل اطلاعات به بینش قابل استفاده.
           </p>
+
         </article>
 
-        <article class="card">
-          <div class="tag">INDUSTRIAL TECHNOLOGY</div>
-          <h3>فناوری‌های صنعتی</h3>
+
+        <article class="knowledge-card">
+
+          <div class="knowledge-number">
+            05 · INDUSTRIAL TECHNOLOGY
+          </div>
+
+          <h3>
+            فناوری صنعتی
+          </h3>
+
           <p>
-            فناوری‌هایی که در حال تغییر شیوه طراحی، تولید،
-            نگهداری و مدیریت کارخانه‌ها هستند.
+            فناوری‌هایی که مستقیماً با کارخانه،
+            تجهیزات، تولید و عملیات صنعتی ارتباط دارند.
           </p>
+
         </article>
 
-        <article class="card">
-          <div class="tag">CASE · INSIGHT</div>
-          <h3>مطالعات و بینش‌ها</h3>
+
+        <article class="knowledge-card">
+
+          <div class="knowledge-number">
+            06 · CASE & INSIGHT
+          </div>
+
+          <h3>
+            مطالعه موردی و بینش
+          </h3>
+
           <p>
-            تجربه‌ها، نمونه‌های واقعی و تحلیل‌هایی برای نزدیک‌تر
-            کردن فناوری به تصمیم‌های کسب‌وکار.
+            تجربه‌ها، مسئله‌ها و بینش‌هایی که می‌توانند
+            به تصمیم‌ها و پروژه‌های آینده کمک کنند.
           </p>
+
         </article>
+
 
       </div>
 
     </div>
+
   </section>
+
+
+  <section class="knowledge-principle">
+
+    <div class="container">
+
+      <div class="principle-box">
+
+        <div class="principle-content">
+
+          <div class="section-label">
+            KNOWLEDGE AS AN ENGINE
+          </div>
+
+
+          <h2>
+            دانش باید قابل اتصال باشد.
+          </h2>
+
+
+          <p>
+            در معماری بلندمدت XSYN، دانش از متخصصین،
+            پروژه‌ها، صنایع، فناوری‌ها و مسئله‌ها جدا نیست.
+            این ارتباط‌ها در آینده می‌توانند پایه‌ای برای
+            شکل‌گیری یک Knowledge Graph پویا باشند.
+          </p>
+
+        </div>
+
+
+        <div class="principle-line"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
 
 </main>
 
+
 <footer>
+
   <div class="container">
-    XSYN · TECHNOLOGY · SYNERGY · TRANSFORMATION
+
+    <a
+      class="footer-brand"
+      href="../index.html"
+      aria-label="XSYN"
+    >
+
+      <img
+        src="../assets/xsyn-logo.png"
+        alt="XSYN"
+      />
+
+    </a>
+
+
+    <div class="footer-meta">
+      TECHNOLOGY · SYNERGY · TRANSFORMATION
+    </div>
+
   </div>
+
 </footer>
+
+
+<script src="../js/main.js"></script>
 
 </body>
 </html>
