@@ -214,15 +214,15 @@ header {
 
   align-items: center;
 
-  gap: 26px;
+  gap: 8px;
 
   direction: rtl;
 
   color: var(--text-soft);
 
-  font-size: 14px;
+  font-size: 15px;
 
-  font-weight: 500;
+  font-weight: 600;
 
   white-space: nowrap;
 }
@@ -230,41 +230,129 @@ header {
 
 .nav-link {
 
+  position: relative;
+
   height: 76px;
 
   display: inline-flex;
 
   align-items: center;
 
-  gap: 5px;
+  gap: 6px;
 
-  padding: 0;
+  padding: 0 10px;
 
   color: var(--text-soft);
 
+  border-radius: 9px;
+
   transition:
-    color .2s ease,
-    opacity .2s ease;
+    color .22s ease,
+    background .22s ease,
+    transform .22s ease;
 }
 
 
-.nav-link:hover,
+.nav-link::after {
+
+  content: "";
+
+  position: absolute;
+
+  right: 10px;
+  left: 10px;
+  bottom: 12px;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--blue-bright),
+      transparent
+    );
+
+  border-radius: 999px;
+
+  transform:
+    scaleX(.25);
+
+  transform-origin: center;
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 10px rgba(57,180,255,.42);
+
+  transition:
+    transform .22s ease,
+    opacity .22s ease;
+}
+
+
+.nav-link:hover {
+
+  color:
+    var(--blue-bright);
+
+  background:
+    rgba(22,156,255,.065);
+
+  transform:
+    translateY(-1px);
+}
+
+
+.nav-link:hover::after {
+
+  opacity: 1;
+
+  transform:
+    scaleX(1);
+}
+
+
 .nav-link.active {
 
-  color: var(--text);
+  color:
+    var(--text);
+
+  background:
+    rgba(22,156,255,.05);
+}
+
+
+.nav-link.active::after {
+
+  opacity: 1;
+
+  transform:
+    scaleX(1);
 }
 
 
 .arrow {
 
-  font-size: 11px;
+  font-size: 12px;
 
   line-height: 1;
 
-  opacity: .60;
+  opacity: .70;
 
   transition:
-    transform .2s ease;
+    transform .22s ease,
+    color .22s ease;
+}
+
+
+.nav-item:hover .arrow {
+
+  color:
+    var(--blue-bright);
+
+  transform:
+    rotate(180deg);
 }
 
 
@@ -357,10 +445,17 @@ header {
 .dropdown a:hover {
 
   background:
-    rgba(22,156,255,.08);
+    linear-gradient(
+      90deg,
+      rgba(22,156,255,.11),
+      rgba(22,156,255,.035)
+    );
+
+  color:
+    var(--text);
 
   transform:
-    translateX(-2px);
+    translateX(-3px);
 }
 
 
