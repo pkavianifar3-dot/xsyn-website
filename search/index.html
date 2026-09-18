@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>جستجو | XSYN</title>
+
+  <link rel="icon" type="image/x-icon" href="../assets/favicon_io/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="../assets/favicon_io/apple-touch-icon.png" />
+  <link rel="manifest" href="../assets/favicon_io/site.webmanifest" />
+
+  <style>
+    :root {
+      --bg: #030a16;
+      --bg-2: #071322;
+      --surface: #0a1728;
+      --surface-2: #0d1c30;
+      --text: #f4f7fb;
+      --text-soft: #b7c2d0;
+      --text-muted: #76869a;
+      --silver: #dce3eb;
+      --blue: #169cff;
+      --blue-bright: #39b4ff;
+      --border: rgba(255,255,255,.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(22,156,255,.08), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(3,10,22,.85);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand-logo {
+      width: 165px;
+      height: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav a {
+      color: var(--text-soft);
+      font-size: 14px;
+      transition: .2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 10px 18px;
+      border: 1px solid rgba(22,156,255,.45);
+      border-radius: 8px;
+      color: var(--blue-bright);
+    }
+
+    main {
+      padding: 110px 0 120px;
+    }
+
+    .eyebrow {
+      color: var(--blue-bright);
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+
+    .intro {
+      max-width: 650px;
+      color: var(--text-soft);
+      font-size: 17px;
+      margin-bottom: 45px;
+    }
+
+    .search-box {
+      max-width: 900px;
+      display: flex;
+      gap: 12px;
+      padding: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 17px;
+      padding: 16px 18px;
+      font-family: inherit;
+    }
+
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-btn {
+      border: 0;
+      background: var(--blue);
+      color: white;
+      padding: 0 30px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+    }
+
+    .suggestions {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .suggestion {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+      color: var(--text-soft);
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .suggestion:hover {
+      border-color: rgba(22,156,255,.4);
+      color: var(--text);
+    }
+
+    .results {
+      margin-top: 70px;
+    }
+
+    .results-title {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .result-card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 14px;
+      transition: .25s ease;
+    }
+
+    .result-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(22,156,255,.35);
+      background: var(--surface-2);
+    }
+
+    .result-type {
+      color: var(--blue-bright);
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .result-card h3 {
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .result-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+      nav a:not(.nav-cta) {
+        display: none;
+      }
+
+      .nav {
+        min-height: 72px;
+      }
+
+      main {
+        padding: 75px 0 90px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-btn {
+        min-height: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a href="../index.html">
+      <img
+        class="brand-logo"
+        src="../assets/xsyn-logo.png"
+        alt="XSYN"
+      />
+    </a>
+
+    <nav>
+      <a href="../solutions/index.html">راهکارها</a>
+      <a href="../experts/index.html">متخصصین</a>
+      <a href="../knowledge/index.html">دانش</a>
+      <a href="../industries/index.html">صنایع</a>
+      <a href="../about/index.html">درباره XSYN</a>
+      <a class="nav-cta" href="../index.html#contact">مسئله خود را مطرح کنید</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="eyebrow">XSYN · SEARCH</div>
+
+    <h1>دنبال چه چیزی هستید؟</h1>
+
+    <p class="intro">
+      در XSYN می‌توانید میان راهکارها، حوزه‌های تخصصی،
+      صنایع، مقالات و دانش فنی جستجو کنید.
+    </p>
+
+    <form class="search-box" onsubmit="performSearch(event)">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="مثلاً: دیجیتال تویین، ERP، هوش مصنوعی..."
+        autocomplete="off"
+      />
+
+      <button class="search-btn" type="submit">
+        جستجو
+      </button>
+    </form>
+
+    <div class="suggestions">
+      <button class="suggestion" onclick="setSearch('Digital Twin')">
+        Digital Twin
+      </button>
+
+      <button class="suggestion" onclick="setSearch('ERP')">
+        ERP
+      </button>
+
+      <button class="suggestion" onclick="setSearch('هوش مصنوعی')">
+        هوش مصنوعی
+      </button>
+
+      <button class="suggestion" onclick="setSearch('کاشی و سرامیک')">
+        کاشی و سرامیک
+      </button>
+    </div>
+
+    <section class="results">
+
+      <div class="results-title">
+        نمونه‌ای از محتوای قابل جستجو
+      </div>
+
+      <a class="result-card" href="../solutions/index.html">
+        <div class="result-type">SOLUTION</div>
+        <h3>راهکارهای تحول دیجیتال صنعتی</h3>
+        <p>
+          از تحلیل مسئله تا طراحی و اجرای راهکارهای فناوری.
+        </p>
+      </a>
+
+      <a class="result-card" href="../experts/index.html">
+        <div class="result-type">EXPERT NETWORK</div>
+        <h3>شبکه متخصصین XSYN</h3>
+        <p>
+          دسترسی ساختاریافته به دانش و تخصص موردنیاز مسائل صنعتی.
+        </p>
+      </a>
+
+      <a class="result-card" href="../knowledge/index.html">
+        <div class="result-type">KNOWLEDGE</div>
+        <h3>دانش و بینش‌های فناوری</h3>
+        <p>
+          مقالات، Case Study و موضوعات تخصصی مرتبط با صنعت و فناوری.
+        </p>
+      </a>
+
+      <a class="result-card" href="../industries/index.html">
+        <div class="result-type">INDUSTRY</div>
+        <h3>کاشی و سرامیک</h3>
+        <p>
+          نقطه شروع XSYN برای توسعه راهکارهای صنعتی.
+        </p>
+      </a>
+
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    © XSYN — Industrial Technology, Business Engineering & Expert Network
+  </div>
+</footer>
+
+<script>
+  function setSearch(value) {
+    document.getElementById("searchInput").value = value;
+    performSearch();
+  }
+
+  function performSearch(event) {
+    if (event) event.preventDefault();
+
+    const input = document.getElementById("searchInput");
+    const query = input.value.trim();
+
+    if (!query) {
+      input.focus();
+      return;
+    }
+
+    const cards = document.querySelectorAll(".result-card");
+
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      const match = text.includes(query.toLowerCase());
+
+      card.style.display = match ? "block" : "none";
+    });
+  }
+</script>
+
+</body>
+</html>
