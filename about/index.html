@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="../assets/favicon_io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+
+  <title>درباره XSYN</title>
+
+  <style>
+    :root{
+      --bg:#030a16;
+      --surface:#0a1728;
+      --text:#f4f7fb;
+      --soft:#b7c2d0;
+      --muted:#76869a;
+      --blue:#169cff;
+      --bright:#39b4ff;
+      --line:rgba(255,255,255,.08);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:Arial,Tahoma,sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%,rgba(22,156,255,.10),transparent 30%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.9;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .container{
+      width:min(1180px,calc(100% - 40px));
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(3,10,22,.88);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+
+    .logo{width:170px}
+
+    .links{
+      display:flex;
+      gap:26px;
+      color:var(--soft);
+      font-size:14px;
+    }
+
+    .links .active{color:white}
+
+    .cta{
+      padding:10px 17px;
+      border:1px solid rgba(57,180,255,.45);
+      border-radius:10px;
+      background:rgba(22,156,255,.08);
+    }
+
+    .hero{
+      padding:110px 0 85px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      color:var(--bright);
+      font-size:12px;
+      letter-spacing:2px;
+      margin-bottom:18px;
+    }
+
+    h1{
+      max-width:900px;
+      font-size:clamp(42px,6vw,76px);
+      line-height:1.15;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      max-width:760px;
+      color:var(--soft);
+      font-size:18px;
+    }
+
+    .content{
+      padding:80px 0 110px;
+    }
+
+    .story{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .box{
+      padding:35px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:var(--surface);
+    }
+
+    .box h2{
+      font-size:30px;
+      margin-bottom:15px;
+    }
+
+    .box p{
+      color:var(--muted);
+    }
+
+    .principles{
+      margin-top:22px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .principle{
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(10,23,40,.72);
+    }
+
+    .number{
+      color:var(--bright);
+      direction:ltr;
+      font-size:12px;
+      letter-spacing:2px;
+      margin-bottom:20px;
+    }
+
+    .principle h3{
+      font-size:22px;
+      margin-bottom:10px;
+    }
+
+    .principle p{
+      color:var(--muted);
+    }
+
+    .closing{
+      margin-top:55px;
+      padding:45px;
+      border-radius:20px;
+      border:1px solid rgba(57,180,255,.22);
+      background:
+        radial-gradient(circle at 70% 20%,rgba(22,156,255,.13),transparent 42%),
+        var(--surface);
+    }
+
+    .closing h2{
+      font-size:34px;
+      margin-bottom:12px;
+    }
+
+    .closing p{
+      max-width:800px;
+      color:var(--soft);
+    }
+
+    footer{
+      padding:35px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:800px){
+      .links{display:none}
+      .logo{width:140px}
+      .story,
+      .principles{grid-template-columns:1fr}
+      .hero{padding:75px 0 60px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a href="../index.html">
+      <img class="logo" src="../assets/xsyn-logo.png" alt="XSYN">
+    </a>
+
+    <nav class="links">
+      <a href="../index.html">خانه</a>
+      <a href="../solutions/index.html">راهکارها</a>
+      <a href="../experts/index.html">متخصصین</a>
+      <a href="../knowledge/index.html">دانش</a>
+      <a href="../industries/index.html">صنایع</a>
+      <a href="index.html" class="active">درباره XSYN</a>
+    </nav>
+
+    <a class="cta" href="../index.html#contact">مسئله خود را مطرح کنید</a>
+
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="eyebrow">XSYN · ABOUT</div>
+
+      <h1>
+        مهندسی تحول، نه فروش فناوری.
+      </h1>
+
+      <p>
+        XSYN با هدف اتصال فناوری، دانش تخصصی و مسائل واقعی
+        کسب‌وکار و صنعت شکل گرفته است؛ با تمرکز بر طراحی
+        راهکارهایی که بتوانند در دنیای واقعی ارزش ایجاد کنند.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+
+      <div class="story">
+
+        <div class="box">
+          <h2>نگاه XSYN</h2>
+          <p>
+            فناوری به‌تنهایی تحول ایجاد نمی‌کند. تحول زمانی اتفاق
+            می‌افتد که فناوری، داده، افراد، فرایند و دانش در یک
+            معماری منسجم کنار هم قرار بگیرند.
+          </p>
+        </div>
+
+        <div class="box">
+          <h2>چگونه فکر می‌کنیم؟</h2>
+          <p>
+            نقطه شروع ما ابزار یا محصول نیست؛ مسئله واقعی است.
+            ابتدا واقعیت را می‌شناسیم، سپس مسئله را تعریف می‌کنیم
+            و در ادامه راهکاری متناسب با آن طراحی می‌کنیم.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="principles">
+
+        <article class="principle">
+          <div class="number">01 · PROBLEM</div>
+          <h3>مسئله‌محوری</h3>
+          <p>
+            راهکار باید از یک نیاز واقعی و قابل اندازه‌گیری شروع شود.
+          </p>
+        </article>
+
+        <article class="principle">
+          <div class="number">02 · EXPERTISE</div>
+          <h3>تخصص و تجربه</h3>
+          <p>
+            دانش متخصصین بخشی از معماری راهکار و موتور یادگیری XSYN است.
+          </p>
+        </article>
+
+        <article class="principle">
+          <div class="number">03 · LEARNING</div>
+          <h3>یادگیری مستمر</h3>
+          <p>
+            هر پروژه باید تجربه و دانش جدیدی برای پروژه‌های بعدی ایجاد کند.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="closing">
+        <h2>سه موتور برای یک مسیر</h2>
+        <p>
+          راهکارهای مهندسی‌شده، شبکه متخصصین و موتور دانش،
+          سه بخش به‌هم‌پیوسته از معماری XSYN هستند؛ معماری‌ای
+          که با رشد پروژه‌ها و تجربه‌ها می‌تواند به یک شبکه
+          دانشی گسترده تبدیل شود.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    XSYN · TECHNOLOGY · SYNERGY · TRANSFORMATION
+  </div>
+</footer>
+
+</body>
+</html>
