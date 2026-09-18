@@ -11,8 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+  const mobileItems =
+    mobileMenu.querySelectorAll(".mobile-item");
+
+
   /* =========================================================
-     MOBILE MENU OPEN / CLOSE
+     OPEN / CLOSE MOBILE MENU
      ========================================================= */
 
   mobileToggle.addEventListener("click", () => {
@@ -29,12 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================================================
-     MOBILE ACCORDION
+     MOBILE ACCORDIONS
      ========================================================= */
-
-  const mobileItems =
-    document.querySelectorAll(".mobile-item");
-
 
   mobileItems.forEach(item => {
 
@@ -50,36 +50,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    mainLink.addEventListener("click", event => {
+    mainLink.setAttribute(
+      "aria-expanded",
+      "false"
+    );
 
-      /*
-       * Parent item opens the accordion.
-       * Direct navigation remains available
-       * through the submenu links.
-       */
+
+    mainLink.addEventListener("click", event => {
 
       event.preventDefault();
 
 
       mobileItems.forEach(other => {
 
-        if (other !== item) {
-
-          other.classList.remove("open");
-
-
-          const otherLink =
-            other.querySelector(":scope > a");
+        if (other === item) {
+          return;
+        }
 
 
-          if (otherLink) {
+        other.classList.remove("open");
 
-            otherLink.setAttribute(
-              "aria-expanded",
-              "false"
-            );
 
-          }
+        const otherLink =
+          other.querySelector(":scope > a");
+
+
+        if (otherLink) {
+
+          otherLink.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
         }
 
@@ -101,29 +102,86 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================================================
-     CLOSE MENU AFTER SELECTING A SUB-LINK
+     CLOSE AFTER NAVIGATION
      ========================================================= */
 
-  mobileMenu
-    .querySelectorAll(".mobile-sub a, .mobile-item > a:not(:has(.mobile-sub))")
-    .forEach(link => {
+  const closeLinks =
+    mobileMenu.querySelectorAll(
+      ".mobile-sub a"
+    );
 
-      link.addEventListener("click", () => {
 
-        mobileMenu.classList.remove("open");
+  closeLinks.forEach(link => {
 
-        mobileToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+    link.addEventListener("click", () => {
+
+      mobileMenu.classList.remove("open");
+
+      mobileToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+
+      mobileItems.forEach(item => {
+
+        item.classList.remove("open");
+
+
+        const mainLink =
+          item.querySelector(":scope > a");
+
+
+        if (mainLink) {
+
+          mainLink.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
 
       });
 
     });
 
+  });
+
 
   /* =========================================================
-     CLOSE WHEN ESC IS PRESSED
+     CLOSE MENU FOR DIRECT MOBILE LINKS
+     ========================================================= */
+
+  mobileItems.forEach(item => {
+
+    const mainLink =
+      item.querySelector(":scope > a");
+
+    const submenu =
+      item.querySelector(":scope > .mobile-sub");
+
+
+    if (!mainLink || submenu) {
+      return;
+    }
+
+
+    mainLink.addEventListener("click", () => {
+
+      mobileMenu.classList.remove("open");
+
+      mobileToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    });
+
+  });
+
+
+  /* =========================================================
+     ESC KEY
      ========================================================= */
 
   document.addEventListener("keydown", event => {
@@ -145,13 +203,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       item.classList.remove("open");
 
-      const link =
+
+      const mainLink =
         item.querySelector(":scope > a");
 
 
-      if (link) {
+      if (mainLink) {
 
-        link.setAttribute(
+        mainLink.setAttribute(
           "aria-expanded",
           "false"
         );
