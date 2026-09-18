@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/x-icon" href="../assets/favicon_io/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png" />
+
+  <title>راهکارها | XSYN</title>
+
+  <style>
+    :root {
+      --bg: #030a16;
+      --surface: #0a1728;
+      --surface-2: #0d1c30;
+      --text: #f4f7fb;
+      --text-soft: #b7c2d0;
+      --text-muted: #76869a;
+      --silver: #dce3eb;
+      --blue: #169cff;
+      --blue-bright: #39b4ff;
+      --line: rgba(255,255,255,.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Tahoma, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(22,156,255,.10), transparent 30%),
+        radial-gradient(circle at 85% 30%, rgba(22,156,255,.06), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(3,10,22,.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand-logo {
+      width: 170px;
+      height: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: var(--text);
+    }
+
+    .cta {
+      padding: 11px 18px;
+      border: 1px solid rgba(57,180,255,.45);
+      border-radius: 10px;
+      color: var(--text);
+      background: rgba(22,156,255,.08);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 110px 0 80px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: var(--blue-bright);
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      direction: ltr;
+      text-align: right;
+    }
+
+    h1 {
+      max-width: 820px;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: var(--text-soft);
+      font-size: 18px;
+    }
+
+    /* Solutions */
+    .solutions {
+      padding: 85px 0 110px;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      margin-bottom: 50px;
+    }
+
+    .section-intro h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .section-intro p {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      min-height: 245px;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.012)),
+        var(--surface);
+      overflow: hidden;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      left: -80px;
+      bottom: -100px;
+      border-radius: 50%;
+      background: rgba(22,156,255,.12);
+      filter: blur(20px);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(57,180,255,.35);
+    }
+
+    .number {
+      direction: ltr;
+      color: var(--blue-bright);
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      max-width: 500px;
+    }
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--line);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .brand-logo {
+        width: 140px;
+      }
+
+      .hero {
+        padding: 75px 0 60px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 43px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a href="../index.html">
+      <img class="brand-logo" src="../assets/xsyn-logo.png" alt="XSYN" />
+    </a>
+
+    <nav class="nav-links">
+      <a href="../index.html">خانه</a>
+      <a href="index.html" class="active">راهکارها</a>
+      <a href="../experts/index.html">متخصصین</a>
+      <a href="../knowledge/index.html">دانش</a>
+      <a href="../industries/index.html">صنایع</a>
+      <a href="../about/index.html">درباره XSYN</a>
+    </nav>
+
+    <a class="cta" href="../index.html#contact">
+      مسئله خود را مطرح کنید
+    </a>
+
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="eyebrow">XSYN · SOLUTION ENGINEERING</div>
+
+      <h1>
+        فناوری را به راهکاری برای مسئله واقعی تبدیل می‌کنیم.
+      </h1>
+
+      <p>
+        XSYN راهکارهای مهندسی‌شده‌ای طراحی می‌کند که از شناخت واقعیت کسب‌وکار
+        و صنعت شروع می‌شوند و تا اجرا، سنجش و یادگیری ادامه پیدا می‌کنند.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="solutions">
+    <div class="container">
+
+      <div class="section-intro">
+        <h2>حوزه‌های راهکار</h2>
+        <p>
+          مجموعه‌ای از توانمندی‌های XSYN برای تحول، هوشمندسازی،
+          یکپارچه‌سازی و بهبود عملکرد سازمان و کارخانه.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="number">01 · DIGITAL</div>
+          <h3>تحول دیجیتال صنعتی</h3>
+          <p>
+            طراحی مسیر تحول دیجیتال متناسب با ساختار، فرایندها،
+            بلوغ و اهداف واقعی سازمان.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">02 · AI & DATA</div>
+          <h3>هوش مصنوعی و داده</h3>
+          <p>
+            تبدیل داده‌های سازمانی و صنعتی به بینش، پیش‌بینی،
+            اتوماسیون و تصمیم‌گیری هوشمند.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">03 · PERFORMANCE</div>
+          <h3>داشبورد و مدیریت عملکرد</h3>
+          <p>
+            ایجاد دید یکپارچه نسبت به شاخص‌ها، عملکرد و وضعیت
+            عملیاتی برای تصمیم‌گیری مدیریتی.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">04 · ERP</div>
+          <h3>ERP و یکپارچه‌سازی</h3>
+          <p>
+            معماری و بهبود سیستم‌های سازمانی و اتصال داده و فرایند
+            میان واحدهای مختلف.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">05 · SIMULATION</div>
+          <h3>شبیه‌سازی و Digital Twin</h3>
+          <p>
+            مدل‌سازی رفتار سیستم‌ها و استفاده از شبیه‌سازی برای
+            تحلیل سناریوها و تصمیم‌های پیچیده.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">06 · CONNECTIVITY</div>
+          <h3>اتصال‌پذیری صنعتی</h3>
+          <p>
+            ایجاد ارتباط میان تجهیزات، سیستم‌ها، داده‌ها و لایه‌های
+            مختلف کارخانه.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">07 · PEOPLE</div>
+          <h3>سازمان و منابع انسانی</h3>
+          <p>
+            طراحی ابزارها و مدل‌های نوین برای مدیریت، منابع انسانی،
+            همکاری و توسعه سازمان.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">08 · ENGINEERING</div>
+          <h3>راهکارهای مهندسی‌شده</h3>
+          <p>
+            حل مسئله‌های خاص صنعت با ترکیب فناوری، دانش تخصصی،
+            داده و شبکه متخصصین XSYN.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    XSYN · TECHNOLOGY · SYNERGY · TRANSFORMATION
+  </div>
+</footer>
+
+</body>
+</html>
