@@ -1,404 +1,2010 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>جستجو | XSYN</title>
+  <meta charset="UTF-8">
 
-  <link rel="icon" type="image/x-icon" href="../assets/favicon_io/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png" />
-  <link rel="apple-touch-icon" href="../assets/favicon_io/apple-touch-icon.png" />
-  <link rel="manifest" href="../assets/favicon_io/site.webmanifest" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="جستجو در راهکارها، متخصصین، دانش و صنایع XSYN"
+  >
+
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="../assets/favicon_io/favicon.ico"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="../assets/favicon_io/favicon-32x32.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="../assets/favicon_io/favicon-16x16.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="../assets/favicon_io/apple-touch-icon.png"
+  >
+
+  <link
+    rel="manifest"
+    href="../assets/favicon_io/site.webmanifest"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/style.css"
+  >
+
+  <title>
+    جستجو | XSYN
+  </title>
+
 
   <style>
-    :root {
-      --bg: #030a16;
-      --bg-2: #071322;
-      --surface: #0a1728;
-      --surface-2: #0d1c30;
-      --text: #f4f7fb;
-      --text-soft: #b7c2d0;
-      --text-muted: #76869a;
-      --silver: #dce3eb;
-      --blue: #169cff;
-      --blue-bright: #39b4ff;
-      --border: rgba(255,255,255,.08);
-    }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* =========================================================
+       SEARCH PAGE
+       Page-specific styles only
+       ========================================================= */
 
-    body {
-      font-family: Arial, sans-serif;
+
+    /* =========================================================
+       01. HERO / SEARCH INTRO
+       ========================================================= */
+
+    .search-hero {
+
+      position: relative;
+
+      padding:
+        82px 0 70px;
+
+      border-bottom:
+        1px solid var(--line);
+
       background:
-        radial-gradient(circle at 20% 10%, rgba(22,156,255,.08), transparent 30%),
-        var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+        radial-gradient(
+          circle at 78% 22%,
+          rgba(22,156,255,.065),
+          transparent 34%
+        );
+
+      overflow: hidden;
+    }
+
+
+    .search-hero::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 380px;
+      height: 380px;
+
+      left: -170px;
+      bottom: -240px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(22,156,255,.035),
+          transparent 68%
+        );
+
+      pointer-events: none;
+    }
+
+
+    .search-intro {
+
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 850px;
+    }
+
+
+    .search-intro .eyebrow {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-bottom: 18px;
+
+      color:
+        #9eb2c9;
+
+      font-size: 11px;
+
+      letter-spacing: .13em;
+
+      direction: ltr;
+    }
+
+
+    .search-intro .eyebrow::before {
+
+      content: "";
+
+      width: 25px;
+      height: 1px;
+
+      background:
+        var(--blue);
+
+      box-shadow:
+        0 0 10px
+        rgba(22,156,255,.65);
+    }
+
+
+    .search-intro h1 {
+
+      max-width: 800px;
+
+      font-size:
+        clamp(
+          40px,
+          4.8vw,
+          62px
+        );
+
+      line-height: 1.42;
+
+      font-weight: 800;
+
+      letter-spacing: -.02em;
+    }
+
+
+    .search-intro p {
+
+      max-width: 700px;
+
+      margin-top: 20px;
+
+      color:
+        var(--text-soft);
+
+      font-size: 17px;
+
+      line-height: 2.05;
+    }
+
+
+    /* =========================================================
+       02. SEARCH PANEL
+       ========================================================= */
+
+    .search-section {
+
+      padding:
+        64px 0 100px;
+    }
+
+
+    .search-shell {
+
+      max-width: 920px;
+
+      margin:
+        0 auto;
+    }
+
+
+    .search-form {
+
+      display: flex;
+
+      align-items: stretch;
+
+      gap: 9px;
+
+      padding: 8px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.032),
+          rgba(255,255,255,.010)
+        ),
+        var(--surface);
+
+      box-shadow:
+        var(--shadow-soft);
+    }
+
+
+    .search-input-wrap {
+
+      position: relative;
+
+      flex: 1;
+
+      min-width: 0;
+    }
+
+
+    .search-input-wrap::before {
+
+      content: "⌕";
+
+      position: absolute;
+
+      top: 50%;
+      right: 17px;
+
+      transform:
+        translateY(-50%);
+
+      color:
+        var(--text-muted);
+
+      font-size: 20px;
+
+      pointer-events: none;
+    }
+
+
+    .search-input {
+
+      width: 100%;
+
+      min-height: 52px;
+
+      padding:
+        0 48px 0 16px;
+
+      border: 0;
+
+      outline: none;
+
+      background: transparent;
+
+      color:
+        var(--text);
+
+      font-size: 16px;
+
+      line-height: 1.8;
+
+      direction: rtl;
+    }
+
+
+    .search-input::placeholder {
+
+      color:
+        var(--text-muted);
+    }
+
+
+    .search-input:focus {
+
+      color:
+        var(--text);
+    }
+
+
+    .search-submit {
+
+      min-width: 112px;
+
+      padding:
+        0 22px;
+
+      border:
+        1px solid rgba(57,180,255,.38);
+
+      border-radius: 9px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(22,156,255,.92),
+          rgba(11,103,169,.92)
+        );
+
+      color:
+        #ffffff;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 7px 20px
+        rgba(22,156,255,.10);
+
+      transition:
+        background .20s ease,
+        border-color .20s ease,
+        transform .20s ease,
+        box-shadow .20s ease;
+    }
+
+
+    .search-submit:hover {
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(57,180,255,.98),
+          rgba(22,156,255,.95)
+        );
+
+      border-color:
+        rgba(57,180,255,.70);
+
+      transform:
+        translateY(-1px);
+
+      box-shadow:
+        0 10px 25px
+        rgba(22,156,255,.16);
+    }
+
+
+    .search-help {
+
+      margin-top: 12px;
+
+      color:
+        var(--text-muted);
+
+      font-size: 11px;
+
       line-height: 1.8;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
 
-    .container {
-      width: min(1180px, calc(100% - 40px));
-      margin: auto;
-    }
-
-    header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(3,10,22,.85);
-      backdrop-filter: blur(14px);
-    }
-
-    .nav {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .brand-logo {
-      width: 165px;
-      height: auto;
-      display: block;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-    }
-
-    nav a {
-      color: var(--text-soft);
-      font-size: 14px;
-      transition: .2s ease;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      padding: 10px 18px;
-      border: 1px solid rgba(22,156,255,.45);
-      border-radius: 8px;
-      color: var(--blue-bright);
-    }
-
-    main {
-      padding: 110px 0 120px;
-    }
-
-    .eyebrow {
-      color: var(--blue-bright);
-      font-size: 12px;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(38px, 5vw, 64px);
-      line-height: 1.15;
-      margin-bottom: 22px;
-    }
-
-    .intro {
-      max-width: 650px;
-      color: var(--text-soft);
-      font-size: 17px;
-      margin-bottom: 45px;
-    }
-
-    .search-box {
-      max-width: 900px;
-      display: flex;
-      gap: 12px;
-      padding: 10px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.25);
-    }
-
-    .search-box input {
-      flex: 1;
-      min-width: 0;
-      border: 0;
-      outline: 0;
-      background: transparent;
-      color: var(--text);
-      font-size: 17px;
-      padding: 16px 18px;
-      font-family: inherit;
-    }
-
-    .search-box input::placeholder {
-      color: var(--text-muted);
-    }
-
-    .search-btn {
-      border: 0;
-      background: var(--blue);
-      color: white;
-      padding: 0 30px;
-      border-radius: 9px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 15px;
-    }
+    /* =========================================================
+       03. SUGGESTIONS
+       ========================================================= */
 
     .suggestions {
-      margin-top: 18px;
+
       display: flex;
+
+      align-items: center;
+
       flex-wrap: wrap;
-      gap: 9px;
+
+      gap: 8px;
+
+      margin-top: 18px;
     }
+
+
+    .suggestions-label {
+
+      color:
+        var(--text-muted);
+
+      font-size: 11px;
+
+      margin-left: 4px;
+    }
+
 
     .suggestion {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.025);
-      color: var(--text-soft);
-      padding: 7px 13px;
-      border-radius: 30px;
-      font-size: 13px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding:
+        6px 11px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 8px;
+
+      background:
+        rgba(255,255,255,.018);
+
+      color:
+        var(--text-soft);
+
+      font-size: 11px;
+
       cursor: pointer;
+
+      transition:
+        color .20s ease,
+        background .20s ease,
+        border-color .20s ease,
+        transform .20s ease;
     }
+
 
     .suggestion:hover {
-      border-color: rgba(22,156,255,.4);
-      color: var(--text);
+
+      color:
+        var(--blue-bright);
+
+      background:
+        rgba(22,156,255,.055);
+
+      border-color:
+        rgba(57,180,255,.28);
+
+      transform:
+        translateY(-1px);
     }
+
+
+    /* =========================================================
+       04. RESULTS
+       ========================================================= */
 
     .results {
-      margin-top: 70px;
+
+      margin-top: 58px;
     }
 
-    .results-title {
-      color: var(--text-muted);
-      font-size: 13px;
-      margin-bottom: 18px;
+
+    .results-head {
+
+      display: flex;
+
+      align-items: flex-end;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      margin-bottom: 17px;
     }
+
+
+    .results-head h2 {
+
+      font-size: 24px;
+
+      line-height: 1.5;
+    }
+
+
+    .results-count {
+
+      color:
+        var(--text-muted);
+
+      font-size: 11px;
+
+      direction: rtl;
+
+      white-space: nowrap;
+    }
+
+
+    .results-list {
+
+      display: grid;
+
+      gap: 11px;
+    }
+
 
     .result-card {
+
+      position: relative;
+
       display: block;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 14px;
-      transition: .25s ease;
+
+      padding:
+        22px 23px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        14px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.025),
+          rgba(255,255,255,.010)
+        );
+
+      overflow: hidden;
+
+      transition:
+        transform .22s ease,
+        border-color .22s ease,
+        background .22s ease;
     }
+
+
+    .result-card::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      right: 0;
+
+      width: 2px;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          var(--blue-bright),
+          transparent
+        );
+
+      opacity: .18;
+
+      transition:
+        opacity .22s ease;
+    }
+
 
     .result-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(22,156,255,.35);
-      background: var(--surface-2);
+
+      transform:
+        translateY(-3px);
+
+      border-color:
+        var(--border-blue);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(22,156,255,.045),
+          rgba(255,255,255,.012)
+        );
     }
+
+
+    .result-card:hover::before {
+
+      opacity: .85;
+    }
+
+
+    .result-top {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+    }
+
 
     .result-type {
-      color: var(--blue-bright);
-      font-size: 11px;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
+
+      color:
+        var(--blue-bright);
+
+      font-size: 10px;
+
+      letter-spacing: .12em;
+
+      direction: ltr;
     }
+
+
+    .result-arrow {
+
+      color:
+        var(--text-muted);
+
+      font-size: 14px;
+
+      transition:
+        color .20s ease,
+        transform .20s ease;
+    }
+
+
+    .result-card:hover .result-arrow {
+
+      color:
+        var(--blue-bright);
+
+      transform:
+        translateX(-3px);
+    }
+
 
     .result-card h3 {
-      font-size: 19px;
+
+      margin-top: 9px;
+
       margin-bottom: 7px;
+
+      font-size: 18px;
+
+      line-height: 1.65;
     }
+
 
     .result-card p {
-      color: var(--text-muted);
-      font-size: 14px;
+
+      max-width: 720px;
+
+      color:
+        var(--text-muted);
+
+      font-size: 13px;
+
+      line-height: 2;
     }
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 30px 0;
-      color: var(--text-muted);
-      font-size: 12px;
+
+    .no-results {
+
+      display: none;
+
+      padding:
+        28px 24px;
+
+      border:
+        1px dashed var(--border);
+
+      border-radius:
+        14px;
+
+      color:
+        var(--text-muted);
+
+      text-align: center;
+
+      font-size: 13px;
     }
 
-    @media (max-width: 800px) {
-      nav a:not(.nav-cta) {
-        display: none;
+
+    /* =========================================================
+       05. RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 760px) {
+
+      .search-hero {
+
+        padding:
+          58px 0 54px;
       }
 
-      .nav {
-        min-height: 72px;
+
+      .search-intro .eyebrow {
+
+        font-size: 9px;
+
+        letter-spacing: .09em;
       }
 
-      main {
-        padding: 75px 0 90px;
+
+      .search-intro h1 {
+
+        max-width: 100%;
+
+        font-size:
+          clamp(
+            34px,
+            9.4vw,
+            46px
+          );
+
+        line-height: 1.5;
+
+        letter-spacing:
+          -.008em;
       }
 
-      .search-box {
+
+      .search-intro p {
+
+        max-width: 100%;
+
+        margin-top: 19px;
+
+        font-size: 15px;
+
+        line-height: 2.1;
+      }
+
+
+      .search-section {
+
+        padding:
+          55px 0 78px;
+      }
+
+
+      .search-form {
+
         flex-direction: column;
+
+        gap: 8px;
+
+        padding: 8px;
       }
 
-      .search-btn {
+
+      .search-input {
+
         min-height: 50px;
+
+        font-size: 14px;
       }
+
+
+      .search-submit {
+
+        min-height: 48px;
+
+        width: 100%;
+      }
+
+
+      .search-help {
+
+        font-size: 10px;
+      }
+
+
+      .suggestions {
+
+        align-items: flex-start;
+
+        margin-top: 16px;
+      }
+
+
+      .suggestions-label {
+
+        width: 100%;
+
+        margin-bottom: 2px;
+      }
+
+
+      .suggestion {
+
+        font-size: 10px;
+
+        padding:
+          6px 10px;
+      }
+
+
+      .results {
+
+        margin-top: 48px;
+      }
+
+
+      .results-head {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 5px;
+      }
+
+
+      .results-head h2 {
+
+        font-size: 21px;
+      }
+
+
+      .result-card {
+
+        padding:
+          19px 18px;
+      }
+
+
+      .result-card h3 {
+
+        font-size: 16px;
+      }
+
+
+      .result-card p {
+
+        font-size: 12px;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
-<header>
-  <div class="container nav">
 
-    <a href="../index.html">
-      <img
-        class="brand-logo"
-        src="../assets/xsyn-logo.png"
-        alt="XSYN"
-      />
-    </a>
+  <!-- =======================================================
+       SHARED HEADER
+       ======================================================= -->
 
-    <nav>
-      <a href="../solutions/index.html">راهکارها</a>
-      <a href="../experts/index.html">متخصصین</a>
-      <a href="../knowledge/index.html">دانش</a>
-      <a href="../industries/index.html">صنایع</a>
-      <a href="../about/index.html">درباره XSYN</a>
-      <a class="nav-cta" href="../index.html#contact">مسئله خود را مطرح کنید</a>
-    </nav>
+  <header>
 
-  </div>
-</header>
+    <div class="container">
 
-<main>
-  <div class="container">
+      <nav class="nav">
 
-    <div class="eyebrow">XSYN · SEARCH</div>
 
-    <h1>دنبال چه چیزی هستید؟</h1>
+        <!-- Center Brand -->
 
-    <p class="intro">
-      در XSYN می‌توانید میان راهکارها، حوزه‌های تخصصی،
-      صنایع، مقالات و دانش فنی جستجو کنید.
-    </p>
+        <a
+          class="brand"
+          href="../index.html"
+          aria-label="XSYN"
+        >
 
-    <form class="search-box" onsubmit="performSearch(event)">
-      <input
-        id="searchInput"
-        type="search"
-        placeholder="مثلاً: دیجیتال تویین، ERP، هوش مصنوعی..."
-        autocomplete="off"
-      />
+          <img
+            class="brand-logo"
+            src="../assets/xsyn-logo.png"
+            alt="XSYN"
+          >
 
-      <button class="search-btn" type="submit">
-        جستجو
-      </button>
-    </form>
+        </a>
 
-    <div class="suggestions">
-      <button class="suggestion" onclick="setSearch('Digital Twin')">
-        Digital Twin
-      </button>
 
-      <button class="suggestion" onclick="setSearch('ERP')">
-        ERP
-      </button>
+        <!-- Desktop Navigation -->
 
-      <button class="suggestion" onclick="setSearch('هوش مصنوعی')">
-        هوش مصنوعی
-      </button>
+        <div class="nav-links">
 
-      <button class="suggestion" onclick="setSearch('کاشی و سرامیک')">
-        کاشی و سرامیک
-      </button>
-    </div>
 
-    <section class="results">
+          <a
+            class="nav-link"
+            href="../index.html"
+          >
+            خانه
+          </a>
 
-      <div class="results-title">
-        نمونه‌ای از محتوای قابل جستجو
+
+          <div class="nav-item">
+
+
+            <a
+              class="nav-link"
+              href="../solutions/index.html"
+            >
+
+              راهکارها
+
+              <span class="arrow">
+                ⌄
+              </span>
+
+            </a>
+
+
+            <div class="dropdown">
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  تحول دیجیتال صنعتی
+                </strong>
+
+                <span>
+                  DIGITAL TRANSFORMATION
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  هوش مصنوعی و داده
+                </strong>
+
+                <span>
+                  AI &amp; DATA INTELLIGENCE
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  داشبورد و مدیریت عملکرد
+                </strong>
+
+                <span>
+                  PERFORMANCE &amp; DASHBOARDS
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  ERP و سیستم‌های کسب‌وکار
+                </strong>
+
+                <span>
+                  ERP &amp; BUSINESS SYSTEMS
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  شبیه‌سازی و Digital Twin
+                </strong>
+
+                <span>
+                  SIMULATION &amp; DIGITAL TWIN
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  اتصال صنعتی و IIoT
+                </strong>
+
+                <span>
+                  INDUSTRIAL CONNECTIVITY
+                </span>
+
+              </a>
+
+
+              <a href="../solutions/index.html">
+
+                <strong>
+                  سازمان و منابع انسانی
+                </strong>
+
+                <span>
+                  ORGANIZATION &amp; PEOPLE
+                </span>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
+
+          <div class="nav-item">
+
+
+            <a
+              class="nav-link"
+              href="../experts/index.html"
+            >
+
+              متخصصین
+
+              <span class="arrow">
+                ⌄
+              </span>
+
+            </a>
+
+
+            <div class="dropdown">
+
+
+              <a href="../experts/index.html">
+
+                <strong>
+                  شبکه متخصصین
+                </strong>
+
+                <span>
+                  EXPERT NETWORK
+                </span>
+
+              </a>
+
+
+              <a href="../experts/index.html">
+
+                <strong>
+                  حوزه‌های تخصص
+                </strong>
+
+                <span>
+                  EXPERTISE AREAS
+                </span>
+
+              </a>
+
+
+              <a href="../experts/index.html">
+
+                <strong>
+                  عضویت در شبکه
+                </strong>
+
+                <span>
+                  JOIN THE NETWORK
+                </span>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
+
+          <div class="nav-item">
+
+
+            <a
+              class="nav-link"
+              href="../knowledge/index.html"
+            >
+
+              دانش
+
+              <span class="arrow">
+                ⌄
+              </span>
+
+            </a>
+
+
+            <div class="dropdown">
+
+
+              <a href="../knowledge/index.html">
+
+                <strong>
+                  مقالات و Insights
+                </strong>
+
+                <span>
+                  ARTICLES &amp; INSIGHTS
+                </span>
+
+              </a>
+
+
+              <a href="../knowledge/index.html">
+
+                <strong>
+                  مطالعات موردی
+                </strong>
+
+                <span>
+                  CASE STUDIES
+                </span>
+
+              </a>
+
+
+              <a href="../knowledge/index.html">
+
+                <strong>
+                  مسائل صنعتی
+                </strong>
+
+                <span>
+                  PROBLEM LIBRARY
+                </span>
+
+              </a>
+
+
+              <a href="../knowledge/index.html">
+
+                <strong>
+                  فناوری‌ها
+                </strong>
+
+                <span>
+                  TECHNOLOGY DISCOVERY
+                </span>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
+
+          <div class="nav-item">
+
+
+            <a
+              class="nav-link"
+              href="../industries/index.html"
+            >
+
+              صنایع
+
+              <span class="arrow">
+                ⌄
+              </span>
+
+            </a>
+
+
+            <div class="dropdown">
+
+
+              <a href="../industries/index.html">
+
+                <strong>
+                  کاشی و سرامیک
+                </strong>
+
+                <span>
+                  CERAMIC &amp; TILE
+                </span>
+
+              </a>
+
+
+              <a href="../industries/index.html">
+
+                <strong>
+                  تولید و کارخانه
+                </strong>
+
+                <span>
+                  MANUFACTURING
+                </span>
+
+              </a>
+
+
+              <a href="../industries/index.html">
+
+                <strong>
+                  صنایع فرایندی
+                </strong>
+
+                <span>
+                  PROCESS INDUSTRIES
+                </span>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
+
+          <a
+            class="nav-link"
+            href="../about/index.html"
+          >
+            درباره XSYN
+          </a>
+
+
+        </div>
+
+
+        <!-- Actions -->
+
+        <div class="nav-actions">
+
+
+          <a
+            href="index.html"
+            class="search-btn"
+            aria-label="جستجو"
+          >
+            ⌕
+          </a>
+
+
+          <a
+            href="../index.html#contact"
+            class="primary-btn nav-cta"
+          >
+            مسئله خود را مطرح کنید
+          </a>
+
+
+          <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            type="button"
+            aria-label="باز کردن منو"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+
+        </div>
+
+      </nav>
+
+
+      <!-- =====================================================
+           MOBILE MENU
+           ===================================================== -->
+
+      <div
+        class="mobile-menu"
+        id="mobileMenu"
+      >
+
+
+        <div class="mobile-item">
+
+
+          <a href="../solutions/index.html">
+
+            <span>
+              راهکارها
+            </span>
+
+            <span>
+              ⌄
+            </span>
+
+          </a>
+
+
+          <div class="mobile-sub">
+
+            <a href="../solutions/index.html">
+              تحول دیجیتال صنعتی
+            </a>
+
+            <a href="../solutions/index.html">
+              هوش مصنوعی و داده
+            </a>
+
+            <a href="../solutions/index.html">
+              داشبورد و مدیریت عملکرد
+            </a>
+
+            <a href="../solutions/index.html">
+              ERP و سیستم‌های کسب‌وکار
+            </a>
+
+            <a href="../solutions/index.html">
+              شبیه‌سازی و Digital Twin
+            </a>
+
+            <a href="../solutions/index.html">
+              اتصال صنعتی و IIoT
+            </a>
+
+            <a href="../solutions/index.html">
+              سازمان و منابع انسانی
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="mobile-item">
+
+
+          <a href="../experts/index.html">
+
+            <span>
+              متخصصین
+            </span>
+
+            <span>
+              ⌄
+            </span>
+
+          </a>
+
+
+          <div class="mobile-sub">
+
+            <a href="../experts/index.html">
+              شبکه متخصصین
+            </a>
+
+            <a href="../experts/index.html">
+              حوزه‌های تخصص
+            </a>
+
+            <a href="../experts/index.html">
+              عضویت در شبکه
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="mobile-item">
+
+
+          <a href="../knowledge/index.html">
+
+            <span>
+              دانش
+            </span>
+
+            <span>
+              ⌄
+            </span>
+
+          </a>
+
+
+          <div class="mobile-sub">
+
+            <a href="../knowledge/index.html">
+              مقالات و Insights
+            </a>
+
+            <a href="../knowledge/index.html">
+              مطالعات موردی
+            </a>
+
+            <a href="../knowledge/index.html">
+              مسائل صنعتی
+            </a>
+
+            <a href="../knowledge/index.html">
+              فناوری‌ها
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="mobile-item">
+
+
+          <a href="../industries/index.html">
+
+            <span>
+              صنایع
+            </span>
+
+            <span>
+              ⌄
+            </span>
+
+          </a>
+
+
+          <div class="mobile-sub">
+
+            <a href="../industries/index.html">
+              کاشی و سرامیک
+            </a>
+
+            <a href="../industries/index.html">
+              تولید و کارخانه
+            </a>
+
+            <a href="../industries/index.html">
+              صنایع فرایندی
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="mobile-item">
+
+          <a href="../about/index.html">
+
+            <span>
+              درباره XSYN
+            </span>
+
+          </a>
+
+        </div>
+
+
       </div>
 
-      <a class="result-card" href="../solutions/index.html">
-        <div class="result-type">SOLUTION</div>
-        <h3>راهکارهای تحول دیجیتال صنعتی</h3>
-        <p>
-          از تحلیل مسئله تا طراحی و اجرای راهکارهای فناوری.
-        </p>
-      </a>
+    </div>
 
-      <a class="result-card" href="../experts/index.html">
-        <div class="result-type">EXPERT NETWORK</div>
-        <h3>شبکه متخصصین XSYN</h3>
-        <p>
-          دسترسی ساختاریافته به دانش و تخصص موردنیاز مسائل صنعتی.
-        </p>
-      </a>
+  </header>
 
-      <a class="result-card" href="../knowledge/index.html">
-        <div class="result-type">KNOWLEDGE</div>
-        <h3>دانش و بینش‌های فناوری</h3>
-        <p>
-          مقالات، Case Study و موضوعات تخصصی مرتبط با صنعت و فناوری.
-        </p>
-      </a>
 
-      <a class="result-card" href="../industries/index.html">
-        <div class="result-type">INDUSTRY</div>
-        <h3>کاشی و سرامیک</h3>
-        <p>
-          نقطه شروع XSYN برای توسعه راهکارهای صنعتی.
-        </p>
-      </a>
+  <!-- =======================================================
+       MAIN
+       ======================================================= -->
+
+  <main>
+
+
+    <!-- =====================================================
+         SEARCH HERO
+         ===================================================== -->
+
+    <section class="search-hero">
+
+      <div class="container">
+
+
+        <div class="search-intro">
+
+
+          <div class="eyebrow">
+            XSYN · SEARCH
+          </div>
+
+
+          <h1>
+            دنبال چه چیزی هستید؟
+          </h1>
+
+
+          <p>
+            در XSYN می‌توانید میان راهکارها، متخصصین،
+            صنایع، مقالات و دانش فنی جستجو کنید.
+          </p>
+
+
+        </div>
+
+      </div>
 
     </section>
 
-  </div>
-</main>
 
-<footer>
-  <div class="container">
-    © XSYN — Industrial Technology, Business Engineering & Expert Network
-  </div>
-</footer>
+    <!-- =====================================================
+         SEARCH SECTION
+         ===================================================== -->
 
-<script>
-  function setSearch(value) {
-    document.getElementById("searchInput").value = value;
-    performSearch();
-  }
+    <section class="search-section">
 
-  function performSearch(event) {
-    if (event) event.preventDefault();
+      <div class="container">
 
-    const input = document.getElementById("searchInput");
-    const query = input.value.trim();
 
-    if (!query) {
-      input.focus();
-      return;
-    }
+        <div class="search-shell">
 
-    const cards = document.querySelectorAll(".result-card");
 
-    cards.forEach(card => {
-      const text = card.innerText.toLowerCase();
-      const match = text.includes(query.toLowerCase());
+          <form
+            class="search-form"
+            id="searchForm"
+          >
 
-      card.style.display = match ? "block" : "none";
-    });
-  }
-</script>
+
+            <div class="search-input-wrap">
+
+              <input
+                id="searchInput"
+                class="search-input"
+                type="search"
+                placeholder="مثلاً: Digital Twin، ERP، هوش مصنوعی..."
+                autocomplete="off"
+                aria-label="عبارت جستجو"
+              >
+
+            </div>
+
+
+            <button
+              class="search-submit"
+              type="submit"
+            >
+              جستجو
+            </button>
+
+
+          </form>
+
+
+          <div class="search-help">
+            جستجو در نسخه اولیه بر اساس محتوای نمایشی همین سایت انجام می‌شود.
+          </div>
+
+
+          <div class="suggestions">
+
+
+            <span class="suggestions-label">
+              جستجوهای پیشنهادی:
+            </span>
+
+
+            <button
+              class="suggestion"
+              type="button"
+              data-search="Digital Twin"
+            >
+              Digital Twin
+            </button>
+
+
+            <button
+              class="suggestion"
+              type="button"
+              data-search="ERP"
+            >
+              ERP
+            </button>
+
+
+            <button
+              class="suggestion"
+              type="button"
+              data-search="هوش مصنوعی"
+            >
+              هوش مصنوعی
+            </button>
+
+
+            <button
+              class="suggestion"
+              type="button"
+              data-search="کاشی و سرامیک"
+            >
+              کاشی و سرامیک
+            </button>
+
+
+          </div>
+
+
+          <!-- Results -->
+
+          <section class="results">
+
+
+            <div class="results-head">
+
+
+              <h2>
+                محتوای قابل جستجو
+              </h2>
+
+
+              <div
+                class="results-count"
+                id="resultsCount"
+              >
+                ۴ نتیجه
+              </div>
+
+
+            </div>
+
+
+            <div class="results-list" id="resultsList">
+
+
+              <!-- Solution -->
+
+              <a
+                class="result-card"
+                href="../solutions/index.html"
+                data-keywords="راهکارها تحول دیجیتال دیجیتال ترنسفورمیشن industrial technology business engineering ai artificial intelligence data داشبورد performance erp business systems simulation digital twin industrial connectivity iiot organization people"
+              >
+
+
+                <div class="result-top">
+
+
+                  <div class="result-type">
+                    SOLUTION
+                  </div>
+
+
+                  <div class="result-arrow">
+                    ←
+                  </div>
+
+
+                </div>
+
+
+                <h3>
+                  راهکارهای تحول دیجیتال صنعتی
+                </h3>
+
+
+                <p>
+                  از تحلیل مسئله تا طراحی و اجرای راهکارهای
+                  فناوری، داده، سیستم‌های سازمانی و تحول صنعتی.
+                </p>
+
+
+              </a>
+
+
+              <!-- Expert Network -->
+
+              <a
+                class="result-card"
+                href="../experts/index.html"
+                data-keywords="متخصصین expert network expertise areas ai data manufacturing erp systems process transformation digital twin simulation"
+              >
+
+
+                <div class="result-top">
+
+
+                  <div class="result-type">
+                    EXPERT NETWORK
+                  </div>
+
+
+                  <div class="result-arrow">
+                    ←
+                  </div>
+
+
+                </div>
+
+
+                <h3>
+                  شبکه متخصصین XSYN
+                </h3>
+
+
+                <p>
+                  دسترسی ساختاریافته به تخصص‌ها و دانش موردنیاز
+                  برای مسائل و پروژه‌های صنعتی.
+                </p>
+
+
+              </a>
+
+
+              <!-- Knowledge -->
+
+              <a
+                class="result-card"
+                href="../knowledge/index.html"
+                data-keywords="دانش knowledge articles insights case study technology discovery digital twin erp ai data industrial technology"
+              >
+
+
+                <div class="result-top">
+
+
+                  <div class="result-type">
+                    KNOWLEDGE
+                  </div>
+
+
+                  <div class="result-arrow">
+                    ←
+                  </div>
+
+
+                </div>
+
+
+                <h3>
+                  دانش و بینش‌های فناوری
+                </h3>
+
+
+                <p>
+                  مقالات، مطالعات موردی، فناوری‌ها و موضوعات
+                  تخصصی مرتبط با صنعت و تحول دیجیتال.
+                </p>
+
+
+              </a>
+
+
+              <!-- Industry -->
+
+              <a
+                class="result-card"
+                href="../industries/index.html"
+                data-keywords="صنایع industry ceramic tile کاشی سرامیک manufacturing process industries کارخانه تولید"
+              >
+
+
+                <div class="result-top">
+
+
+                  <div class="result-type">
+                    INDUSTRY
+                  </div>
+
+
+                  <div class="result-arrow">
+                    ←
+                  </div>
+
+
+                </div>
+
+
+                <h3>
+                  کاشی و سرامیک
+                </h3>
+
+
+                <p>
+                  نقطه شروع XSYN برای شناخت عمیق صنعت،
+                  کشف مسائل و توسعه راهکارهای صنعتی.
+                </p>
+
+
+              </a>
+
+
+            </div>
+
+
+            <div
+              class="no-results"
+              id="noResults"
+            >
+              نتیجه‌ای برای عبارت جستجو پیدا نشد.
+              عبارت دیگری را امتحان کنید.
+            </div>
+
+
+          </section>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =======================================================
+       SHARED FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+
+      <a
+        class="footer-brand"
+        href="../index.html"
+        aria-label="XSYN"
+      >
+
+        <img
+          src="../assets/xsyn-logo.png"
+          alt="XSYN"
+        >
+
+      </a>
+
+
+      <div class="footer-meta">
+        TECHNOLOGY · SYNERGY · TRANSFORMATION
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       SEARCH + SHARED JAVASCRIPT
+       ======================================================= -->
+
+  <script>
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+
+        const form =
+          document.getElementById("searchForm");
+
+
+        const input =
+          document.getElementById("searchInput");
+
+
+        const cards =
+          Array.from(
+            document.querySelectorAll(".result-card")
+          );
+
+
+        const count =
+          document.getElementById("resultsCount");
+
+
+        const noResults =
+          document.getElementById("noResults");
+
+
+        const suggestions =
+          document.querySelectorAll(".suggestion");
+
+
+        function normalize(value) {
+
+          return value
+            .toLowerCase()
+            .replace(/ي/g, "ی")
+            .replace(/ك/g, "ک")
+            .trim();
+
+        }
+
+
+        function performSearch(value) {
+
+          const query =
+            normalize(value);
+
+
+          if (!query) {
+
+            cards.forEach(card => {
+              card.style.display = "block";
+            });
+
+
+            count.textContent =
+              `${cards.length} نتیجه`;
+
+
+            noResults.style.display =
+              "none";
+
+
+            return;
+
+          }
+
+
+          let visible = 0;
+
+
+          cards.forEach(card => {
+
+            const text =
+              normalize(
+                card.innerText
+                + " "
+                + (card.dataset.keywords || "")
+              );
+
+
+            const match =
+              text.includes(query);
+
+
+            card.style.display =
+              match ? "block" : "none";
+
+
+            if (match) {
+              visible++;
+            }
+
+          });
+
+
+          count.textContent =
+            `${visible} نتیجه`;
+
+
+          noResults.style.display =
+            visible === 0
+              ? "block"
+              : "none";
+
+        }
+
+
+        form.addEventListener(
+          "submit",
+          event => {
+
+            event.preventDefault();
+
+            performSearch(
+              input.value
+            );
+
+          }
+        );
+
+
+        suggestions.forEach(
+          button => {
+
+            button.addEventListener(
+              "click",
+              () => {
+
+                const value =
+                  button.dataset.search || "";
+
+
+                input.value =
+                  value;
+
+
+                performSearch(
+                  value
+                );
+
+
+                input.focus();
+
+              }
+            );
+
+          }
+        );
+
+
+      }
+    );
+
+  </script>
+
+
+  <script src="../js/main.js"></script>
 
 </body>
+
 </html>
