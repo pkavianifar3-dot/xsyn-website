@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="../assets/favicon_io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+
+  <title>صنایع | XSYN</title>
+
+  <style>
+    :root{
+      --bg:#030a16;
+      --surface:#0a1728;
+      --surface2:#0d1c30;
+      --text:#f4f7fb;
+      --soft:#b7c2d0;
+      --muted:#76869a;
+      --blue:#169cff;
+      --bright:#39b4ff;
+      --line:rgba(255,255,255,.08);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:Arial,Tahoma,sans-serif;
+      background:
+        radial-gradient(circle at 85% 10%,rgba(22,156,255,.11),transparent 30%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.9;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .container{
+      width:min(1180px,calc(100% - 40px));
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(3,10,22,.88);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+
+    .logo{width:170px}
+
+    .links{
+      display:flex;
+      gap:26px;
+      color:var(--soft);
+      font-size:14px;
+    }
+
+    .links .active{color:white}
+
+    .cta{
+      padding:10px 17px;
+      border:1px solid rgba(57,180,255,.45);
+      border-radius:10px;
+      background:rgba(22,156,255,.08);
+    }
+
+    .hero{
+      padding:105px 0 80px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      color:var(--bright);
+      font-size:12px;
+      letter-spacing:2px;
+      margin-bottom:18px;
+    }
+
+    h1{
+      max-width:850px;
+      font-size:clamp(42px,6vw,76px);
+      line-height:1.15;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      max-width:760px;
+      color:var(--soft);
+      font-size:18px;
+    }
+
+    .content{
+      padding:80px 0 110px;
+    }
+
+    .intro{
+      max-width:720px;
+      margin-bottom:45px;
+    }
+
+    h2{
+      font-size:34px;
+      margin-bottom:12px;
+    }
+
+    .intro p{color:var(--muted)}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .card{
+      min-height:250px;
+      padding:32px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.01)),
+        var(--surface);
+      transition:.25s;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(57,180,255,.35);
+    }
+
+    .tag{
+      color:var(--bright);
+      font-size:12px;
+      letter-spacing:1px;
+      margin-bottom:28px;
+      direction:ltr;
+    }
+
+    .card h3{
+      font-size:25px;
+      margin-bottom:12px;
+    }
+
+    .card p{color:var(--muted)}
+
+    .pilot{
+      margin-top:45px;
+      padding:38px;
+      border:1px solid rgba(57,180,255,.22);
+      border-radius:20px;
+      background:
+        radial-gradient(circle at 80% 20%,rgba(22,156,255,.12),transparent 40%),
+        var(--surface2);
+    }
+
+    .pilot-label{
+      color:var(--bright);
+      font-size:12px;
+      letter-spacing:2px;
+      margin-bottom:15px;
+      direction:ltr;
+    }
+
+    .pilot h3{
+      font-size:30px;
+      margin-bottom:12px;
+    }
+
+    .pilot p{
+      color:var(--soft);
+      max-width:760px;
+    }
+
+    footer{
+      padding:35px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:800px){
+      .links{display:none}
+      .logo{width:140px}
+      .grid{grid-template-columns:1fr}
+      .hero{padding:75px 0 60px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a href="../index.html">
+      <img class="logo" src="../assets/xsyn-logo.png" alt="XSYN">
+    </a>
+
+    <nav class="links">
+      <a href="../index.html">خانه</a>
+      <a href="../solutions/index.html">راهکارها</a>
+      <a href="../experts/index.html">متخصصین</a>
+      <a href="../knowledge/index.html">دانش</a>
+      <a href="index.html" class="active">صنایع</a>
+      <a href="../about/index.html">درباره XSYN</a>
+    </nav>
+
+    <a class="cta" href="../index.html#contact">مسئله خود را مطرح کنید</a>
+
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="eyebrow">XSYN · INDUSTRIES</div>
+
+      <h1>
+        فناوری باید با منطق هر صنعت سازگار شود.
+      </h1>
+
+      <p>
+        XSYN راهکارهای خود را با شناخت فرایند، ساختار، داده و
+        چالش‌های واقعی هر صنعت طراحی می‌کند؛ نه با یک نسخه ثابت
+        برای همه سازمان‌ها.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+
+      <div class="intro">
+        <h2>حوزه‌های صنعتی</h2>
+        <p>
+          معماری XSYN از یک صنعت شروع می‌شود، اما برای توسعه
+          به صنایع مختلف طراحی شده است.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="tag">CERAMIC · TILE</div>
+          <h3>کاشی و سرامیک</h3>
+          <p>
+            نقطه شروع و پایلوت صنعتی XSYN برای شناخت مسائل،
+            فرایندها، داده‌ها و فرصت‌های تحول دیجیتال.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="tag">MANUFACTURING</div>
+          <h3>صنایع تولیدی</h3>
+          <p>
+            طراحی راهکارهای داده‌محور برای کارخانه‌ها،
+            خطوط تولید و سیستم‌های عملیاتی.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="tag">PROCESS INDUSTRIES</div>
+          <h3>صنایع فرایندی</h3>
+          <p>
+            استفاده از داده، شبیه‌سازی و مدل‌سازی برای تحلیل
+            و بهبود سیستم‌های پیچیده صنعتی.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="tag">INDUSTRY · FUTURE</div>
+          <h3>صنایع در حال توسعه</h3>
+          <p>
+            معماری XSYN به‌گونه‌ای طراحی شده که بتواند با
+            نیازهای صنایع جدید نیز گسترش پیدا کند.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="pilot">
+        <div class="pilot-label">INDUSTRY PILOT</div>
+        <h3>کاشی و سرامیک؛ نقطه شروع، نه نقطه پایان</h3>
+        <p>
+          تجربه اولیه XSYN در این صنعت می‌تواند به شناخت عمیق‌تر
+          مسائل، شکل‌گیری شبکه متخصصین و توسعه دانش قابل استفاده
+          در صنایع دیگر منجر شود.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    XSYN · TECHNOLOGY · SYNERGY · TRANSFORMATION
+  </div>
+</footer>
+
+</body>
+</html>
