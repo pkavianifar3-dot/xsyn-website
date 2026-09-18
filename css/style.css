@@ -1,42 +1,164 @@
 /* =========================================================
-   XSYN — SHARED SITE HEADER
+   XSYN — SHARED DESIGN SYSTEM
+   ========================================================= */
+
+
+/* =========================================================
+   01. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+  --bg: #030a16;
+  --bg-2: #071322;
+
+  --surface: #0a1728;
+  --surface-2: #0d1c30;
+
+  --text: #f4f7fb;
+  --text-soft: #b7c2d0;
+  --text-muted: #76869a;
+
+  --silver: #dce3eb;
+
+  --blue: #169cff;
+  --blue-bright: #39b4ff;
+  --blue-dark: #0b67a9;
+
+  --line: rgba(255,255,255,.08);
+  --border: rgba(146,170,198,.16);
+  --border-blue: rgba(22,156,255,.28);
+
+  --shadow: 0 24px 70px rgba(0,0,0,.34);
+
+  --container: 1180px;
+  --radius: 18px;
+}
+
+
+/* =========================================================
+   02. RESET / BASE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Tahoma, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(22,156,255,.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(22,156,255,.06),
+      transparent 28%
+    ),
+    var(--bg);
+
+  color: var(--text);
+  line-height: 1.9;
+
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: min(
+    var(--container),
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   03. SHARED HEADER
    ========================================================= */
 
 header {
   position: sticky;
   top: 0;
   z-index: 100;
+
   background: rgba(3, 10, 22, 0.90);
+
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+
+  border-bottom: 1px solid var(--line);
 }
 
 .nav {
   min-height: 82px;
+
   display: grid;
   grid-template-columns: 1fr auto 1fr;
+
   align-items: center;
+
   gap: 30px;
+
   position: relative;
+
   direction: ltr;
 }
 
+
+/* =========================================================
+   04. BRAND
+   ========================================================= */
+
 .brand {
   grid-column: 2;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   justify-self: center;
+
   flex-shrink: 0;
 }
 
 .brand-logo {
   width: 155px;
   height: auto;
+
   display: block;
+
   object-fit: contain;
 }
+
+
+/* =========================================================
+   05. DESKTOP NAVIGATION
+   ========================================================= */
 
 .nav-links {
   grid-column: 3;
@@ -44,24 +166,28 @@ header {
 
   display: flex;
   align-items: center;
+
   gap: 26px;
 
   direction: rtl;
 
-  color: #b7c2d0;
+  color: var(--text-soft);
+
   font-size: 15px;
   font-weight: 500;
+
   white-space: nowrap;
 }
 
 .nav-link {
   display: inline-flex;
   align-items: center;
+
   gap: 5px;
 
   padding: 29px 0;
 
-  color: #b7c2d0;
+  color: var(--text-soft);
 
   transition:
     color .2s ease,
@@ -70,12 +196,13 @@ header {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #f4f7fb;
+  color: var(--text);
 }
 
 .arrow {
   font-size: 12px;
   opacity: .65;
+
   transition: transform .2s ease;
 }
 
@@ -89,7 +216,7 @@ header {
 
 
 /* =========================================================
-   DROPDOWN
+   06. DROPDOWN
    ========================================================= */
 
 .dropdown {
@@ -98,7 +225,9 @@ header {
   top: calc(100% - 4px);
   right: 50%;
 
-  transform: translateX(50%) translateY(10px);
+  transform:
+    translateX(50%)
+    translateY(10px);
 
   width: 300px;
 
@@ -106,11 +235,11 @@ header {
 
   background: rgba(7, 19, 34, .98);
 
-  border: 1px solid rgba(255,255,255,.09);
+  border: 1px solid var(--line);
+
   border-radius: 14px;
 
-  box-shadow:
-    0 24px 60px rgba(0,0,0,.38);
+  box-shadow: var(--shadow);
 
   opacity: 0;
   visibility: hidden;
@@ -126,7 +255,9 @@ header {
   visibility: visible;
   pointer-events: auto;
 
-  transform: translateX(50%) translateY(0);
+  transform:
+    translateX(50%)
+    translateY(0);
 }
 
 .dropdown a {
@@ -136,7 +267,7 @@ header {
 
   border-radius: 10px;
 
-  color: #f4f7fb;
+  color: var(--text);
 
   transition:
     background .2s ease,
@@ -145,6 +276,7 @@ header {
 
 .dropdown a:hover {
   background: rgba(22,156,255,.08);
+
   transform: translateX(-2px);
 }
 
@@ -163,7 +295,7 @@ header {
   direction: ltr;
   text-align: right;
 
-  color: #76869a;
+  color: var(--text-muted);
 
   font-size: 11px;
   letter-spacing: .3px;
@@ -171,7 +303,7 @@ header {
 
 
 /* =========================================================
-   RIGHT SIDE / ACTIONS
+   07. NAV ACTIONS
    ========================================================= */
 
 .nav-actions {
@@ -180,6 +312,7 @@ header {
 
   display: flex;
   align-items: center;
+
   gap: 12px;
 
   direction: ltr;
@@ -195,9 +328,10 @@ header {
   align-items: center;
   justify-content: center;
 
-  color: #b7c2d0;
+  color: var(--text-soft);
 
-  border: 1px solid rgba(255,255,255,.09);
+  border: 1px solid var(--line);
+
   border-radius: 10px;
 
   font-size: 20px;
@@ -211,7 +345,7 @@ header {
 }
 
 .search-btn:hover {
-  color: #f4f7fb;
+  color: var(--text);
 
   border-color: rgba(57,180,255,.40);
 
@@ -226,9 +360,10 @@ header {
   padding: 11px 19px;
 
   border: 1px solid rgba(57,180,255,.45);
+
   border-radius: 10px;
 
-  color: #f4f7fb;
+  color: var(--text);
 
   background: rgba(22,156,255,.08);
 
@@ -252,7 +387,7 @@ header {
 
 
 /* =========================================================
-   MOBILE MENU
+   08. MOBILE NAVIGATION
    ========================================================= */
 
 .mobile-toggle {
@@ -264,12 +399,13 @@ header {
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(255,255,255,.09);
+  border: 1px solid var(--line);
+
   border-radius: 10px;
 
   background: transparent;
 
-  color: #f4f7fb;
+  color: var(--text);
 
   font-size: 21px;
 
@@ -287,9 +423,9 @@ header {
 
   padding: 15px 4px;
 
-  color: #b7c2d0;
+  color: var(--text-soft);
 
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid var(--line);
 }
 
 .mobile-sub {
@@ -303,7 +439,7 @@ header {
 
   padding: 10px 8px;
 
-  color: #76869a;
+  color: var(--text-muted);
 
   font-size: 13px;
 }
@@ -314,7 +450,71 @@ header {
 
 
 /* =========================================================
-   TABLET / MOBILE
+   09. SHARED FOOTER
+   ========================================================= */
+
+footer {
+  padding: 35px 0;
+
+  border-top: 1px solid var(--line);
+
+  color: var(--text-muted);
+
+  font-size: 13px;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+
+  direction: ltr;
+}
+
+.footer-brand img {
+  width: 125px;
+  height: auto;
+
+  display: block;
+}
+
+
+/* =========================================================
+   10. SHARED TEXT HELPERS
+   ========================================================= */
+
+.eyebrow {
+  color: var(--blue-bright);
+
+  font-size: 12px;
+  letter-spacing: 2px;
+
+  margin-bottom: 18px;
+
+  direction: ltr;
+  text-align: left;
+}
+
+.section-label {
+  color: var(--blue-bright);
+
+  font-size: 12px;
+  letter-spacing: 1.8px;
+
+  direction: ltr;
+  text-align: left;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.soft {
+  color: var(--text-soft);
+}
+
+
+/* =========================================================
+   11. SHARED RESPONSIVE
    ========================================================= */
 
 @media (max-width: 1050px) {
@@ -378,7 +578,7 @@ header {
   .mobile-menu {
     padding: 10px 0 20px;
 
-    border-top: 1px solid rgba(255,255,255,.08);
+    border-top: 1px solid var(--line);
   }
 
   .mobile-menu.open {
@@ -388,10 +588,17 @@ header {
 
 
 /* =========================================================
-   SMALL MOBILE
+   12. SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 650px) {
+
+  .container {
+    width: min(
+      var(--container),
+      calc(100% - 28px)
+    );
+  }
 
   .brand-logo {
     width: 122px;
