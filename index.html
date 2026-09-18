@@ -255,6 +255,13 @@
       border-radius: 12px;
       cursor: pointer;
       transition: 0.2s ease;
+    
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    
+      text-decoration: none;
+      font-size: 20px;
     }
 
     .search-btn:hover {
@@ -1021,14 +1028,15 @@
     }
 
     .footer-brand {
+      display: inline-flex;
+      align-items: center;
       direction: ltr;
-      font-size: 13px;
-      letter-spacing: .16em;
-      color: #dce4ed;
     }
-
-    .footer-brand span {
-      color: var(--blue);
+    
+    .footer-brand img {
+      width: 125px;
+      height: auto;
+      display: block;
     }
 
     .footer-tagline {
@@ -1213,134 +1221,158 @@
         </a>
 
         <div class="nav-links">
-
+        
+          <a href="index.html" class="nav-link">
+            خانه
+          </a>
+        
+        
           <div class="nav-item">
-            <a href="#solutions" class="nav-link">
+        
+            <a href="solutions/index.html" class="nav-link">
               راهکارها
               <span class="arrow">⌄</span>
             </a>
-
+        
             <div class="dropdown">
-              <a href="#solutions">
+        
+              <a href="solutions/index.html">
                 <strong>تحول دیجیتال صنعتی</strong>
                 <span>Digital Transformation</span>
               </a>
-
-              <a href="#solutions">
+        
+              <a href="solutions/index.html">
                 <strong>هوش مصنوعی و داده</strong>
                 <span>AI & Data Intelligence</span>
               </a>
-
-              <a href="#solutions">
-                <strong>سیستم‌های مدیریتی</strong>
+        
+              <a href="solutions/index.html">
+                <strong>داشبورد و مدیریت عملکرد</strong>
                 <span>Dashboards & Performance</span>
               </a>
-
-              <a href="#solutions">
-                <strong>ERP و یکپارچه‌سازی</strong>
+        
+              <a href="solutions/index.html">
+                <strong>ERP و سیستم‌های کسب‌وکار</strong>
                 <span>ERP & Business Systems</span>
               </a>
-
-              <a href="#solutions">
+        
+              <a href="solutions/index.html">
                 <strong>شبیه‌سازی و دوقلوی دیجیتال</strong>
                 <span>Simulation & Digital Twin</span>
               </a>
-
-              <a href="#solutions">
+        
+              <a href="solutions/index.html">
                 <strong>اتصال صنعتی و IIoT</strong>
                 <span>Industrial Connectivity</span>
               </a>
-
-              <a href="#solutions">
+        
+              <a href="solutions/index.html">
                 <strong>سازمان و منابع انسانی</strong>
                 <span>Organization & People</span>
               </a>
+        
             </div>
+        
           </div>
-
-
+        
+        
           <div class="nav-item">
-            <a href="#experts" class="nav-link">
+        
+            <a href="experts/index.html" class="nav-link">
               متخصصین
               <span class="arrow">⌄</span>
             </a>
-
+        
             <div class="dropdown">
-              <a href="#experts">
+        
+              <a href="experts/index.html">
                 <strong>شبکه متخصصین</strong>
                 <span>Verified Expert Network</span>
               </a>
-
-              <a href="#experts">
+        
+              <a href="experts/index.html">
                 <strong>حوزه‌های تخصص</strong>
                 <span>Expertise Areas</span>
               </a>
-
-              <a href="#experts">
-                <strong>پیوستن به شبکه</strong>
+        
+              <a href="experts/index.html">
+                <strong>عضویت در شبکه</strong>
                 <span>Join the Network</span>
               </a>
+        
             </div>
+        
           </div>
-
-
+        
+        
           <div class="nav-item">
-            <a href="#knowledge" class="nav-link">
+        
+            <a href="knowledge/index.html" class="nav-link">
               دانش
               <span class="arrow">⌄</span>
             </a>
-
+        
             <div class="dropdown">
-              <a href="#knowledge">
+        
+              <a href="knowledge/index.html">
                 <strong>مقالات و Insights</strong>
                 <span>Articles & Insights</span>
               </a>
-
-              <a href="#knowledge">
+        
+              <a href="knowledge/index.html">
                 <strong>مطالعات موردی</strong>
                 <span>Case Studies</span>
               </a>
-
-              <a href="#knowledge">
+        
+              <a href="knowledge/index.html">
                 <strong>مسائل صنعتی</strong>
                 <span>Problem Library</span>
               </a>
-
-              <a href="#knowledge">
+        
+              <a href="knowledge/index.html">
                 <strong>فناوری‌ها</strong>
                 <span>Technology Discovery</span>
               </a>
+        
             </div>
+        
           </div>
-
-
+        
+        
           <div class="nav-item">
-            <a href="#industries" class="nav-link">
+        
+            <a href="industries/index.html" class="nav-link">
               صنایع
               <span class="arrow">⌄</span>
             </a>
-
+        
             <div class="dropdown">
-              <a href="#industries">
+        
+              <a href="industries/index.html">
                 <strong>کاشی و سرامیک</strong>
                 <span>Current Pilot Industry</span>
               </a>
-
-              <a href="#industries">
+        
+              <a href="industries/index.html">
                 <strong>صنایع دیگر</strong>
                 <span>Scalable Industry Framework</span>
               </a>
+        
             </div>
+        
           </div>
-
-
-          <a href="#about" class="nav-link">درباره XSYN</a>
-
+        
+        
+          <a href="about/index.html" class="nav-link">
+            درباره XSYN
+          </a>
+        
         </div>
 
         <div class="nav-actions">
-          <button class="search-btn" aria-label="جستجو">⌕</button>
-
+          <a href="search/index.html" class="search-btn" aria-label="جستجو">
+            ⌕
+          </a>
           <a href="#contact" class="primary-btn nav-cta">
             مسئله خود را مطرح کنید
           </a>
@@ -1355,51 +1387,73 @@
       <!-- Mobile Menu -->
 
       <div class="mobile-menu" id="mobileMenu">
-
+      
         <div class="mobile-item">
-          <a href="#solutions">راهکارها <span>⌄</span></a>
+          <a href="solutions/index.html">
+            راهکارها
+            <span>⌄</span>
+          </a>
+      
           <div class="mobile-sub">
-            <a href="#solutions">تحول دیجیتال صنعتی</a>
-            <a href="#solutions">هوش مصنوعی و داده</a>
-            <a href="#solutions">سیستم‌های مدیریتی</a>
-            <a href="#solutions">ERP</a>
-            <a href="#solutions">Digital Twin</a>
-            <a href="#solutions">IIoT</a>
-            <a href="#solutions">سازمان و منابع انسانی</a>
+            <a href="solutions/index.html">تحول دیجیتال صنعتی</a>
+            <a href="solutions/index.html">هوش مصنوعی و داده</a>
+            <a href="solutions/index.html">داشبورد و مدیریت عملکرد</a>
+            <a href="solutions/index.html">ERP و سیستم‌های کسب‌وکار</a>
+            <a href="solutions/index.html">شبیه‌سازی و Digital Twin</a>
+            <a href="solutions/index.html">اتصال صنعتی و IIoT</a>
+            <a href="solutions/index.html">سازمان و منابع انسانی</a>
           </div>
         </div>
-
+      
+      
         <div class="mobile-item">
-          <a href="#experts">متخصصین <span>⌄</span></a>
+          <a href="experts/index.html">
+            متخصصین
+            <span>⌄</span>
+          </a>
+      
           <div class="mobile-sub">
-            <a href="#experts">شبکه متخصصین</a>
-            <a href="#experts">حوزه‌های تخصص</a>
-            <a href="#experts">پیوستن به شبکه</a>
+            <a href="experts/index.html">شبکه متخصصین</a>
+            <a href="experts/index.html">حوزه‌های تخصص</a>
+            <a href="experts/index.html">عضویت در شبکه</a>
           </div>
         </div>
-
+      
+      
         <div class="mobile-item">
-          <a href="#knowledge">دانش <span>⌄</span></a>
+          <a href="knowledge/index.html">
+            دانش
+            <span>⌄</span>
+          </a>
+      
           <div class="mobile-sub">
-            <a href="#knowledge">مقالات و Insights</a>
-            <a href="#knowledge">مطالعات موردی</a>
-            <a href="#knowledge">مسائل صنعتی</a>
-            <a href="#knowledge">فناوری‌ها</a>
+            <a href="knowledge/index.html">مقالات و Insights</a>
+            <a href="knowledge/index.html">مطالعات موردی</a>
+            <a href="knowledge/index.html">مسائل صنعتی</a>
+            <a href="knowledge/index.html">فناوری‌ها</a>
           </div>
         </div>
-
+      
+      
         <div class="mobile-item">
-          <a href="#industries">صنایع <span>⌄</span></a>
+          <a href="industries/index.html">
+            صنایع
+            <span>⌄</span>
+          </a>
+      
           <div class="mobile-sub">
-            <a href="#industries">کاشی و سرامیک</a>
-            <a href="#industries">صنایع دیگر</a>
+            <a href="industries/index.html">کاشی و سرامیک</a>
+            <a href="industries/index.html">صنایع دیگر</a>
           </div>
         </div>
-
+      
+      
         <div class="mobile-item">
-          <a href="#about">درباره XSYN</a>
+          <a href="about/index.html">
+            درباره XSYN
+          </a>
         </div>
-
+      
       </div>
 
     </div>
@@ -1732,7 +1786,7 @@
 
             <div class="panel-top">
               <h3>شبکه متخصصین</h3>
-              <a href="#">مشاهده شبکه ←</a>
+              <a href="experts/index.html">مشاهده شبکه ←</a>
             </div>
 
             <div class="expert-list">
@@ -1775,7 +1829,7 @@
 
             <div class="panel-top">
               <h3>دانش XSYN</h3>
-              <a href="#">مشاهده دانش ←</a>
+              <a href="knowledge/index.html">مشاهده دانش ←</a>
             </div>
 
             <div class="article-list">
@@ -1835,7 +1889,7 @@
             </p>
 
             <div class="hero-actions">
-              <a href="#" class="secondary-btn">
+              <a href="industries/index.html" class="secondary-btn">
                 مشاهده صنعت
               </a>
             </div>
@@ -1932,9 +1986,9 @@
 
     <div class="container footer-inner">
 
-      <div class="footer-brand">
-        X<span>SYN</span>
-      </div>
+      <a href="index.html" class="footer-brand">
+        <img src="assets/xsyn-logo.png" alt="XSYN" />
+      </a>
 
       <div class="footer-tagline">
         TECHNOLOGY · SYNERGY · TRANSFORMATION
