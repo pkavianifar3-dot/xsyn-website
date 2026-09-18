@@ -115,14 +115,14 @@ header {
 }
 
 .nav {
-  min-height: 82px;
+  min-height: 88px;
 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
 
   align-items: center;
 
-  gap: 30px;
+  gap: 36px;
 
   position: relative;
 
@@ -147,7 +147,7 @@ header {
 }
 
 .brand-logo {
-  width: 155px;
+  width: 170px;
   height: auto;
 
   display: block;
@@ -167,7 +167,7 @@ header {
   display: flex;
   align-items: center;
 
-  gap: 26px;
+  gap: 28px;
 
   direction: rtl;
 
