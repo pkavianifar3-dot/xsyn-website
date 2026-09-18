@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/favicon_io/favicon.ico">
+  <title>دانش | XSYN</title>
+
+  <style>
+    :root{
+      --bg:#030a16;
+      --surface:#0a1728;
+      --text:#f4f7fb;
+      --soft:#b7c2d0;
+      --muted:#76869a;
+      --blue:#169cff;
+      --bright:#39b4ff;
+      --line:rgba(255,255,255,.08);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:Arial,Tahoma,sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%,rgba(22,156,255,.10),transparent 30%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.9;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .container{
+      width:min(1180px,calc(100% - 40px));
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(3,10,22,.88);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+
+    .logo{width:170px}
+
+    .links{
+      display:flex;
+      gap:26px;
+      color:var(--soft);
+      font-size:14px;
+    }
+
+    .links .active{color:white}
+
+    .cta{
+      padding:10px 17px;
+      border:1px solid rgba(57,180,255,.45);
+      border-radius:10px;
+      background:rgba(22,156,255,.08);
+    }
+
+    .hero{
+      padding:105px 0 80px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      color:var(--bright);
+      font-size:12px;
+      letter-spacing:2px;
+      margin-bottom:18px;
+    }
+
+    h1{
+      max-width:850px;
+      font-size:clamp(42px,6vw,76px);
+      line-height:1.15;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      max-width:760px;
+      color:var(--soft);
+      font-size:18px;
+    }
+
+    .content{
+      padding:80px 0 110px;
+    }
+
+    .intro{
+      max-width:720px;
+      margin-bottom:45px;
+    }
+
+    h2{
+      font-size:34px;
+      margin-bottom:12px;
+    }
+
+    .intro p{color:var(--muted)}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      min-height:260px;
+      padding:30px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:var(--surface);
+      transition:.25s;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(57,180,255,.35);
+    }
+
+    .tag{
+      color:var(--bright);
+      font-size:12px;
+      letter-spacing:1px;
+      margin-bottom:28px;
+      direction:ltr;
+    }
+
+    .card h3{
+      font-size:23px;
+      margin-bottom:12px;
+    }
+
+    .card p{color:var(--muted)}
+
+    footer{
+      padding:35px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:800px){
+      .links{display:none}
+      .logo{width:140px}
+      .grid{grid-template-columns:1fr}
+      .hero{padding:75px 0 60px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a href="../index.html">
+      <img class="logo" src="../assets/xsyn-logo.png" alt="XSYN">
+    </a>
+
+    <nav class="links">
+      <a href="../index.html">خانه</a>
+      <a href="../solutions/index.html">راهکارها</a>
+      <a href="../experts/index.html">متخصصین</a>
+      <a href="index.html" class="active">دانش</a>
+      <a href="../industries/index.html">صنایع</a>
+      <a href="../about/index.html">درباره XSYN</a>
+    </nav>
+
+    <a class="cta" href="../index.html#contact">مسئله خود را مطرح کنید</a>
+
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="eyebrow">XSYN · KNOWLEDGE</div>
+
+      <h1>
+        جایی برای فهم فناوری، صنعت و مسئله.
+      </h1>
+
+      <p>
+        مجموعه‌ای از بینش‌ها، تجربه‌ها و موضوعات تخصصی درباره
+        تحول دیجیتال، داده، ERP، شبیه‌سازی، Digital Twin و فناوری‌های
+        نوین صنعتی.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+
+      <div class="intro">
+        <h2>موضوعات دانش</h2>
+        <p>
+          این بخش در آینده به موتور دانشی XSYN تبدیل می‌شود؛
+          محتوایی که به مسائل واقعی صنعت، متخصصین و راهکارها
+          متصل خواهد شد.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="tag">DIGITAL TRANSFORMATION</div>
+          <h3>تحول دیجیتال</h3>
+          <p>
+            از استراتژی و بلوغ دیجیتال تا طراحی مسیر تحول
+            و پیاده‌سازی در سازمان و صنعت.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="tag">ERP · BUSINESS SYSTEMS</div>
+          <h3>ERP و سیستم‌های سازمانی</h3>
+          <p>
+            معماری سیستم، یکپارچه‌سازی فرایندها و نقش ERP
+            در تحول سازمانی.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="tag">SIMULATION · DIGITAL TWIN</div>
+          <h3>شبیه‌سازی و Digital Twin</h3>
+          <p>
+            مفاهیم، کاربردها و مسیر استفاده از مدل‌های دیجیتال
+            برای تحلیل و تصمیم‌گیری صنعتی.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="tag">DATA · AI</div>
+          <h3>داده و هوش مصنوعی</h3>
+          <p>
+            داده صنعتی، تحلیل، هوش مصنوعی و تبدیل اطلاعات
+            به قابلیت تصمیم‌گیری.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="tag">INDUSTRIAL TECHNOLOGY</div>
+          <h3>فناوری‌های صنعتی</h3>
+          <p>
+            فناوری‌هایی که در حال تغییر شیوه طراحی، تولید،
+            نگهداری و مدیریت کارخانه‌ها هستند.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="tag">CASE · INSIGHT</div>
+          <h3>مطالعات و بینش‌ها</h3>
+          <p>
+            تجربه‌ها، نمونه‌های واقعی و تحلیل‌هایی برای نزدیک‌تر
+            کردن فناوری به تصمیم‌های کسب‌وکار.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    XSYN · TECHNOLOGY · SYNERGY · TRANSFORMATION
+  </div>
+</footer>
+
+</body>
+</html>
