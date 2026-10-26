@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src https://awfnvhlytiwckkkwfgbc.supabase.co; img-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <link rel="icon" href="../assets/favicon_io/favicon.ico">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="./auth.css">
+  <title>ورود آزمایشی | XSYN</title>
+  <script defer src="../assets/vendor/supabase-js-2.118.0.js"></script>
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body class="auth-page">
+  <header class="auth-header">
+    <a href="../index.html" aria-label="خانه XSYN"><img src="../assets/xsyn-logo.png" alt="XSYN" width="160" height="52"></a>
+    <a class="back-link" href="../index.html">بازگشت به سایت عمومی <span aria-hidden="true">←</span></a>
+  </header>
+  <main class="auth-layout">
+    <section class="auth-intro" aria-labelledby="page-title">
+      <span class="eyebrow" dir="ltr">XSYN · MEMBER ACCESS</span>
+      <h1 id="page-title">یک کد ایمیلی،<br>یک مسیر امن‌تر.</h1>
+      <p>بدون رمز عبور به حساب آزمایشی خود وارد شوید. محتوای عمومی XSYN همیشه بدون نیاز به ورود در دسترس است.</p>
+      <div class="intro-note"><span class="status-dot" aria-hidden="true"></span>محیط آزمایشی مستقل</div>
+      <p class="muted small">حساب این بخش برای پروفایل و ارتباط کاربران است. نام و معرفی شما تنها در صورت انتخاب انتشار، در فهرست عمومی دیده می‌شود.</p>
+    </section>
+    <div class="auth-workspace">
+      <section class="auth-card" aria-labelledby="card-title">
+        <p class="eyebrow">حساب کاربری XSYN</p>
+        <h2 id="card-title">ورود با کد یک‌بارمصرف</h2>
+        <p id="status" class="message" role="status" aria-live="polite">در حال آماده‌سازی…</p>
+        <noscript><p class="message">برای ورود، JavaScript مرورگر باید فعال باشد. صفحات عمومی سایت همچنان در دسترس‌اند.</p></noscript>
+        <div id="signed-out">
+          <div class="mode-switch" role="group" aria-label="نوع درخواست">
+            <button id="mode-signin" type="button" aria-pressed="true" disabled>ورود به حساب</button>
+            <button id="mode-signup" type="button" aria-pressed="false" disabled>ساخت حساب</button>
+          </div>
+          <form id="email-form">
+            <fieldset id="email-fields" disabled>
+              <legend class="sr-only">درخواست کد ایمیلی</legend>
+              <label for="email">نشانی ایمیل</label>
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" dir="ltr" maxlength="254" placeholder="you@example.com" required>
+              <p id="mode-help" class="field-help">اگر از قبل حساب دارید، کد ورود را درخواست کنید.</p>
+              <button id="request-code" class="primary-button" type="submit">دریافت کد ورود</button>
+            </fieldset>
+          </form>
+          <form id="code-form" hidden>
+            <p class="field-help">اگر درخواست برای این ایمیل مجاز باشد، کد ارسال می‌شود. پوشهٔ هرزنامه را هم بررسی کنید.</p>
+            <p id="pending-email" class="email-display" dir="ltr"></p>
+            <label for="otp">کد هشت‌رقمی</label>
+            <input id="otp" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" dir="ltr" minlength="8" maxlength="8" placeholder="• • • • • • • •" required aria-describedby="expiry-help">
+            <p id="expiry-help" class="field-help"></p>
+            <button id="verify-code" class="primary-button" type="submit">تأیید کد و ورود</button>
+            <div class="secondary-actions">
+              <button id="resend-code" type="button" disabled>ارسال مجدد کد</button>
+              <button id="change-email" type="button">تغییر ایمیل</button>
+            </div>
+          </form>
+        </div>
+        <div id="signed-in" hidden>
+          <div class="account-summary">
+            <span class="status-dot" aria-hidden="true"></span><strong>وارد حساب شده‌اید</strong>
+            <span id="account-email" class="email-display" dir="ltr"></span>
+          </div>
+          <p class="field-help">این ایمیل فقط در حساب خودتان نمایش داده می‌شود و بخشی از پروفایل عمومی نیست.</p>
+          <button id="sign-out" class="secondary-button" type="button">خروج از این مرورگر</button>
+        </div>
+        <p class="session-note">نشست ورود در این مرورگر ذخیره می‌شود. روی دستگاه مشترک، پس از پایان کار خارج شوید.</p>
+      </section>
+      <section id="member-panel" class="auth-card" hidden aria-labelledby="profile-title">
+        <h2 id="profile-title">پروفایل آزمایشی شما</h2>
+        <p id="data-status" class="message" role="status" aria-live="polite"></p>
+        <form id="public-form">
+          <fieldset id="public-fields" disabled>
+            <legend>اطلاعات قابل انتشار</legend>
+            <label for="display-name">نام نمایشی</label>
+            <input id="display-name" maxlength="80" autocomplete="nickname">
+            <label for="bio">معرفی کوتاه</label>
+            <textarea id="bio" maxlength="500" rows="3"></textarea>
+            <label class="check-label" for="is-listed"><input id="is-listed" type="checkbox"> نام و معرفی من در فهرست عمومی نمایش داده شود.</label>
+            <p class="field-help">پیش‌فرض پروفایل خصوصی است. اطلاعات حساس یا ایمیل خود را در متن قابل انتشار ننویسید.</p>
+            <button class="primary-button" type="submit">ذخیرهٔ بخش عمومی</button>
+          </fieldset>
+        </form>
+        <form id="private-form">
+          <fieldset id="private-fields" disabled>
+            <legend>فقط برای خود شما</legend>
+            <label for="private-note">یادداشت خصوصی آزمایشی</label>
+            <textarea id="private-note" maxlength="2000" rows="3"></textarea>
+            <p class="field-help">این بخش در جدول جدا با دسترسی محدود به صاحب حساب ذخیره می‌شود.</p>
+            <button class="secondary-button" type="submit">ذخیرهٔ یادداشت خصوصی</button>
+          </fieldset>
+        </form>
+      </section>
+      <section id="directory-panel" class="auth-card" hidden aria-labelledby="directory-title">
+        <div class="section-heading"><h2 id="directory-title">ارتباط با کاربران</h2><button id="refresh-directory" type="button">تازه‌سازی</button></div>
+        <p class="field-help">فقط پروفایل‌هایی که صاحبشان انتشار را انتخاب کرده نمایش داده می‌شوند. فهرست دنبال‌کردن شما عمومی نیست.</p>
+        <p id="follow-count" class="field-help"></p>
+        <ul id="directory" class="directory-list"></ul>
+      </section>
+    </div>
+  </main>
+  <footer class="auth-footer">XSYN · فناوری، هم‌افزایی، تحول <span>محتوای عمومی، مستقل از حساب کاربری</span></footer>
+</body>
+</html>
