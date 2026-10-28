@@ -1,0 +1,25 @@
+/* Separate account row avoids collisions with the centered logo and mobile menu. */
+.member-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 7px 0; border-top: 1px solid var(--line); direction: rtl;
+  font-size: 12px; min-height: 42px;
+}
+.member-presence { display: inline-flex; align-items: center; gap: 8px; color: var(--text-soft); }
+.member-presence::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #8795a9; flex-shrink: 0; }
+.member-bar[data-state="signed-in"] .member-presence { color: #93e6bc; }
+.member-bar[data-state="signed-in"] .member-presence::before { background: #63d99a; box-shadow: 0 0 10px #63d99a33; }
+.member-account {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 32px;
+  padding: 4px 14px; border: 1px solid #169cff55; border-radius: 8px;
+  background: #169cff0c; color: var(--text); white-space: nowrap; text-decoration: none;
+}
+.member-account:hover { background: #169cff20; border-color: var(--blue-bright); }
+.member-account:focus-visible, .member-invite:focus-visible { outline: 2px solid var(--blue-bright); outline-offset: 4px; }
+.member-invite { display: inline-flex; margin-top: 20px; color: var(--blue-bright); font-size: 14px; font-weight: 600; text-decoration: none; }
+.member-invite:hover { text-decoration: underline; text-underline-offset: 5px; }
+.auth-header { flex-wrap: wrap; }
+.auth-header .member-bar { flex-basis: 100%; }
+@media (max-width: 480px) {
+  .member-bar { gap: 8px; font-size: 11px; }
+  .member-account { padding-inline: 10px; }
+}

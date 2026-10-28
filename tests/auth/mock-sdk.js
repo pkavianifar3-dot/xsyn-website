@@ -1,6 +1,6 @@
 // TEST FIXTURE ONLY: no HTTP requests and no real authentication or RLS.
 (function(){
- const key="xsyn-local-mock-session";let session=null,callback=()=>{},requested=null;
+ const key="xsyn-local-mock-session";let session=null,requested=null;const listeners=new Set();const notify=(event,value)=>{for(const fn of listeners)fn(event,value);};
  try{session=JSON.parse(localStorage.getItem(key));}catch{}
  const profiles=new Map(),notes=new Map(),edges=new Set();
  const other={user_id:"mock-b",display_name:"کاربر دوم آزمایشی",bio:"پروفایل شبیه‌سازی‌شده",is_listed:true};
@@ -18,13 +18,13 @@
   async verifyOtp(args){
    if(!requested||args.token!=="12345678")return {error:{code:"otp_expired"}};
    session={user:{id:args.email==="member@example.test"?"mock-existing":"mock-new",email:args.email}};
-   ensure(session.user);persist();callback("SIGNED_IN",session);
+   ensure(session.user);persist();notify("SIGNED_IN",session);
    return {data:{session},error:null};
   },
   async getSession(){return {data:{session},error:null};},
   async getUser(){return {data:{user:session?.user||null},error:null};},
-  onAuthStateChange(fn){callback=fn;return {data:{subscription:{unsubscribe(){}}}};},
-  async signOut(){session=null;persist();callback("SIGNED_OUT",null);return {error:null};}
+  onAuthStateChange(fn){listeners.add(fn);return {data:{subscription:{unsubscribe(){listeners.delete(fn);}}}};},
+  async signOut(){session=null;persist();notify("SIGNED_OUT",null);return {error:null};}
  };
  function from(table){
   let operation="select",payload={},filters=[],single=false;

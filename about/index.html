@@ -632,6 +632,9 @@
 
   </style>
 
+  <link rel="stylesheet" href="../css/member-nav.css">
+  <script defer src="../assets/vendor/supabase-js-2.118.0.js"></script>
+  <script type="module" src="../js/member-nav.mjs"></script>
 </head>
 
 
@@ -1047,6 +1050,11 @@
         </div>
 
       </nav>
+
+      <div class="member-bar" data-member-bar data-state="checking">
+        <span class="member-presence" data-member-status role="status" aria-live="polite">در حال بررسی حساب</span>
+        <a class="member-account" data-member-account href="../auth-test/">ورود / عضویت</a>
+      </div>
 
 
       <!-- =====================================================

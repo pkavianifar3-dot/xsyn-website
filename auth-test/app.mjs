@@ -1,5 +1,5 @@
-import { config } from "./config.js";
-import { AUTH_STORAGE_KEY, FlowError, OtpFlow, errorText, validateConfig } from "./auth-core.mjs";
+import { getAuthClient } from "../js/auth-client.mjs";
+import { AUTH_STORAGE_KEY, FlowError, OtpFlow, errorText } from "./auth-core.mjs";
 import { createRepository } from "./data.mjs";
 
 const $ = id => document.getElementById(id);
@@ -229,16 +229,14 @@ $("private-form").addEventListener("submit", async event => {
 });
 $("refresh-directory").addEventListener("click", loadDirectory);
 
+chooseMode(new URLSearchParams(window.location.search).get("mode") === "signup" ? "signup" : "signin");
+
 try {
-  validateConfig(config); // Fail closed before creating a client or making requests.
   const storage = window.localStorage;
   const probe = AUTH_STORAGE_KEY + "-probe";
   try { storage.setItem(probe, "1"); storage.removeItem(probe); }
   catch { throw new FlowError("storage_unavailable"); }
-  if (!window.supabase?.createClient) throw new FlowError("sdk_unavailable");
-  client = window.supabase.createClient(config.supabaseUrl, config.publishableKey, {
-    auth: { storage, storageKey: AUTH_STORAGE_KEY, persistSession: true, autoRefreshToken: true, detectSessionInUrl: false },
-  });
+  client = getAuthClient();
   flow = new OtpFlow(client.auth, { storage });
   repository = createRepository(client);
   configured = true;
