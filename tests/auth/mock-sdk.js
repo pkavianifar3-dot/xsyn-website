@@ -2,7 +2,7 @@
 (function(){
  const key="xsyn-local-mock-session";let session=null,requested=null;const listeners=new Set();const notify=(event,value)=>{for(const fn of listeners)fn(event,value);};
  try{session=JSON.parse(localStorage.getItem(key));}catch{}
- const profiles=new Map(),notes=new Map(),edges=new Set();
+ const profiles=new Map(),notes=new Map(),preferences=new Map(),edges=new Set();
  const other={user_id:"mock-b",display_name:"کاربر دوم آزمایشی",bio:"پروفایل شبیه‌سازی‌شده",is_listed:true};
  profiles.set(other.user_id,other);
  function ensure(user){if(!profiles.has(user.id))profiles.set(user.id,{user_id:user.id,display_name:"",bio:"",is_listed:false});if(!notes.has(user.id))notes.set(user.id,{user_id:user.id,private_note:""});}
@@ -31,10 +31,14 @@
   const q={
    select(){return q;},eq(k,v){filters.push([k,v]);return q;},order(){return q;},limit(){return q;},
    maybeSingle(){single=true;return q;},single(){single=true;return q;},
-   update(v){operation="update";payload=v;return q;},insert(v){operation="insert";payload=v;return q;},delete(){operation="delete";return q;},
+   update(v){operation="update";payload=v;return q;},insert(v){operation="insert";payload=v;return q;},upsert(v){operation="upsert";payload=v;return q;},delete(){operation="delete";return q;},
    then(resolve,reject){return Promise.resolve().then(()=>{
     const uid=session?.user.id;if(!uid) return {error:{code:"unauthorized"}};
-    let rows=table==="xsyn_profiles"?[...profiles.values()]:table==="xsyn_profile_private"?[notes.get(uid)]:[...edges].map(id=>({follower_id:uid,followee_id:id}));
+    if(table==="xsyn_member_preferences"&&operation==="upsert"){
+     if(payload.user_id!==uid)return {error:{code:"unauthorized"}};
+     preferences.set(uid,{...payload});return {data:null,error:null};
+    }
+    let rows=table==="xsyn_profiles"?[...profiles.values()]:table==="xsyn_profile_private"?[notes.get(uid)]:table==="xsyn_member_preferences"?[preferences.get(uid)]:[...edges].map(id=>({follower_id:uid,followee_id:id}));
     rows=rows.filter(Boolean).filter(r=>filters.every(([k,v])=>r[k]===v));
     if(operation==="insert"){edges.add(payload.followee_id);rows=[];}
     if(operation==="delete"){for(const row of rows)edges.delete(row.followee_id);}

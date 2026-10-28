@@ -2,14 +2,15 @@
 export function observeMember(auth, render) {
   let generation = 0, stopped = false;
   const current = id => !stopped && id === generation;
-  const show = (state, id) => { if (current(id)) render(state); };
+  const show = (state, id, user = null) => { if (current(id)) render(state, user); };
   async function verify(session, id) {
     if (!current(id)) return;
     if (!session?.user?.id) { show("signed-out", id); return; }
     show("checking", id);
     try {
       const { data, error } = await auth.getUser();
-      show(!error && data?.user?.id === session.user.id ? "signed-in" : "unknown", id);
+      const verified = !error && data?.user?.id === session.user.id;
+      show(verified ? "signed-in" : "unknown", id, verified ? data.user : null);
     } catch { show("unknown", id); }
   }
   async function refresh() {

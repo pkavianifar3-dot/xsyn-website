@@ -61,3 +61,23 @@ test("network failures leave an unknown state without claiming logout or login",
   assert.equal(f.states.at(-1), "unknown");
   f.observer.stop();
 });
+
+test("account details come only from the verified user and are cleared on logout", async () => {
+  const deliveries = [];
+  let emit;
+  const verifiedUser = { id: "a", email: "verified@example.test" };
+  const observer = observeMember({
+    getSession: async () => ({ data: { session: { user: { id: "a", email: "cached@example.test" } } } }),
+    getUser: async () => ({ data: { user: verifiedUser }, error: null }),
+    onAuthStateChange(callback) {
+      emit = callback;
+      return { data: { subscription: { unsubscribe() {} } } };
+    },
+  }, (state, user) => deliveries.push({ state, user }));
+  await setImmediate();
+  assert.deepEqual(deliveries.at(-1), { state: "signed-in", user: verifiedUser });
+  assert.ok(deliveries.filter(item => item.state !== "signed-in").every(item => item.user === null));
+  emit("SIGNED_OUT", null);
+  assert.deepEqual(deliveries.at(-1), { state: "signed-out", user: null });
+  observer.stop();
+});
